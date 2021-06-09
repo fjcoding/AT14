@@ -11,7 +11,7 @@ function concatenates(a,b){
 }
 console.log(concatenates('Hello','World'));
 
-/**/
+/*function that returns the minimum of two numbers*/
 
 function minTwoNumbers(a,b){
     if(a < b){
