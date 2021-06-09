@@ -23,4 +23,10 @@ var object ={
 }
 console.log(object);
 
+//typeof
+number = "hamburguer";
+
+names = 150;
+console.log(typeof names +"    " +typeof number);
+
 
