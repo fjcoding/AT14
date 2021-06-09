@@ -14,3 +14,11 @@ console.log("hay "+texto+" letras");
 var number_to_str = 123456789
 number_to_str.toString
 console.log("asi cambiamos un int a str"+number_to_str);
+
+numero = 20
+if (numero < 5){
+    console.log("hola a todos")
+}
+else{
+    console.log("adios a todos ")
+}
