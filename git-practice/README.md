@@ -7,3 +7,4 @@ GIT PRACTICE
 4. Edit test.js, and add one line of code "console.log("Hello world")"
 5. Test your test.js by runnning "node test.js" in the command line
 6. If everything works as expected (print Hello world) then commit test.js
+7. then push
