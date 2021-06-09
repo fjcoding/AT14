@@ -1,4 +1,7 @@
-for (let i = 0; i < 5; i++) {
-    console.log('Aun no llegaste a la meta...');
-  }
-console.log('Al fin llegaste!!!...');
+let n = 0;
+let x = 0;
+while (n < 3) {
+  n++;
+  x += n;
+}
+console.log('The result is: ' + x);
