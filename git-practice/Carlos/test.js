@@ -30,3 +30,9 @@ names = 150;
 console.log(typeof names +"    " +typeof number);
 
 
+let contador = 0;
+while (contador < 10)
+{
+    console.log(contador);
+    contador ++;
+}
