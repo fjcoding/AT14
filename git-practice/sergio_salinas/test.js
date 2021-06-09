@@ -22,3 +22,4 @@ if (numero < 5){
 else{
     console.log("adios a todos ")
 }
+
