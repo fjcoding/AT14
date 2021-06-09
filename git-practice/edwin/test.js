@@ -1,6 +1,4 @@
-let comida = 'fricase';
-if (comida === 'fricase') {
-  console.log("El fricase es mi favorito");
-} else {
-  console.log("Awwww, pero mi favorito es el fricase...");
-}
+let num1 = 4; 
+let num2 = 3;
+let resultado = num1 * num2;
+console.log("The product result is: " + resultado);
