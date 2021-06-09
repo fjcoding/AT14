@@ -8,7 +8,7 @@ class Test{
     }
 
 
-    op(){
+    static operations(){
         const numOne=25;
         const numTwo=5;
         const sum=  numOne+numTwo;
@@ -20,4 +20,4 @@ class Test{
 }
 let test= new Test("Esther", "Huarayo");
 test.message();
-
+Test.operations();
