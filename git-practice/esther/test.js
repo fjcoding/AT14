@@ -11,11 +11,13 @@ class Test{
     static operations(){
         const numOne=25;
         const numTwo=5;
-        const sum=  numOne+numTwo;
-        const res= numOne-numTwo;
-        const div= numOne/numTwo;
+        const sum= `Sum= ${numOne+numTwo}`;
+        const res= `Substraction= ${numOne-numTwo}`;
+        const mul= `Multiplication= ${numOne*numTwo}`;
+        const div= `Division=  ${numOne/numTwo}`
+        const op= "Operation with 25 and 5";
 
-        console.log({sum, res, div});
+        console.log({op, sum, res, mul, div});
  }
 }
 let test= new Test("Esther", "Huarayo");
