@@ -36,3 +36,13 @@ while (contador < 10)
     console.log(contador);
     contador ++;
 }
+
+//function
+
+function miFunction(a,b)
+{
+    console.log("Suma: " + (a+b));
+
+}
+//calling the function
+miFunction(25,25);
