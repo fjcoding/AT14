@@ -9,5 +9,8 @@ segundo_numero = 2;
 console.log(primer_numero+segundo_numero);
 
 var texto = "qwertyuiopasdfghjklñzxcvvbnm".length;
+console.log("hay "+texto+" letras");
 
-console.log("hay"+texto+"letras");
+var number_to_str = 123456789
+number_to_str.toString
+console.log("asi cambiamos un int a str"+number_to_str);
