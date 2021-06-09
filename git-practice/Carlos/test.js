@@ -46,3 +46,15 @@ function miFunction(a,b)
 }
 //calling the function
 miFunction(25,25);
+
+//function with return
+
+function miFunction2(a,b)
+{
+
+    return(a+b);
+
+}
+//calling the function
+let resultado = miFunction2(60,60);
+console.log(resultado);
