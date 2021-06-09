@@ -22,4 +22,26 @@ function minTwoNumbers(a,b){
     }
 }
 console.log(minTwoNumbers(10,20);
-/**/
+
+/*Write a program that asks for a number greater than one and that writes if the number is prime or not*/
+
+let number = prompt('enter a number: ');
+
+if(number <= 1){
+    console.log(`The number ${ number } must be greater than one`);
+}
+else {
+    let accountant = 0;
+    for(let i = 1; i <= number; i++){
+        if(number % i == 0){
+            accountant++;
+        }
+    }
+    if(accountant == 2){
+        console.log(`The number ${ number } is prime`);
+    }
+    else {
+        console.log(`The number ${ number } no is prime`);
+    }
+
+}
