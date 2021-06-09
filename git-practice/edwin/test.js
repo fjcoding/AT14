@@ -1,1 +1,3 @@
-console.log("hello world");
+let nombreDeLaVariable;
+nombreDeLaVariable = 'Mi nombre es Edwin';
+console.log(nombreDeLaVariable);
