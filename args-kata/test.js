@@ -7,13 +7,26 @@ function getSplit(str){
 
 var test2  = getSplit("-l -p 8080 -d /usr/logs");
 
-var aux_l = 0;
+var aux_l = true;
 var aux_p = 0;
 var aux_d = 0;
 console.log(test2);
 for (let i = 0; i < test2.length() ; i++) {
-    if(test2[i]){
-        
+    if(test2[i] === "-l"){ 
+        if(test2[i+1].indexOf("-") >= 0){
+            aux_l = false;
+            break;
+        }
+    }
+}
+
+for (let i = 0; i < test2.length() ; i++) {
+    if(test2[i] === "-p"){ 
+        if(parseInt(test2[i+)("-") >= 0){
+            
+            aux_l = false;
+            break;
+        }
     }
 }
 
