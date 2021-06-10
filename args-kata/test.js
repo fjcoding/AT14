@@ -1,6 +1,6 @@
 //Functions 
 
-conts functions => (flag,value) = {
+const functions = (flag,value) => {
 
     switch (value) {
 
