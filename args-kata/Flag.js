@@ -15,3 +15,5 @@ console.log(flagLogging.id);
 console.log(flagLogging.value);
 console.log(flagDir.id);
 console.log(flagDir.value);
+
+export { Flag }

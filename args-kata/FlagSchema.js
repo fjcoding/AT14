@@ -19,3 +19,5 @@ console.log(flagSchemaLogging.dataType);
 console.log(flagSchemaDir.id);
 console.log(flagSchemaDir.defaultValue);
 console.log(flagSchemaDir.dataType);
+
+export { FlagSchema }
