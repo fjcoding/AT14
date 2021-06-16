@@ -61,8 +61,6 @@ console.log(schema.isValid(loggingArg));
 console.log(schema.isValid(dirArg));
 
 
-//getSchema();
-
 
 
 
