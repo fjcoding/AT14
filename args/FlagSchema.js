@@ -11,8 +11,11 @@ class FlagSchema{
     getFlagSchemaDef(){
         return this.defaultValue;
     }
-    getFlgSchemaDataType(){
+    getFlagSchemaDataType(){
         return this.dataType;
+    }
+    getDefaultFlagSchema(){
+        return this.defaultValue;
     }
 
 }
@@ -24,6 +27,8 @@ const flagSchemaDir= new FlagSchema('-d','','string');
 const flagSchemaId= new FlagSchema('-a', 0, 'number');
 const flagSchemaDef= new FlagSchema('-l', false, 'boolean');
 const flagSchemaDataType= new FlagSchema('-d','','string');
+
+const flagSchemaDefault= new FlagSchema('Default', 'Default','Default');
 
 console.log(flagSchemaPort.id);
 console.log(flagSchemaPort.defaultValue);
@@ -37,7 +42,9 @@ console.log(flagSchemaDir.dataType);
 
 console.log(flagSchemaId.getFlagSchemaId());
 console.log(flagSchemaDef.getFlagSchemaDef());
-console.log(flagSchemaDataType.getFlgSchemaDataType());
+console.log(flagSchemaDataType.getFlagSchemaDataType());
+
+console.log(flagSchemaDefault.getDefaultFlagSchema());
 
 console.log('---------- Schema ----------' + Object.getOwnPropertyNames(flagSchemaPort));
 Object.getOwnPropertyNames(flagSchemaPort).forEach(
