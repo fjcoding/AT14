@@ -1,35 +1,27 @@
-import { Flag } from './Flag.js'
-import { FlagSchema } from './FlagSchema.js'
-import { TypeDetector } from './TypeDetector.js'
-
-class Schema {
-    constructor(flagSchemas) {
-        this.flagSchemas = flagSchemas;
-        this.detector = new TypeDetector;
-    }
-
-    isValid(flag) {
-        let isValid = false;
-        this.flagSchemas.forEach(flagSchema => {
-            if (flag.id === flagSchema.id) {
-                const flagType = this.detector.detectType(flag.value);
-                isValid = flagSchema.dataType === flagType;
-            }
-        });
-        return isValid;
+class Schema
+{
+    constructor(id,expectedValue=null,typeValue)
+    {
+        this.id = id;
+        this.expectedValue = expectedValue;
+        this.typeValue = typeValue;
     }
 }
 
-const port = new FlagSchema('-p', 0, 'number')
-const logging = new FlagSchema('-l', false, 'boolean')
-const dir = new FlagSchema('-d', '', 'string')
+const schemaL = new Schema('-l',false,'boolean');
+const schemaP = new Schema('-p',0,'number');
+const schemaD = new Schema('-d','1','string');
 
-const schema = new Schema([port, logging, dir])
+console.log(schemaL.id);
+console.log(schemaL.expectedValue);
+console.log(schemaL.typeValue);
 
-const portArg = new Flag('-p', 8080)
-const loggingArg = new Flag('-l')
-const dirArg = new Flag('-d', '/usr/logs')
+console.log(schemaP.id);
+console.log(schemaP.expectedValue);
+console.log(schemaP.typeValue);
 
-console.log(schema.isValid(portArg));
-console.log(schema.isValid(loggingArg));
-console.log(schema.isValid(dirArg));
+console.log(schemaD.id);
+console.log(schemaD.expectedValue);
+console.log(schemaD.typeValue);
+
+export{ Schema };
