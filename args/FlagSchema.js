@@ -39,12 +39,12 @@ console.log(flagSchemaId.getFlagSchemaId());
 console.log(flagSchemaDef.getFlagSchemaDef());
 console.log(flagSchemaDataType.getFlgSchemaDataType());
 
-console.log('-- Schema --' + Object.getOwnPropertyNames(flagSchemaPort));
+console.log('---------- Schema ----------' + Object.getOwnPropertyNames(flagSchemaPort));
 Object.getOwnPropertyNames(flagSchemaPort).forEach(
-  function(val) {
-    console.log(val + ' -> ' + flagSchemaPort[val]);
-  }
-);
+    function(val) {
+      console.log(val + ' -> ' + flagSchemaPort[val]);
+    }
+  );
 
 
 export{FlagSchema};
