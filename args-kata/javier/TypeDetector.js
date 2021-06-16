@@ -4,8 +4,9 @@ class TypeDetector {
         if(Array.isArray(value)){
             let isNumber = true;
             value.forEach(element=>{
-                if(isNaN(element))
+                if(isNaN(element)){
                     isNumber = false                    
+                }
             });
             if(isNumber) return "numberArray";
             else  return "stringArray";

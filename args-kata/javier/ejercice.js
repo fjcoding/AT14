@@ -1,9 +1,15 @@
-const stringCmd = "-l -p 8080 -d /user/se -g hola";
+const stringCmd = "-l -p 8080 -d /user/se -g";
 class arg{
-    constructor(flagId, value){
+    constructor(flagId, Value = null){
         this.flagId = flagId;
-        this.value  = value;
+        this.Value  = Value;
     }
+
+    getFlagId(){ return this.flagId; }
+    getValue(){ return this.Value; }
+
+    setFlagId(flagId){this.flagId = flagId; }
+    setValue(Value){this.Value = Value; }
 }
 class parser{
     constructor(stringCmd){
@@ -21,14 +27,26 @@ class parser{
         //console.log(newArray);
         return newArray;
     }
+    isFLag(str){
+        if(str.indexOf("-")>=0){
+            return true;
+        }
+        return false;
+    }
     maps(){
         this.arrayArgs.forEach((element, index, arr)=>{
-            if(element.indexOf("-")>=0){
+            if(this.isFLag(element)){
                 let myargs = {};                
                 if(arr[index+1]) 
                 {
+                    
                     myargs.name  = element;
-                    myargs.value = arr[index+1];
+                    myargs.value = null;
+                    if(!this.isFLag(arr[index+1]))
+                    {
+                        myargs.value = arr[index+1];
+                    }
+                    
                     this.args.push(myargs);                
                 }                    
                 else

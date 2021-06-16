@@ -2,10 +2,11 @@ class Type{
     constructor(str){
         this.str = str;
         this.type = "undefined";
-        defineType();
+        this.defineType();
     }
     defineType(){
         let defaultType = typeof(this.str);
+        //console.log(defaultType);
         switch(defaultType){
             case "number":  
                 this.type = defaultType; 
@@ -19,13 +20,13 @@ class Type{
             case "object": 
                 if(Array.isArray(this.str)){
                     let isNumber = true;
-                    value.forEach(element=>{
+                    this.str.forEach(element=>{
                         if(isNaN(element)){
                             isNumber = false                    
                         }
                     });
                     if(isNumber) this.type = "numberArray";
-                    this.type = "stringArray";
+                    else this.type = "stringArray";
                 }
             break;
             default: 
@@ -37,3 +38,9 @@ class Type{
         return this.type;
     }
 }
+
+export {Type};
+/*
+const obj = new Type(["4","5","6"])
+console.log(obj.getType());
+*/
