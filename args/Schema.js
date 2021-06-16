@@ -14,17 +14,29 @@ class Schema{
         let isValid = false;
         this.flagSchemas.forEach(flagSchema => {
             if(flag.id===flagSchema.id){
+                
                 const flagType =this.detector.detectType(flag.value);
                 isValid =flagSchema.dataType === flagType;
             }
         });
         return isValid;
     }
-    getSchema(){
-       return this.specifySchema.getFlagSchema();
-        
 
+    isNull(a){
+        if(a.value==null){
+        const isN= this.detector.detectType(a.value);
+        isN.setValue(flagSchema.getDefaultFlagSchema());
+      }
+      return isN;
     }
+
+    getSchema(){
+       return this.specifySchema.getFlagSchemaId();
+    }
+    
+
+    
+
 }
 
 const port = new FlagSchema('-p', 0, 'number');
@@ -41,16 +53,17 @@ const idSchemaF= new FlagSchema();
 const idSchema= new Schema(idSchemaF);
 
 
-//const idschemaF = new Schema([port, logging, dir]);
+const espSchema = new Schema(portArg);
 
 
 console.log(schema.isValid(portArg));
 console.log(schema.isValid(loggingArg));
 console.log(schema.isValid(dirArg));
 
-console.log(idSchema.getSchema());
 
 //getSchema();
 
 
-//export{Schema};
+
+
+export{Schema};
