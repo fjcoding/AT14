@@ -4,7 +4,6 @@
   "description": "This Kata is presented in Robert C.. Martin’s book “Clean Code”, chapter 14.",
   "version": "1.0.0",
   "main": "main.js",
-  "dependencies": {},
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.14.5",
     "jest": "^27.0.4"
@@ -12,6 +11,6 @@
   "scripts": {
     "test": "jest"
   },
-  "author": "",
+  "author": "Cris T.",
   "license": "ISC"
 }
