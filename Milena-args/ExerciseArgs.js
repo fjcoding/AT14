@@ -4,10 +4,10 @@ function myFunction(text) {
         case (!text.contains('l')):
             return false;
           break;
-        case (!text.contains('p') && ):
+        case (!text.contains('p') && text.contains()):
           return 0;
           break;
-          case !text.contains('d') && ):
+          case !text.contains('d') && text.contains.analize:
           return "";
           break;
         default:
