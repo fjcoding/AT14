@@ -3,11 +3,14 @@ import { FlagSchema } from './FlagSchema.js'
 import { TypeDetector } from './TypeDetector.js'
 
 class Schema {
+
     constructor(flagSchemas) {
+
         this.flagSchemas = flagSchemas;
         this.detector = new TypeDetector;
     }
 
+    /*
     isValid(flag) {
         let isValid = false;
         this.flagSchemas.forEach(flagSchema => {
@@ -18,18 +21,36 @@ class Schema {
         });
         return isValid;
     }
+    */
+
+    validateId(flagId,flagSchemaId){
+        
+        return (flagId === flagSchemaId) ? true : false;
+    }
+
+    validateType(){
+        
+    }
+
+    
 }
 
-const port = new FlagSchema('-p', 0, 'number')
-const logging = new FlagSchema('-l', false, 'boolean')
-const dir = new FlagSchema('-d', '', 'string')
+//Functions
 
-const schema = new Schema([port, logging, dir])
+const print = string =>{ console.log(string); }
+
+
+const port = new FlagSchema('-p', 0, 'number')
+//const logging = new FlagSchema('-l', false, 'boolean')
+//const dir = new FlagSchema('-d', '', 'string')
+
+const schema = new Schema([port/*, logging, dir*/])
 
 const portArg = new Flag('-p', 8080)
-const loggingArg = new Flag('-l')
-const dirArg = new Flag('-d', '/usr/logs')
+//const loggingArg = new Flag('-l')
+//const dirArg = new Flag('-d', '/usr/logs')
 
-console.log(schema.isValid(portArg));
-console.log(schema.isValid(loggingArg));
-console.log(schema.isValid(dirArg));
+print(schema.validateId(portArg.id,port.id));
+//console.log(schema.isValid(loggingArg));
+//console.log(schema.isValid(dirArg));
+
