@@ -1,0 +1,16 @@
+{
+  "name": "args-kata-edwin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "type": "module",
+  "author": "Edwin P",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.14.5",
+    "jest": "^27.0.4"
+  }
+}
