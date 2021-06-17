@@ -16,7 +16,6 @@ class Parse
             if(flag.id === schema.id)
             {
                 isValid = validate.valueDetector(flag.value) === schema.typeValue;
-  
             }
         });
         return isValid;
@@ -55,13 +54,13 @@ const schemaL = new Schema('-l',false,'boolean');
 const schemaP = new Schema('-p',0,'number');
 const schemaD = new Schema('-d','1','string');
 
-/*const flagL = new Flag('-l');
-const flagP = new Flag('-p',2);
-const flagD = new Flag('-d','/usr/logs');*/
-
 const flagL = new Flag('-l');
+const flagP = new Flag('-p',2);
+const flagD = new Flag('-d','/usr/logs');
+
+/*const flagL = new Flag('-l');
 const flagP = new Flag('-p');
-const flagD = new Flag('-d');
+const flagD = new Flag('-d');*/
 
 const parse = new Parse;
 console.log("check if the flag accomplish the schema")
@@ -72,12 +71,14 @@ console.log(parse.isItValid([schemaL,schemaP,schemaD],flagD));
 
 console.log("check if the we can autocomplete the missing value")
 
-
+console.log("bandera1")
 console.log(parse.completeIfEmpty([schemaL,schemaP,schemaD],flagL).id);
 console.log(parse.completeIfEmpty([schemaL,schemaP,schemaD],flagL).value);
 
+console.log("bandera2")
 console.log(parse.completeIfEmpty([schemaL,schemaP,schemaD],flagP).id);
 console.log(parse.completeIfEmpty([schemaL,schemaP,schemaD],flagP).value);
 
+console.log("bandera3")
 console.log(parse.completeIfEmpty([schemaL,schemaP,schemaD],flagD).id);
 console.log(parse.completeIfEmpty([schemaL,schemaP,schemaD],flagD).value);
