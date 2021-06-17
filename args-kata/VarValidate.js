@@ -34,12 +34,4 @@ class VarValidate
     }
 }
 
-
-const check = new VarValidate;
-console.log(check.valueDetector("asd"));
-console.log(check.valueDetector(123));
-console.log(check.valueDetector(true));
-
-console.log(check.valueCheckEmpty());
-
 export{ VarValidate };

@@ -21,7 +21,7 @@ class Parse
         return isValid;
     }
 
-    completeIfEmpty=(schema,flag)=>
+    completeIfEmpty=(schema,flag,defvalue)=>
     {
         const validate = new VarValidate;
         
@@ -72,13 +72,13 @@ console.log(parse.isItValid([schemaL,schemaP,schemaD],flagD));
 console.log("check if the we can autocomplete the missing value")
 
 console.log("bandera1")
-console.log(parse.completeIfEmpty([schemaL,schemaP,schemaD],flagL).id);
-console.log(parse.completeIfEmpty([schemaL,schemaP,schemaD],flagL).value);
+console.log(parse.completeIfEmpty([schemaL,schemaP,schemaD],flagL,defvalue).id);
+console.log(parse.completeIfEmpty([schemaL,schemaP,schemaD],flagL,defvalue).value);
 
 console.log("bandera2")
-console.log(parse.completeIfEmpty([schemaL,schemaP,schemaD],flagP).id);
-console.log(parse.completeIfEmpty([schemaL,schemaP,schemaD],flagP).value);
+console.log(parse.completeIfEmpty([schemaL,schemaP,schemaD],flagP,defvalue).id);
+console.log(parse.completeIfEmpty([schemaL,schemaP,schemaD],flagP,defvalue).value);
 
 console.log("bandera3")
-console.log(parse.completeIfEmpty([schemaL,schemaP,schemaD],flagD).id);
-console.log(parse.completeIfEmpty([schemaL,schemaP,schemaD],flagD).value);
+console.log(parse.completeIfEmpty([schemaL,schemaP,schemaD],flagD,defvalue).id);
+console.log(parse.completeIfEmpty([schemaL,schemaP,schemaD],flagD,defvalue).value);
