@@ -1,29 +1,29 @@
 import { TypeDetector } from "./TypeDetector.js"
 
-test("TypeDetector should detect 'number' as the type of a value 0", () =>{
+test("TypeDetector should detect 'number' - type value = 0", () =>{
     const detector = new TypeDetector
     const result = detector.detectType(0)
     const expected = 'number'
     expect(result).toBe(expected)
 })
 
-test("TypeDetector should detect 'number' as the type of a value 1.5", () =>{
+test("TypeDetector should detect 'number' - type value = 5", () =>{
     const detector = new TypeDetector
-    const result = detector.detectType(1.5)
+    const result = detector.detectType(5)
     const expected = 'number'
     expect(result).toBe(expected)
 })
 
-test("TypeDetector should detect 'boolean' as the type of a value false", () =>{
+test("TypeDetector should detect 'boolean' - type Value = true", () =>{
     const detector = new TypeDetector
-    const result = detector.detectType(false)
+    const result = detector.detectType(true)
     const expected = 'boolean'
     expect(result).toBe(expected)
 })
 
-test("TypeDetector should detect 'string' as the type of a value 'abcd'", () =>{
+test("TypeDetector should detect 'string' - type of a value 'x'", () =>{
     const detector = new TypeDetector
-    const result = detector.detectType('abcd')
+    const result = detector.detectType('x')
     const expected = 'string'
     expect(result).toBe(expected)
 })

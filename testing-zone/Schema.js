@@ -25,17 +25,16 @@ class Schema {
 
     compare(valueOne,valueTwo){ return (valueOne === valueTwo) ? true : false; }
 
-    validateId(flag,flagSchema) { return (compare(flag.id,flagSchema.id)); }
+    validateFlagId(flag,flagSchema) { return (compare(flag.id,flagSchema.id)); }
 
-    validateType(){}
-
-    validateFlag(flag){
+    validateFlagType(flag,flagSchemas){
 
         let validationResult = false;
         
         flagSchemas.forEach(flagSchema => {
-            if(validateId(flag,flagSchema)){
-                
+            if(validateFlagId(flag,flagSchema)){
+
+                let flagType = this.detector.detectType(flag.value)
             }
             
         });
