@@ -23,25 +23,48 @@ class Schema {
     }
     */
 
-    validateId(flagId,flagSchemaId){
+    compare(valueOne,valueTwo){ return (valueOne === valueTwo) ? true : false; }
+
+    validateId(flag,flagSchema) { return (compare(flag.id,flagSchema.id)); }
+
+    validateType(){}
+
+    validateFlag(flag){
+
+        let validationResult = false;
         
-        return (flagId === flagSchemaId) ? true : false;
+        flagSchemas.forEach(flagSchema => {
+            if(validateId(flag,flagSchema)){
+                
+            }
+            
+        });
+
     }
 
-    validateType(){
-        
+
+    comparId(value,array){
+
+        let validationResult = false;
+
+        array.forEach(element => {
+
+            validationResult = this.compare(value.id,element.id);                        
+        });
+        return validationResult;
     }
 
-    
 }
 
 //Functions
 
 const print = string =>{ console.log(string); }
 
+const compare = (valueOne,valueTwo) => { return (valueOne === valueTwo) ? true : false; }
+
 
 const port = new FlagSchema('-p', 0, 'number')
-//const logging = new FlagSchema('-l', false, 'boolean')
+const logging = new FlagSchema('-l', false, 'boolean')
 //const dir = new FlagSchema('-d', '', 'string')
 
 const schema = new Schema([port/*, logging, dir*/])
@@ -50,7 +73,7 @@ const portArg = new Flag('-p', 8080)
 //const loggingArg = new Flag('-l')
 //const dirArg = new Flag('-d', '/usr/logs')
 
-print(schema.validateId(portArg.id,port.id));
+print(schema.validateId(portArg,port));
 //console.log(schema.isValid(loggingArg));
 //console.log(schema.isValid(dirArg));
 
