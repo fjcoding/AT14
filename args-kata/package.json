@@ -1,3 +1,16 @@
 {
-    "type": "module"
+  "type": "module",
+  "name": "args-kata",
+  "description": "This Kata is presented in Robert C.. Martin’s book “Clean Code”, chapter 14.",
+  "version": "1.0.0",
+  "main": "\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C main.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.14.5",
+    "jest": "^27.0.4"
+  }
 }
