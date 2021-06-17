@@ -40,7 +40,4 @@ class Type{
 }
 
 export {Type};
-/*
-const obj = new Type(["4","5","6"])
-console.log(obj.getType());
-*/
+

@@ -25,31 +25,15 @@ class Schema {
     }
 
     isValid() {
-        let isValid = false;
+        let isValid = true;
         this.flagSchemas.forEach(flagSchema => {
             this.Arguments.forEach(argument =>  {
                 if (flagSchema.id === argument.flagId) {
                     const flagType = new Type(argument.Value).getType();
-                    isValid = flagSchema.dataType === flagType;                   
+                    isValid = isValid && (flagSchema.dataType === flagType);                   
                     console.log(argument.flagId + " " + flagSchema.dataType + " " +flagType+ " "+isValid);                    
-                    if(!isValid){
-                        console.log("into");
-                        return false;                            
-                    }    
                 }
             });            
-            /*
-            if (argument.flagId === flagSchema.id) {
-                //
-                if(argument.Value === null){
-                    argument.setValue(flagSchema.defaultValue)                
-                }                     
-                //const flagType = this.detector.detectType(argument.Value);
-                const flagType = new Type(argument.Value).getType();
-                console.log(flagType);
-                isValid = flagSchema.dataType === flagType;
-            }
-            */
         });
         return isValid;
     }
@@ -65,8 +49,9 @@ const integerList = new FlagSchema('-i', '', 'numberArray')
 //const integerList = new FlagSchema('-d', '', 'numberArray')
 
 // parser("-l -p 8080 -d /asd/sa")
+// const stringCmd = "-l -p 8080 -d /user/se -g";
 
-const portArg = new Argument('-p',"8080")
+const portArg = new Argument('-p',8080)
 const dirArg = new Argument('-d', '/usr/logs')
 const loggingArg = new Argument('-l')
 
