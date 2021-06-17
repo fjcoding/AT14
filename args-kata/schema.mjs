@@ -3,6 +3,7 @@ import { Detect } from "./detector.mjs";
 
 const exercise = "-l -p 8080 -d /usr/logs";
 const exerciseSplit = exercise.split(" ");
+
 class Schema {
   constructor(listOfSchemas) {
     this.listOfSchemas = listOfSchemas;
@@ -88,4 +89,4 @@ const schema = new Schema([loginSchema, portSchema, dirSchema]);
 const listIds = schema.getId();
 const flagsTogether = schema.compareTwoFlagsTogether(listIds);
 //console.log(schema.isFlag("-j"), "is flag");
-console.log(schema.parse());
+console.log(schema.isFlag("-p"));
