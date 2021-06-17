@@ -25,22 +25,35 @@ class Schema {
 
     compare(valueOne,valueTwo){ return (valueOne === valueTwo) ? true : false; }
 
-    validateFlagId(flag,flagSchema) { return (compare(flag.id,flagSchema.id)); }
+    validateFlagId(flag,flagSchema) { return compare(flag.id,flagSchema.id); }
+    
+    validateFlagType(flag,flagSchema){ 
 
-    validateFlagType(flag,flagSchemas){
+        if (this.validateFlagId(flag,flagSchema)){
+
+            let flagType = this.detector.detectType(flag.value);
+
+            return compare(flagSchema.dataType,flagType);
+
+        }
+    }
+
+   /* validatFlagType(flag,flagSchema){
 
         let validationResult = false;
         
         flagSchemas.forEach(flagSchema => {
+
             if(validateFlagId(flag,flagSchema)){
 
                 let flagType = this.detector.detectType(flag.value)
+                flagType = compare(flagSchema.dataType);
             }
             
         });
 
     }
-
+*/
 
     comparId(value,array){
 
@@ -72,7 +85,7 @@ const portArg = new Flag('-p', 8080)
 //const loggingArg = new Flag('-l')
 //const dirArg = new Flag('-d', '/usr/logs')
 
-print(schema.validateId(portArg,port));
+print(schema.validateFlagType(portArg,port));
 //console.log(schema.isValid(loggingArg));
 //console.log(schema.isValid(dirArg));
 
