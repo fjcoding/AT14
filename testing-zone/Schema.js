@@ -75,17 +75,17 @@ const print = string =>{ console.log(string); }
 const compare = (valueOne,valueTwo) => { return (valueOne === valueTwo) ? true : false; }
 
 
-const port = new FlagSchema('-p', 0, 'number')
+//const port = new FlagSchema('-p', 0, 'number')
 const logging = new FlagSchema('-l', false, 'boolean')
 //const dir = new FlagSchema('-d', '', 'string')
 
-const schema = new Schema([port/*, logging, dir*/])
+const schema = new Schema([logging/*port, logging, dir*/])
 
-const portArg = new Flag('-p', 8080)
-//const loggingArg = new Flag('-l')
+//const portArg = new Flag('-p', 8080)
+const loggingArg = new Flag('-l')
 //const dirArg = new Flag('-d', '/usr/logs')
 
-print(schema.validateFlagType(portArg,port));
+print(schema.validateFlagType(loggingArg,logging));
 //console.log(schema.isValid(loggingArg));
 //console.log(schema.isValid(dirArg));
 
