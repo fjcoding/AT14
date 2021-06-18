@@ -38,22 +38,7 @@ class Schema {
 
         return this.compare(flag.id,flagSchema.id); 
     }
-    /*
-    validateFlagValue(flag = new Flag,flagSchema = new FlagSchema){ 
 
-        let state = false;
-
-        if (!this.compare(flag.value,flagSchema.defaultValue)){
-
-            flag.value = flagSchema.defaultValue;
-            state = true;
-        }
-
-        return state;
-
-        //flag.value = (!compare(flag.value,flagSchema.defaultValue)) && flagSchema.defaultValue;
-    }
-    */
     validateFlagType(flag = new Flag,flagSchema = new FlagSchema){ 
 
         if (this.validateFlagId(flag,flagSchema)){
@@ -66,8 +51,6 @@ class Schema {
                     ? true
                     : false;
             }
-
-//            return compare(flagSchema.dataType,flagType);
 
         }
     
