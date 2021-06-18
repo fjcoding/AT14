@@ -39,20 +39,30 @@ class Schema {
         return this.compare(flag.id,flagSchema.id); 
     }
 
-    validateFlagType(flag = new Flag,flagSchema = new FlagSchema){ 
+    validateFlagValue(flag = new Flag,flagSchema = new FlagSchema){ 
 
-        if (this.validateFlagId(flag,flagSchema)){
-
-            let flagType = this.detector.detectType(flag.value);
-
-            return (this.compare(flagSchema.dataType,flagType))
-                ? true
-                : (this.compare(flagType,null)) && false;
-                ;
-        }
-    
+        return this.compare(flagSchema.dataType,this.detector.detectType(flag.value));
     }
 
+    validateFlag(flag){
+        
+        this.flagSchemas.forEach(flagSchema => {
+
+            let validationResult = false;
+
+            if (this.validateFlagId(flag,flagSchema)){
+
+                if(this.validateFlagType(flag,flagSchema)){
+
+                    validationResult = true;
+                }
+                else{
+
+                    flag.value = flagSchema.defaultValue;
+                }
+            }            
+        });
+    }
 }
 
 /*
