@@ -1,5 +1,17 @@
 {
+  "type": "module",
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.14.5",
     "jest": "^27.0.4"
-  }
+  },
+  "name": "milena-args",
+  "version": "1.0.0",
+  "main": "main.js",
+  "dependencies": {},
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
