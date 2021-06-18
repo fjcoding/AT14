@@ -49,6 +49,10 @@ class Schema{
     this.numberOfFlags = numberOfFlags;
     this.flagsList = flagsList;
 }  
+
+checkFlags(){
+  this.flagList.forEach(element => element.isCorrectFlag());
+}
   }
   
 
