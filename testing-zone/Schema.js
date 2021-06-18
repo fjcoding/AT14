@@ -29,9 +29,7 @@ class Schema {
 
     compare(valueOne,valueTwo){ 
 
-        return (valueOne === valueTwo) 
-            ? true 
-            : false; 
+        return valueOne === valueTwo; 
     }
 
     validateFlagId(flag = new Flag,flagSchema = new FlagSchema) { 

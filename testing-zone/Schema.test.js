@@ -49,7 +49,7 @@ test("Schema.validateFlagType() function should return a 'True' value", () =>{
     const schema = new Schema;
     const loggingArg = new FlagSchema('-l', false, 'boolean');
     const logging = new Flag('-l',true);
-    const result = schema.validateFlagType(logging,loggingArg);
+    const result = schema.validateFlagValue(logging,loggingArg);
     const expected = true;
     expect(result).toBe(expected)
 })
@@ -59,7 +59,7 @@ test("Schema.validateFlagType() function should return a 'True' value", () =>{
     const schema = new Schema;
     const loggingArg = new FlagSchema('-l', false, 'boolean');
     const logging = new Flag('-l',false);
-    const result = schema.validateFlagType(logging,loggingArg);
+    const result = schema.validateFlagValue(logging,loggingArg);
     const expected = true;
     expect(result).toBe(expected)
 })
