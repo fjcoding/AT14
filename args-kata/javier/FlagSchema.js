@@ -4,9 +4,7 @@ class FlagSchema {
         this.defaultValue = defaultValue;
         this.dataType = dataType;
     }
-    isFlag(id){
-        return this.id === id;
-    }
+
 }
 /*
 const flagSchemaPort = new FlagSchema('-p', 0, 'number')

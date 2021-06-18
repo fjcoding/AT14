@@ -22,6 +22,13 @@ test('The function getType() should be return a number for a value 5',()=>{
     expect(result).toBe(excepted);
 });
 
+test('The function getType() should be return a number for a value "5"',()=>{
+    const obj    = new Type("5");
+    const result = obj.getType();
+    const excepted = "string";
+    expect(result).toBe(excepted);
+});
+
 test('The function getType() should be return a string for a value "Hello World"',()=>{
     const obj    = new Type("Hello World");
     const result = obj.getType();
