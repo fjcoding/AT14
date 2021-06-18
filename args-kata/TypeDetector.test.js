@@ -21,9 +21,16 @@ test("TypeDetector should detect 'boolean' as the type of a value false", () =>{
     expect(result).toBe(expected)
 })
 
-test("TypeDetector should detect 'string' as the type of a value 'abcd'", () =>{
+test("TypeDetector should detect 'string' as the type of a value 'abcde'", () =>{
     const detector = new TypeDetector
-    const result = detector.detectType('abcd')
+    const result = detector.detectType('abcde')
     const expected = 'string'
+    expect(result).toBe(expected)
+})
+
+test("TypeDetector should detect 'null' as the type of a value null", () =>{
+    const detector = new TypeDetector
+    const result = detector.detectType(null)
+    const expected = null
     expect(result).toBe(expected)
 })

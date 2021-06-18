@@ -8,28 +8,61 @@ class Schema {
         this.detector = new TypeDetector;
     }
 
-    isValid(flag) {
-        let isValid = false;
+    isFlagValid(flag) {
+        let valid = false;
         this.flagSchemas.forEach(flagSchema => {
-            if (flag.id === flagSchema.id) {
-                const flagType = this.detector.detectType(flag.value);
-                isValid = flagSchema.dataType === flagType;
+            if (flagSchema.id === flag.id) {
+                valid = this.isValueValid(flagSchema.id, this.detector.detectType(flag.value), flagSchema.dataType, flagSchema.isRequired);
             }
         });
-        return isValid;
+        return valid;  
+    } 
+          
+    isValueValid(flagId, flagType, flagTypeSchema, valueRequired) {
+        if(flagType != null)
+            return this.isEqualsTypes(flagId, flagType, flagTypeSchema); 
+        else 
+            return this.isRequiredValue(flagId, valueRequired);
+    }   
+
+    isEqualsTypes(flagId, typeOne, typeTwo) {
+        if(typeOne === typeTwo) 
+            return true;
+        else
+            console.log("The value asigned to " + flagId + " is a type no valid.");
+            return false;         
+    }
+
+    isRequiredValue(flagId, value) {
+        if(value) {
+            console.log("The flag " + flagId + " requires a value associated");
+            return false;
+        }
+        else 
+            return true;            
     }
 }
 
-const port = new FlagSchema('-p', 0, 'number')
-const logging = new FlagSchema('-l', false, 'boolean')
-const dir = new FlagSchema('-d', '', 'string')
-
-const schema = new Schema([port, logging, dir])
+/*const port = new FlagSchema('-p', 0, 'number', true)
+const logging = new FlagSchema('-l', false, 'boolean', false)
+const dir = new FlagSchema('-d', '', 'string', true)
 
 const portArg = new Flag('-p', 8080)
-const loggingArg = new Flag('-l')
-const dirArg = new Flag('-d', '/usr/logs')
+const loggingArg = new Flag('-l', 8565)
+const dirArg = new Flag('-d', 100)
 
-console.log(schema.isValid(portArg));
-console.log(schema.isValid(loggingArg));
-console.log(schema.isValid(dirArg));
+const schema = new Schema([port, logging, dir]); */
+
+//console.log(schema.existFlag(port));
+//schema.isFlagValid(port);
+//schema.verifySchema([port, logging, dir], [portArg, loggingArg, dirArg]);
+
+
+//console.log(schema.isFlagValid(loggingArg));
+
+
+//console.log(schema.isValid(loggingArg));
+//console.log(schema.isValid(dirArg));  
+
+
+export { Schema }
