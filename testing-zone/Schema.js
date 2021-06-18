@@ -45,13 +45,10 @@ class Schema {
 
             let flagType = this.detector.detectType(flag.value);
 
-            if (compare(flagSchema.dataType,flagType)){ return true; }
-            else {
-                (this.setDefaultValue(flag,flagSchema)) 
-                    ? true
-                    : false;
-            }
-
+            return (this.compare(flagSchema.dataType,flagType))
+                ? true
+                : (this.compare(flagType,null)) && false;
+                ;
         }
     
     }
