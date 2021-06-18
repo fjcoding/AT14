@@ -89,3 +89,4 @@ print(schema.validateFlagType(loggingArg,logging));
 //console.log(schema.isValid(loggingArg));
 //console.log(schema.isValid(dirArg));
 
+export {Schema};

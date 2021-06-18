@@ -1,6 +1,7 @@
 import { TypeDetector } from "./TypeDetector.js"
 
 test("TypeDetector should detect 'number' - type value = 0", () =>{
+
     const detector = new TypeDetector
     const result = detector.detectType(0)
     const expected = 'number'
