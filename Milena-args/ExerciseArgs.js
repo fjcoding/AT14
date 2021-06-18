@@ -1,10 +1,8 @@
-const schema = new Array();
-
 class Flag {
-  
-  constructor(name, value) {
+  constructor(name, type, value = "", ) {
     this.name = name;
     this.value = value;
+    this.type = type;
   }
 
   isCorrectFlag(){
@@ -18,31 +16,51 @@ class Flag {
   whatTypeIs(){
     let temp = typeof(this.value);
     return temp;
-    /*switch (this.value) {
-    
-        case Boolean:
-            if(typeof(this.value)== true || typeof(this.value)== false){
-                return;
-            }
-            break;
-        case String:
-            if(typeof(this.value)== ""){
-                return;
-            }
-            break;
-        case Integer:
-            if(typeof(this.value).charAt(0) == [0-9] ){
-                return;
-            }
-            break;
-        default:
-          return 'This type of value is wrong ' + this.value + '.';
-        */
          }
+  
+  verifyType(){
+    switch(type) {
+  case "boolean": 
+        if(value == ""){
+          value = true;
+          return true;
+        }
+        else
+          return false;
+    break;
+      case "Number":
+        if( value == "")
+        {
+          value = 0;
+        }
+        
+   
+    break;
+      case "Number":
+    breack;
+  default:
+    // code block
+}
+  }
 }
 
-//console.log('Hello, world!')
-//let myflag = new Flag("-a", "-abc");
-//console.log(myflag.isCorrectFlag())
+class Schema{
+  constructor(numberOfFlags,  flagsList ){
+    this.numberOfFlags = numberOfFlags;
+    this.flagsList = flagsList;
+}  
+  }
+  
 
-//console.log(myflag.whatTypeIs())
+console.log('Hello, world!')
+let myflag = new Flag("-a", true );
+console.log(myflag.isCorrectFlag())
+console.log(myflag.whatTypeIs())
+
+let flag1 = new Flag("-l", "boolean", true);
+let flag2 = new Flag("-l", "string", "asd");
+let flag3 = new Flag("-l", "Number", 8080);
+
+let list = new Array<Flag>[flag1, flag2, flag3];
+
+let schematest = new Schema(3, list);
