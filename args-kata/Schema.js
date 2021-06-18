@@ -35,45 +35,20 @@ class Schema {
   }
 
   parse() {
-    this.exercise.forEach((element, index, array) => {
-      const flagTogether = this.compareTwoFlagsTogether(
+    exerciseSplit.forEach((element, index, array) => {
+      const twoFlagTogether = this.compareTwoFlagsTogether(
         element,
         array[index + 1]
       );
-      if (flagTogether === true) {
+      if (twoFlagTogether === true) {
         this.listOfSchemas.forEach((schema) => {
           if (schema.id === element) {
-            console.log(
+            return (
               "La bandera",
               schema.id,
-              "su valor por defecto es:",
+              "no contiene ningun valor por eso se le asignara el valor",
               schema.defaultValue
             );
-          } else {
-            this.listOfSchemas.forEach((schema) => {
-              if (element === schema.id) {
-                const parseando = this.detector.finalDetector(
-                  schema.typeValue,
-                  array[index + 1]
-                ); /*
-                const messageC = "correcto";
-                const messageI = "incorrecto";
-                if (parse == true) {
-                  return messageC;
-                } else {
-                  return messageI;
-                }*/
-
-                console.log(
-                  "la bandera",
-                  schema.id,
-                  "obtuvo el valor de: ",
-                  array[index + 1],
-                  "y se valido el valor y es",
-                  parseando
-                );
-              }
-            });
           }
         });
       }
