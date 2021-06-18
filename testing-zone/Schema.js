@@ -4,6 +4,8 @@ import { TypeDetector } from './TypeDetector.js'
 
 class Schema {
 
+    //Execution
+
     constructor(flagSchemas) {
 
         this.flagSchemas = flagSchemas;
@@ -23,22 +25,23 @@ class Schema {
     }
     */
 
-    compare(valueOne,valueTwo){ return (valueOne === valueTwo) ? true : false; }
+    //Functions
 
-    validateFlagId(flag,flagSchema) { return compare(flag.id,flagSchema.id); }
+    compare(valueOne,valueTwo){ 
 
-    setDefaultValue(flag,flagSchema){
+        return (valueOne === valueTwo) 
+            ? true 
+            : false; 
+    }
 
-        let flagType = this.detector.detectType(flag.value);
+    validateFlagId(flag,flagSchema) { 
 
-        if (compare(flagSchema.dataType,flagType)){
+        return compare(flag.id,flagSchema.id); 
+    }
 
-            return 
-        }
-        else {
+    setDefaultValue(flag,flagSchema){ 
 
-        }
-
+        flag.value = flagSchema.defaultValue;
     }
     
     validateFlagType(flag,flagSchema){ 
@@ -46,6 +49,13 @@ class Schema {
         if (this.validateFlagId(flag,flagSchema)){
 
             let flagType = this.detector.detectType(flag.value);
+
+            if (){
+
+            }
+            else {
+                
+            }
 
             return compare(flagSchema.dataType,flagType);
 
