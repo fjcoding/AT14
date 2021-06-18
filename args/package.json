@@ -1,3 +1,16 @@
 {
-    "type": "module"
+  "type": "module",
+  "name": "args",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.14.5",
+    "jest": "^27.0.4"
+  }
 }

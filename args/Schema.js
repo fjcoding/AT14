@@ -1,20 +1,22 @@
+import { DefaultValue } from './DefaultValue.js';
 import {Flag} from './Flag.js';
 import {FlagSchema} from './FlagSchema.js';
 import {TypeDetector} from './TypeDetector.js';
+
 
 class Schema{
 
     constructor(flagSchemas){
         this.flagSchemas =flagSchemas;
         this.detector= new TypeDetector;
-        this.specifySchema= new FlagSchema;
+        this.flag=new Flag;
+        this.defaultVal= new DefaultValue;
     }
 
     isValid(flag){
         let isValid = false;
         this.flagSchemas.forEach(flagSchema => {
             if(flag.id===flagSchema.id){
-                
                 const flagType =this.detector.detectType(flag.value);
                 isValid =flagSchema.dataType === flagType;
             }
@@ -22,16 +24,22 @@ class Schema{
         return isValid;
     }
 
-    isNull(a){
-        if(a.value==null){
-        const isN= this.detector.detectType(a.value);
-        isN.setValue(flagSchema.getDefaultFlagSchema());
-      }
-      return isN;
+    isNull(flag){
+        let isNull=false;
+        if(flag.value==null){
+            isNull=true;
+        }
+      return isNull;
     }
 
-    getSchema(){
-       return this.specifySchema.getFlagSchemaId();
+    setDefault(flag){
+        this.defaultVal.forEach(defaultValue =>{
+            if(flag.id===defaultValue.id){
+                flag.value= defaultValue.DefaultValue(defaultValue.value);
+            }
+        });
+        return flag;
+
     }
     
 
@@ -45,20 +53,25 @@ const dir = new FlagSchema('-d', '', 'string');
 
 const schema = new Schema([port, logging, dir]);
 
-const portArg = new Flag('-p', 8080);
+const portArg = new Flag('-p',8080);
 const loggingArg = new Flag('-l');
 const dirArg= new Flag('-d','/usr/logs');
 
-const idSchemaF= new FlagSchema();
-const idSchema= new Schema(idSchemaF);
+const def = new DefaultValue('-p');
+
+console.log('Flag is null?')
+console.log(schema.isNull(portArg));
+console.log('Set default flag');
+//console.log(schema.setDefault(portArg, def));
 
 
-const espSchema = new Schema(portArg);
 
 
-console.log(schema.isValid(portArg));
-console.log(schema.isValid(loggingArg));
-console.log(schema.isValid(dirArg));
+
+
+//console.log(schema.isValid(portArg));
+//console.log(schema.isValid(loggingArg));
+//console.log(schema.isValid(dirArg));
 
 
 
