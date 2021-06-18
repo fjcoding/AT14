@@ -20,24 +20,27 @@ test("Schema.Compare() function should return a 'False' value", () =>{
     expect(result).toBe(expected)
 })
 
-//validateFlag Function
+//validateFlagId Function
 
-test("Schema.validateFlag() function should return a 'True' value", () =>{
+test("Schema.validateFlagId() function should return a 'True' value", () =>{
 
     const schema = new Schema;
-    const port = new FlagSchema('-p', 0, 'number');
-    const portArg = new Flag('-p', 8080);
+    const port = new FlagSchema('-p');
+    const portArg = new Flag('-p');
     const result = schema.validateFlagId(port,portArg);
     const expected = true;
     expect(result).toBe(expected)
 })
 
-test("Schema.Compare() function should return a 'False' value", () =>{
+test("Schema.validateFlagId() function should return a 'False' value", () =>{
 
     const schema = new Schema;
-    const port = new FlagSchema('-p', 0, 'number');
-    const portArg = new Flag('-d', 0);
+    const port = new FlagSchema('-p');
+    const portArg = new Flag('-d');
     const result = schema.validateFlagId(port,portArg);
     const expected = false;
     expect(result).toBe(expected)
 })
+
+
+
