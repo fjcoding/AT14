@@ -1,31 +1,48 @@
-function myFunction(text) {
-    // Funcion: le mando un texto y segun eso me envia errores
-    switch(text) {
-        case (!text.contains('l')):
-            return false;
-          break;
-        case (!text.contains('p') && text.contains()):
-          return 0;
-          break;
-          case !text.contains('d') && text.contains.analize:
-          return "";
-          break;
-        default:
-          return "The correct value."
+const schema = new Array();
+
+class Flag {
+  
+  constructor(name, value) {
+    this.name = name;
+    this.value = value;
+  }
+
+  isCorrectFlag(){
+      var regex = /[A-z]/;
+      if(this.name.charAt(0) == '-' && regex.test(this.name.charAt(1))){
+        return true;
       }
+      else return "Im not a flag"
   }
-  // Si le mando el texto tiene que decirme si es bandera
 
-  function isFlag(text){
-    var expreg = /^[A-Z]{1,2}\s\d{4}\s([B-D]|[F-H]|[J-N]|[P-T]|[V-Z]){3}$/;
-    if(text.contains('-') && RegExp.test(expreg)){
-      return true;
-    }
-  }
-//Analiza cuales son banderas correctas
+  whatTypeIs(){
+    let temp = typeof(this.value);
+    return temp;
+    /*switch (this.value) {
+    
+        case Boolean:
+            if(typeof(this.value)== true || typeof(this.value)== false){
+                return;
+            }
+            break;
+        case String:
+            if(typeof(this.value)== ""){
+                return;
+            }
+            break;
+        case Integer:
+            if(typeof(this.value).charAt(0) == [0-9] ){
+                return;
+            }
+            break;
+        default:
+          return 'This type of value is wrong ' + this.value + '.';
+        */
+         }
+}
 
-  function analize(flag){
-    if(isFlag(flag)){
+//console.log('Hello, world!')
+//let myflag = new Flag("-a", "-abc");
+//console.log(myflag.isCorrectFlag())
 
-    }
-  }
+//console.log(myflag.whatTypeIs())
