@@ -8,7 +8,7 @@ class Schema
     }
 }
 
-const schemaL = new Schema('-l',false,'boolean');
+/*const schemaL = new Schema('-l',false,'boolean');
 const schemaP = new Schema('-p',0,'number');
 const schemaD = new Schema('-d','1','string');
 
@@ -22,6 +22,6 @@ console.log(schemaP.typeValue);
 
 console.log(schemaD.id);
 console.log(schemaD.expectedValue);
-console.log(schemaD.typeValue);
+console.log(schemaD.typeValue);*/
 
 export{ Schema };

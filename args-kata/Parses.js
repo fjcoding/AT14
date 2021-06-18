@@ -3,7 +3,7 @@ import { VarValidate } from './VarValidate.js';
 import { Schema } from "./Schema.js";
 import { Flag } from "./Flag.js";
 
-class Parse
+class Parses
 {
 
     isItValid=(schema,flag)=>
@@ -44,7 +44,7 @@ class Parse
 
 }
 
-const defValL = new DefaultValue('-l', false);
+/*const defValL = new DefaultValue('-l', false);
 const defValD = new DefaultValue('-d',"asd");
 const defValP = new DefaultValue('-p',0);
 
@@ -62,7 +62,7 @@ const flagD = new Flag('-d','/usr/logs');
 const flagP = new Flag('-p');
 const flagD = new Flag('-d');*/
 
-const parse = new Parse;
+/*const parse = new Parse;
 console.log("check if the flag accomplish the schema")
 console.log(parse.isItValid([schemaL,schemaP,schemaD],flagL));
 console.log(parse.isItValid([schemaL,schemaP,schemaD],flagP));
@@ -81,4 +81,7 @@ console.log(parse.completeIfEmpty([schemaL,schemaP,schemaD],flagP,defvalue).valu
 
 console.log("bandera3")
 console.log(parse.completeIfEmpty([schemaL,schemaP,schemaD],flagD,defvalue).id);
-console.log(parse.completeIfEmpty([schemaL,schemaP,schemaD],flagD,defvalue).value);
+console.log(parse.completeIfEmpty([schemaL,schemaP,schemaD],flagD,defvalue).value);*/
+
+
+export { Parses };

@@ -51,17 +51,13 @@ test("valueCheckEmpty should detect 'false' if a value from the flag is not empt
     expect(result).toBe(expected);
 })
 //testing the valueReplaceDefault function
-test("valueReplaceDefault should detect the flag value ",()=>
+test("valueReplaceDefault should replace the default value from the flag -l to 'false' ",()=>
 {
     const defValL = new DefaultValue('-l', false);
-    const defValD = new DefaultValue('-d',"asd");
-    const defValP = new DefaultValue('-p',0);
 
     const flagL = new Flag('-l');
-    const flagP = new Flag('-p',2);
-    const flagD = new Flag('-d','/usr/logs');
 
-    const defvalue = [defValL,defValD,defValP];
+    const defvalue = [defValL];
 
     const detector = new VarValidate;
     const result = detector.valueReplaceDefault(flagL,defvalue).value;
@@ -69,17 +65,13 @@ test("valueReplaceDefault should detect the flag value ",()=>
     expect(result).toBe(expected);
 })
 
-test("valueReplaceDefault should detect the flag value ",()=>
+test("valueReplaceDefault should replace the default value from the flag -p to '0' ",()=>
 {
-    const defValL = new DefaultValue('-l', false);
-    const defValD = new DefaultValue('-d',"asd");
+
     const defValP = new DefaultValue('-p',0);
-
-    const flagL = new Flag('-l');
     const flagP = new Flag('-p',2);
-    const flagD = new Flag('-d','/usr/logs');
 
-    const defvalue = [defValL,defValD,defValP];
+    const defvalue = [defValP];
 
     const detector = new VarValidate;
     const result = detector.valueReplaceDefault(flagP,defvalue).value;
@@ -87,17 +79,14 @@ test("valueReplaceDefault should detect the flag value ",()=>
     expect(result).toBe(expected);
 })
 
-test("valueReplaceDefault should detect the flag value ",()=>
+test("valueReplaceDefault should replace the default value from the flag -d to 'asd'",()=>
 {
-    const defValL = new DefaultValue('-l', false);
-    const defValD = new DefaultValue('-d',"asd");
-    const defValP = new DefaultValue('-p',0);
 
-    const flagL = new Flag('-l');
-    const flagP = new Flag('-p',2);
+    const defValD = new DefaultValue('-d',"asd");
+
     const flagD = new Flag('-d','/usr/logs');
 
-    const defvalue = [defValL,defValD,defValP];
+    const defvalue = [defValD];
 
     const detector = new VarValidate;
     const result = detector.valueReplaceDefault(flagD,defvalue).value;
