@@ -34,41 +34,46 @@ class Schema {
             : false; 
     }
 
-    validateFlagId(flag,flagSchema) { 
+    validateFlagId(flag = new Flag,flagSchema = new FlagSchema) { 
 
-        return compare(flag.id,flagSchema.id); 
+        return this.compare(flag.id,flagSchema.id); 
     }
+    /*
+    validateFlagValue(flag = new Flag,flagSchema = new FlagSchema){ 
 
-    setDefaultValue(flag,flagSchema){ 
+        let state = false;
 
-        flag.value = flagSchema.defaultValue;
+        if (!this.compare(flag.value,flagSchema.defaultValue)){
+
+            flag.value = flagSchema.defaultValue;
+            state = true;
+        }
+
+        return state;
+
+        //flag.value = (!compare(flag.value,flagSchema.defaultValue)) && flagSchema.defaultValue;
     }
-    
-    validateFlagType(flag,flagSchema){ 
+    */
+    validateFlagType(flag = new Flag,flagSchema = new FlagSchema){ 
 
         if (this.validateFlagId(flag,flagSchema)){
 
             let flagType = this.detector.detectType(flag.value);
 
-            if (){
-
-            }
+            if (compare(flagSchema.dataType,flagType)){ return true; }
             else {
-                
+                (this.setDefaultValue(flag,flagSchema)) 
+                    ? true
+                    : false;
             }
 
-            return compare(flagSchema.dataType,flagType);
+//            return compare(flagSchema.dataType,flagType);
 
         }
+    
     }
 
 }
-
-//External Functions
-
-const print = string =>{ console.log(string); }
-
-const compare = (valueOne,valueTwo) => { return (valueOne === valueTwo) ? true : false; }
 
 /*
 const port = new FlagSchema('-p', 0, 'number')
