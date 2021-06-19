@@ -7,6 +7,7 @@ class Flag {
     }
 
     //get and set the "id"
+    
     getId(){
 
         return this.id;

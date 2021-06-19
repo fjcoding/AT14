@@ -87,7 +87,7 @@ test("Schema.validateFlagType() function should return a 'False' value", () =>{
 
 //setDefaultValue
 
-test("Schema.setDefaultValue() function should return a 'True' value", () =>{
+test("Schema.setDefaultValue() - Should return a 'True' value", () =>{
 
     const port = new FlagSchema('-p', 0, 'number');
 

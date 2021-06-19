@@ -39,7 +39,7 @@ class Schema {
         }
         else{
 
-            flag.value = flagSchema.defaultValue;
+            flag.setValue(flagSchema.defaultValue);
             return this.compare(flag.value,flagSchema.defaultValue);
         }
     }
