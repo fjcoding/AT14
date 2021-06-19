@@ -2,6 +2,8 @@ import { Schema } from "./Schema.js"
 import { FlagSchema } from "./FlagSchema.js"
 import { Flag } from "./Flag.js"
 
+//Schema.js Unit Tests
+
 //Compare Function
 
 test("Schema.Compare() function should return a 'True' value", () =>{
@@ -15,7 +17,7 @@ test("Schema.Compare() function should return a 'True' value", () =>{
 test("Schema.Compare() function should return a 'False' value", () =>{
 
     const schema = new Schema;
-    const result = schema.compare(0,1);
+    const result = schema.compare(true,1);
     const expected = false;
     expect(result).toBe(expected)
 })
@@ -83,18 +85,7 @@ test("Schema.validateFlagType() function should return a 'False' value", () =>{
     expect(result).toBe(expected)
 })
 
-test("Schema.validateFlag() function should return a 'True' value", () =>{
-
-    const port = new FlagSchema('-p', 0, 'number');
-
-    const schema = new Schema([port]);
-
-    const portArg = new Flag('-p', 8080)
-
-    const result = schema.validateFlag(portArg);
-    const expected = true;
-    expect(result).toBe(expected)
-})
+//setDefaultValue
 
 test("Schema.setDefaultValue() function should return a 'True' value", () =>{
 
@@ -109,7 +100,23 @@ test("Schema.setDefaultValue() function should return a 'True' value", () =>{
     expect(result).toBe(expected)
 })
 
-test("Schema.validateFlag() function should return a 'True' value", () =>{
+//validateFlag
+
+test("Schema.validateFlag() - Should validate a correct Flag with value and return a 'True' value", () =>{
+
+    const port = new FlagSchema('-p', 0, 'number');
+
+    const schema = new Schema([port]);
+
+    const portArg = new Flag('-p', 8080)
+
+    const result = schema.validateFlag(portArg);
+    const expected = true;
+    expect(result).toBe(expected)
+})
+
+
+test("Schema.validateFlag() - Should validate a correct Flag without value and return a 'True' value", () =>{
 
     const port = new FlagSchema('-p', 0, 'number');
 
@@ -122,7 +129,18 @@ test("Schema.validateFlag() function should return a 'True' value", () =>{
     expect(result).toBe(expected)
 })
 
+test("Schema.validateFlag() - Should validate a wrong Flag and return a 'False' value", () =>{
 
+    const port = new FlagSchema('-p', 0, 'number');
+
+    const schema = new Schema([port]);
+
+    const portArg = new Flag('-x',0)
+
+    const result = schema.validateFlag(portArg);
+    const expected = false;
+    expect(result).toBe(expected)
+})
 /*
 const loggingArg = new Flag('-l')
 const dirArg = new Flag('-d', '/usr/logs')

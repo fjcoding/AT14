@@ -1,6 +1,6 @@
 class Flag {
     
-    constructor(id, value = undefined) {
+    constructor(id, value) {
 
         this.id = id;
         this.value = value;
