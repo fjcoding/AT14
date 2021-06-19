@@ -1,6 +1,6 @@
 import { Flag } from "./Flag"
 
-test("class Flag - A new Flag element should be created with an id value of '-p'" , ()=>{
+test("class Flag - A new Flag element should be created with an id of '-p'" , ()=>{
 
     const flagPort = new Flag('-p');
     const result = flagPort.id;
@@ -8,7 +8,7 @@ test("class Flag - A new Flag element should be created with an id value of '-p'
     expect(result).toBe(expected);
 })
 
-test("class Flag - A new Flag element should be created with a value value of '8080'"  , ()=>{
+test("class Flag - A new Flag element should be created with a value of '8080'"  , ()=>{
 
     const flagPort = new Flag('', 8080);
     const result = flagPort.value;
