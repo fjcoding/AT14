@@ -47,51 +47,83 @@ test("Schema.validateFlagId() function should return a 'False' value", () =>{
 test("Schema.validateFlagType() function should return a 'True' value", () =>{
 
     const schema = new Schema;
-    const loggingArg = new FlagSchema('-l', false, 'boolean');
-    const logging = new Flag('-l',true);
-    const result = schema.validateFlagValue(logging,loggingArg);
+    const logging = new FlagSchema('-l', false, 'boolean');
+    const loggingArg = new Flag('-l',true);
+    const result = schema.validateFlagType(loggingArg,logging);
     const expected = true;
     expect(result).toBe(expected)
 })
 
-test("Schema.validateFlagType() function should return a 'True' value", () =>{
-
-    const schema = new Schema;
-    const loggingArg = new FlagSchema('-l', false, 'boolean');
-    const logging = new Flag('-l',false);
-    const result = schema.validateFlagValue(logging,loggingArg);
-    const expected = true;
-    expect(result).toBe(expected)
-})
-
-test("Schema.validateFlagValue() function should return a 'False' value", () =>{
-
-    const schema = new Schema;
-    const loggingArg = new FlagSchema('-l', false, 'boolean');
-    const logging = new Flag('-l',8080);
-    const result = schema.validateFlagValue(logging,loggingArg);
-    const expected = false;
-    expect(result).toBe(expected)
-})
-test("Schema.validateFlagValue() function should return a 'False' value", () =>{
-
-    const schema = new Schema;
-    const loggingArg = new FlagSchema('-l', false, 'boolean');
-    const logging = new Flag('-l');
-    const result = schema.validateFlagValue(logging,loggingArg);
-    const expected = false;
-    expect(result).toBe(expected)
-})
-
-/*
 test("Schema.validateFlagType() function should return a 'True' value", () =>{
 
     const schema = new Schema;
     const logging = new FlagSchema('-l', false, 'boolean');
-    const loggingArg = new Flag('-l');
-    const result = schema.validateFlagType(logging,loggingArg);
+    const loggingArg = new Flag('-l',false);
+    const result = schema.validateFlagType(loggingArg,logging);
     const expected = true;
     expect(result).toBe(expected)
 })
-*/
 
+test("Schema.validateFlagType() function should return a 'False' value", () =>{
+
+    const schema = new Schema;
+    const logging = new FlagSchema('-l', false, 'boolean');
+    const loggingArg = new Flag('-l',8080);
+    const result = schema.validateFlagType(loggingArg,logging);
+    const expected = false;
+    expect(result).toBe(expected)
+})
+test("Schema.validateFlagType() function should return a 'False' value", () =>{
+
+    const schema = new Schema;
+    const logging = new FlagSchema('-l', false, 'boolean');
+    const loggingArg = new Flag('-l');
+    const result = schema.validateFlagType(loggingArg,logging);
+    const expected = false;
+    expect(result).toBe(expected)
+})
+
+test("Schema.validateFlag() function should return a 'True' value", () =>{
+
+    const port = new FlagSchema('-p', 0, 'number');
+
+    const schema = new Schema([port]);
+
+    const portArg = new Flag('-p', 8080)
+
+    const result = schema.validateFlag(portArg);
+    const expected = true;
+    expect(result).toBe(expected)
+})
+
+test("Schema.setDefaultValue() function should return a 'True' value", () =>{
+
+    const port = new FlagSchema('-p', 0, 'number');
+
+    const schema = new Schema();
+
+    const portArg = new Flag('-p')
+
+    const result = schema.setDefaultValue(portArg,port);
+    const expected = true;
+    expect(result).toBe(expected)
+})
+
+test("Schema.validateFlag() function should return a 'True' value", () =>{
+
+    const port = new FlagSchema('-p', 0, 'number');
+
+    const schema = new Schema([port]);
+
+    const portArg = new Flag('-p')
+
+    const result = schema.validateFlag(portArg);
+    const expected = true;
+    expect(result).toBe(expected)
+})
+
+
+/*
+const loggingArg = new Flag('-l')
+const dirArg = new Flag('-d', '/usr/logs')
+*/

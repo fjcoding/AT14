@@ -12,19 +12,6 @@ class Schema {
         this.detector = new TypeDetector;
     }
 
-    /*
-    isValid(flag) {
-        let isValid = false;
-        this.flagSchemas.forEach(flagSchema => {
-            if (flag.id === flagSchema.id) {
-                const flagType = this.detector.detectType(flag.value);
-                isValid = flagSchema.dataType === flagType;
-            }
-        });
-        return isValid;
-    }
-    */
-
     //Functions
 
     compare(valueOne,valueTwo){ 
@@ -37,46 +24,39 @@ class Schema {
         return this.compare(flag.id,flagSchema.id); 
     }
 
-    validateFlagValue(flag = new Flag,flagSchema = new FlagSchema){ 
+    validateFlagType(flag = new Flag,flagSchema = new FlagSchema){ 
 
-        return this.compare(flagSchema.dataType,this.detector.detectType(flag.value));
+        let dataType = this.detector.detectType(flag.value);
+
+        return this.compare(flagSchema.dataType,dataType);
     }
 
-    validateFlag(flag){
+    setDefaultValue(flag = new Flag,flagSchema = new FlagSchema){
+
+        if(this.validateFlagType(flag,flagSchema)){
+
+            return true;
+        }
+        else{
+
+            flag.value = flagSchema.defaultValue;
+            return this.compare(flag.value,flagSchema.defaultValue);
+        }
+    }
+
+    validateFlag(flag = new Flag){
+        
+        let validationResult = false;
         
         this.flagSchemas.forEach(flagSchema => {
 
-            let validationResult = false;
-
             if (this.validateFlagId(flag,flagSchema)){
 
-                if(this.validateFlagType(flag,flagSchema)){
-
-                    validationResult = true;
-                }
-                else{
-
-                    flag.value = flagSchema.defaultValue;
-                }
+                validationResult = this.setDefaultValue(flag,flagSchema);
             }            
         });
+        return validationResult;
     }
 }
-
-/*
-const port = new FlagSchema('-p', 0, 'number')
-const logging = new FlagSchema('-l', false, 'boolean')
-const dir = new FlagSchema('-d', '', 'string')
-
-const schema = new Schema([port, logging, dir])
-
-const portArg = new Flag('-p', 8080)
-const loggingArg = new Flag('-l')
-const dirArg = new Flag('-d', '/usr/logs')
-
-print(schema.validateFlagType(loggingArg,logging));
-console.log(schema.isValid(loggingArg));
-console.log(schema.isValid(dirArg));
-*/
 
 export {Schema};
