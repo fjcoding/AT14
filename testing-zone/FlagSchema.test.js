@@ -23,7 +23,7 @@ test("flagSchema.getValue() - A new FlagSchema element should be created then re
     expect(result).toBe(expected);
 })
 
-test("flagSchema.getDataType() - A new FlagSchema element should be created then return a dataType of '8080'"  , ()=>{
+test("flagSchema.getDataType() - A new FlagSchema element should be created then return a dataType of 'number'"  , ()=>{
 
     const flagSchema = new FlagSchema('', 8080,'number');
     const result = flagSchema.getDataType();
@@ -40,12 +40,21 @@ test("flagSchema.setId() - A new FlagSchema element should be created with an or
     expect(result).toBe(expected);
 })
 
-test("flagSchema.setValue() - A new FlagSchema element should be created with an original value then change to '-p'"  , ()=>{
+test("flagSchema.setDefaultValue() - A new FlagSchema element should be created with an original value then change to '8080'"  , ()=>{
 
     const flagSchema = new FlagSchema('-p', 0);
     flagSchema.setDefaultValue(8080);
     const result = flagSchema.getDefaultValue();
     const expected = 8080;
+    expect(result).toBe(expected);
+})
+
+test("flagSchema.setDataType() - A new FlagSchema element should be created with an original value then change to 'number'"  , ()=>{
+
+    const flagSchema = new FlagSchema('-p', 0 , 'boolean');
+    flagSchema.setDataType('number');
+    const result = flagSchema.getDataType();
+    const expected = 'number';
     expect(result).toBe(expected);
 })
 /*
