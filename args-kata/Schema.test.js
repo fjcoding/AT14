@@ -1,6 +1,6 @@
 import { Schema } from "./Schema.js"
-import { Flag } from './Flag.js'
-import { FlagSchema } from './FlagSchema.js'
+import { Argument } from './Argument'
+import { ArgumentSchema } from './ArgumentSchema.js'
 
 test("This function must return 'false' as a result to invoque it with parameters '-p', true", () =>{
     const schema = new Schema()
@@ -30,8 +30,8 @@ test("This function must return 'true' as a result to invoque it with second and
     expect(result).toBe(expected)
 })
 
-test("This function must return 'false' as a result to invoque it with 'string' as second parameter and null as third parameters.", () =>{
-    test("", () =>{
+
+test("This function must return 'false' as a result to invoque it with 'string' as second parameter and and null as third parameters.", () =>{
     const schema = new Schema()
     const result = schema.isEqualsTypes('-l', 'string', null)
     const expected = false
@@ -67,86 +67,86 @@ test("", () =>{
 })
 
 test("", () =>{
-    const port = new FlagSchema('-p', 0, 'number', true)
-    const logging = new FlagSchema('-l', false, 'boolean', false)
-    const dir = new FlagSchema('-d', '', 'string', true)
-    const flag = new Flag('-p', 8080)
+    const port = new ArgumentSchema('-p', 0, 'number', true)
+    const logging = new ArgumentSchema('-l', false, 'boolean', false)
+    const dir = new ArgumentSchema('-d', '', 'string', true)
+    const argument = new Argument('-p', 8080)
     const schema = new Schema([port, logging, dir]);
 
-    const result = schema.isFlagValid(flag)
+    const result = schema.isArgumentValid(argument)
     const expected = true
     expect(result).toBe(expected)
 })
 
 test("", () =>{
-    const port = new FlagSchema('-p', 0, 'number', true)
-    const logging = new FlagSchema('-l', false, 'boolean', false)
-    const dir = new FlagSchema('-d', '', 'string', true)
-    const flag = new Flag('-p', 'dfasdfas')
+    const port = new ArgumentSchema('-p', 0, 'number', true)
+    const logging = new ArgumentSchema('-l', false, 'boolean', false)
+    const dir = new ArgumentSchema('-d', '', 'string', true)
+    const argument = new Argument('-p', 'dfasdfas')
     const schema = new Schema([port, logging, dir]);
 
-    const result = schema.isFlagValid(flag)
+    const result = schema.isArgumentValid(argument)
     const expected = false
     expect(result).toBe(expected)
 })
 
 test("", () =>{
-    const port = new FlagSchema('-p', 0, 'number', true)
-    const logging = new FlagSchema('-l', false, 'boolean', false)
-    const dir = new FlagSchema('-d', '', 'string', true)
-    const flag = new Flag('-p')
+    const port = new ArgumentSchema('-p', 0, 'number', true)
+    const logging = new ArgumentSchema('-l', false, 'boolean', false)
+    const dir = new ArgumentSchema('-d', '', 'string', true)
+    const argument = new Argument('-p')
     const schema = new Schema([port, logging, dir]);
 
-    const result = schema.isFlagValid(flag)
+    const result = schema.isArgumentValid(argument)
     const expected = false
     expect(result).toBe(expected)
 })
 
 test("", () =>{
-    const port = new FlagSchema('-p', 0, 'number', true)
-    const logging = new FlagSchema('-l', false, 'boolean', false)
-    const dir = new FlagSchema('-d', '', 'string', true)
-    const flag = new Flag('-l')
+    const port = new ArgumentSchema('-p', 0, 'number', true)
+    const logging = new ArgumentSchema('-l', false, 'boolean', false)
+    const dir = new ArgumentSchema('-d', '', 'string', true)
+    const argument = new Argument('-l')
     const schema = new Schema([port, logging, dir]);
 
-    const result = schema.isFlagValid(flag)
+    const result = schema.isArgumentValid(argument)
     const expected = true
     expect(result).toBe(expected)
 })
 
 test("", () =>{
-    const port = new FlagSchema('-p', 0, 'number', true)
-    const logging = new FlagSchema('-l', false, 'boolean', false)
-    const dir = new FlagSchema('-d', '', 'string', true)
-    const flag = new Flag('-d', '/url/house')
+    const port = new ArgumentSchema('-p', 0, 'number', true)
+    const logging = new ArgumentSchema('-l', false, 'boolean', false)
+    const dir = new ArgumentSchema('-d', '', 'string', true)
+    const argument = new Argument('-d', '/url/house')
     const schema = new Schema([port, logging, dir]);
 
-    const result = schema.isFlagValid(flag)
+    const result = schema.isArgumentValid(argument)
     const expected = true
     expect(result).toBe(expected)
 })
 
 
 test("", () =>{
-    const port = new FlagSchema('-p', 0, 'number', true)
-    const logging = new FlagSchema('-l', false, 'boolean', true)
-    const dir = new FlagSchema('-d', '', 'string', true)
-    const flag = new Flag('-l')
+    const port = new ArgumentSchema('-p', 0, 'number', true)
+    const logging = new ArgumentSchema('-l', false, 'boolean', true)
+    const dir = new ArgumentSchema('-d', '', 'string', true)
+    const argument = new Argument('-l')
     const schema = new Schema([port, logging, dir]);
 
-    const result = schema.isFlagValid(flag)
+    const result = schema.isArgumentValid(argument)
     const expected = false
     expect(result).toBe(expected)
 })
 
-test("", () =>{
-    const port = new FlagSchema('-p', 0, 'number', true)
-    const logging = new FlagSchema('-l', false, 'boolean', true)
-    const dir = new FlagSchema('-d', '', 'string', true)
-    const flag = new Flag('-l', 'true')
+test("fgfgfgfg", () =>{
+    const port = new ArgumentSchema('-p', 0, 'number', true)
+    const logging = new ArgumentSchema('-l', false, 'boolean', true)
+    const dir = new ArgumentSchema('-d', '', 'string', true)
+    const argument = new Argument('-l', true)
     const schema = new Schema([port, logging, dir]);
 
-    const result = schema.isFlagValid(flag)
+    const result = schema.isArgumentValid(argument)
     const expected = true
     expect(result).toBe(expected)
 })
