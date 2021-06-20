@@ -1,6 +1,6 @@
 import { FlagSchema } from "./FlagSchema.js"
 
-test("class FlagSchema - A new Flag should be created with an id of '-p' and value of '8080'",()=>{
+test("class FlagSchema - A new Flag should be created with an id of '-p' a defaultValue of '8080' and dataType of 'number'",()=>{
 
     const result = new FlagSchema('-p',8080,'number');
     const expected = new FlagSchema('-p',8080,'number');
