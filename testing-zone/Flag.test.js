@@ -1,4 +1,4 @@
-import { Flag } from "./Flag"
+import { Flag } from "./Flag.js"
 
 test("class Flag - A new Flag should be created with an id of '-p' and value of '8080'",()=>{
 

@@ -17,6 +17,8 @@ class Flag {
         this.id = id;
     }
 
+    //get and set the value
+
     getValue(){
 
         return this.value;
@@ -28,21 +30,4 @@ class Flag {
 
 }
 
-/*
-const flagPort = new Flag('-p', 8080)
-console.log(flagPort.id);
-console.log(flagPort.value);
-
-flagPort.setValue(90);
-console.log(flagPort.value);
-
-
-const flagLogging = new Flag('-l')
-const flagDir = new Flag('-d', '/usr/logs')
-
-console.log(flagLogging.id);
-console.log(flagLogging.value);
-console.log(flagDir.id);
-console.log(flagDir.value);
-*/
 export { Flag }

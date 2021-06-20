@@ -6,10 +6,8 @@ class FlagSchema {
         this.defaultValue = defaultValue;
         this.dataType = dataType;
     }
-
-    //Function Section
     
-    //Get and Set section
+    //get and set the id
 
     getId(){
 
@@ -20,6 +18,8 @@ class FlagSchema {
         this.id = id;
     }
 
+    //get and set the value
+
     getDefaultValue(){
 
         return this.defaultValue;
@@ -28,6 +28,8 @@ class FlagSchema {
 
         this.defaultValue = defaultValue;
     }
+
+    //get and set the dataType
 
     getDataType(){
 
@@ -41,9 +43,6 @@ class FlagSchema {
 }
 
 /*
-const flagSchemaPort = new FlagSchema('-p', 0, 'number')
-const flagSchemaLogging = new FlagSchema('-l', false, 'boolean')
-const flagSchemaDir = new FlagSchema('-d', '', 'string')
 
 console.log(flagSchemaPort.id);
 console.log(flagSchemaPort.defaultValue);
