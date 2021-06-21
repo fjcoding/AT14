@@ -1,6 +1,6 @@
 class FlagSchema {
 
-    constructor(id, defaultValue, dataType) {
+    constructor(id = '', defaultValue , dataType = '') {
 
         this.id = id;
         this.defaultValue = defaultValue;

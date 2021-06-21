@@ -6,7 +6,7 @@ class Schema {
 
     //Execution
 
-    constructor(flagSchemas) {
+    constructor(flagSchemas = []) {
 
         this.flagSchemas = flagSchemas;
         this.detector = new TypeDetector;

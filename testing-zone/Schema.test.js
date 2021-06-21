@@ -156,7 +156,3 @@ test("Schema.validateFlag() - Should validate a wrong Flag and return a 'True' v
     const expected = true;
     expect(result).toBe(expected);
 })
-/*
-const loggingArg = new Flag('-l')
-const dirArg = new Flag('-d', '/usr/logs')
-*/

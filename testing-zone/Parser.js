@@ -1,22 +1,28 @@
 import { Flag } from "./Flag.js";
+import { Schema } from "./Schema.js";
 import { FlagSchema } from "./FlagSchema.js";
-import { Schema } from "./Schema.js"
 
 class Parser {
 
-    port = new FlagSchema('-p', 0, 'number');
-    logging = new FlagSchema('-l',false,'boolean');
-    dir = new FlagSchema('-d','','string');
+    //flagSchemas
 
 
-    schema = new Schema([this.port,this.logging,dir]);
+    port = new FlagSchema('-p', 0 , 'number');
+    logging = new FlagSchema('-l', false ,'boolean');
+    dir = new FlagSchema('-d', '', 'string');
 
-    portArg = new Flag('-x',0);
+    schema = new Schema([this.logging,this.dir,this.port])
+
+    portArg = new Flag('-p',8080);
     loggingArg = new Flag('-l');
-    dirArg = new Flag('-d', '/usr/logs');
+    dirArg = new Flag('-d','/usr/logs');
 
-    constructor(){
-        console.log();
+    constructor(command = ''){
+
+        console.log(this.schema.validateFlag(this.portArg));
+        console.log(this.schema.validateFlag(this.loggingArg));
+        console.log(this.schema.validateFlag(this.dirArg));
+
     }
     /*
     get(){
@@ -26,3 +32,5 @@ class Parser {
         this. = value;
     }*/
 }
+new Parser();
+export { Parser }
