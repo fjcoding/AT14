@@ -145,12 +145,12 @@ test("Schema.validateFlag() - Should validate a wrong Flag and return a 'False' 
 test("Schema.validateFlag() - Should validate a wrong Flag and return a 'True' value", () =>{
 
     const port = new FlagSchema('-p', 0 , 'number');
-    const logging = new Flag('-l', false ,'boolean');
-    const dir = new Flag('-d', '', 'string');
+    const logging = new FlagSchema('-l', false ,'boolean');
+    const dir = new FlagSchema('-d', '', 'string');
 
     const schema = new Schema([logging,dir,port]);
 
-    const portArg = new Flag('-p',false);
+    const portArg = new Flag('-l');
 
     const result = schema.validateFlag(portArg);
     const expected = true;
