@@ -79,7 +79,8 @@ test('completeIfEmpty should return the the missing value "false" from flag "-l"
     const result = detect.completeIfEmpty(arraySchema,flagL,defvalue).value;
 
     const expected = defvalue[0].deftValue;
-    expect(result).toBe(expected);
+    //expect(result).toBe(expected);
+    expect(result).toBe(false);
 })
 
 test('completeIfEmpty should return the the missing value "0" from flag "-p" completed',()=>
@@ -97,7 +98,8 @@ test('completeIfEmpty should return the the missing value "0" from flag "-p" com
     const result = detect.completeIfEmpty(arraySchema,flagP,defvalue).value;
 
     const expected = defValP.deftValue;
-    expect(result).toBe(expected);
+    //expect(result).toBe(expected);
+    expect(result).toBe(0);
 })
 
 test('completeIfEmpty should return the the missing value "asd" from flag "-d" completed',()=>
@@ -114,7 +116,10 @@ test('completeIfEmpty should return the the missing value "asd" from flag "-d" c
 
     const result = detect.completeIfEmpty(arraySchema,flagD,defvalue).value;
 
+    //const expected = defValD.deftValue;
+
     const expected = defValD.deftValue;
-    expect(result).toBe(expected);
+    //expect(result).toBe(expected);
+    expect(result).toBe('asd');
 })
 
