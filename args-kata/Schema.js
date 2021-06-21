@@ -6,6 +6,7 @@ class Schema {
     constructor(argumentSchemas) {
         this.argumentSchemas = argumentSchemas;
         this.detector = new TypeDetector;
+        this.errorMessages = [];
     }
 
     isArgumentValid(argument) {
@@ -15,6 +16,7 @@ class Schema {
                 valid = this.isValueValid(argumentSchema.flag, this.detector.detectType(argument.value), argumentSchema.dataType, argumentSchema.isRequired);
             }
         });
+        this.existFlagType(argument);
         return valid;  
     } 
           
@@ -28,18 +30,42 @@ class Schema {
     isEqualsTypes(flag, typeOne, typeTwo) {
         if(typeOne === typeTwo) 
             return true;
-        else
-            console.log("The value asigned to " + flag + " is a type no valid.");
-            return false;         
+        else {
+            this.errorMessages.push(this.messageNoValidValue(flag));
+            return false;
+        }                     
+    }
+
+    messageNoValidValue(flag) {
+        return "The value asigned to " + flag + " is a type no valid.";
     }
 
     isRequiredValue(flag, value) {
         if(value) {
-            console.log("The flag " + flag + " requires a value associated");
+            this.errorMessages.push(this.messageRequiredValue(flag));
             return false;
         }
         else 
             return true;            
+    }
+
+    messageRequiredValue(flag) {
+        return "The flag " + flag + " requires a value associated";
+    }
+
+    existFlagType(argument) {
+        let count = 0;
+        this.argumentSchemas.forEach(argumentSchema => {
+            if (argumentSchema.flag === argument.flag) {
+                count++;    
+            }
+        });
+        if(count === 0)
+            this.errorMessages.push(this.messageIsNotValidFlag(argument.flag));
+    } 
+
+    messageIsNotValidFlag(flag) {
+        return "The flag " + flag + " is not a flag valid for the schema.";
     }
 }
 
@@ -47,13 +73,14 @@ class Schema {
 const logging = new ArgumentSchema('-l', false, 'boolean', false)
 const dir = new ArgumentSchema('-d', '', 'string', true)
 
+
 const portArg = new Argument('-p', 8080)
 const loggingArg = new Argument('-l', false)
-const dirArg = new Argument('-d', 100)
+const dirArg = new Argument('-d', 'alñjfñaljdf')
 
 const schema = new Schema([port, logging, dir]);
 
-console.log(schema.isArgumentValid(dirArg));
+console.log(schema.isArgumentValid(portArg));
 
 
 //console.log(schema.isValid(loggingArg));
