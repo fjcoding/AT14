@@ -96,9 +96,9 @@ class VarValidate
 
     
 }
-const value = new VarValidate;
+//const value = new VarValidate;
 
-console.log(value.ifValueIsNumber(true) +"   " +typeof(value.ifValueIsNumber(true)));
+//console.log(value.ifValueIsNumber(true) +"   " +typeof(value.ifValueIsNumber(true)));
 /*const value = new VarValidate;
 const schemaL = new Schema('-l',false,'boolean');
 const schemaP = new Schema('-p',0,'number');

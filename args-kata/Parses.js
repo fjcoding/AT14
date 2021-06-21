@@ -43,72 +43,72 @@ class Parses
     }
 
 //------------------------------------------------------------------------
-splitterArguments = (args)=>
-{   
-    const splitedArguments = args.split(" ");
+    splitterArguments = (args)=>
+    {   
+        const splitedArguments = args.split(" ");
 
-    return splitedArguments;
+        return splitedArguments;
 
-}
+    }
 
-buildIfIsFlag=(splitedArguments,schema)=>
-{
-    const validate = new VarValidate;
-    let idFlag=null;
-    let valueFlag = null;
-    let newFlags = new Array();
-    let newF;
-    for (let i=0;i<=splitedArguments.length; i=i+1)
+    buildIfIsFlag=(splitedArguments,schema)=>
     {
-        
-        if(validate.isFlag(splitedArguments[i],schema))
+        const validate = new VarValidate;
+        let idFlag=null;
+        let valueFlag = null;
+        let newFlags = new Array();
+        let newF;
+        for (let i=0;i<=splitedArguments.length; i=i+1)
         {
-            idFlag = splitedArguments[i];
-            //if(validate.isValidValue(splitedArguments[i+1],schema,idFlag)) this function use to validate if the value matches the schema's default value
-            if(!validate.isFlag(splitedArguments[i+1],schema))
+            
+            if(validate.isFlag(splitedArguments[i],schema))
             {
-                valueFlag = splitedArguments[i+1];
+                idFlag = splitedArguments[i];
+                //if(validate.isValidValue(splitedArguments[i+1],schema,idFlag)) this function use to validate if the value matches the schema's default value
+                if(!validate.isFlag(splitedArguments[i+1],schema))
+                {
+                    valueFlag = splitedArguments[i+1];
 
-                newF = newFlags.push(new Flag(idFlag,valueFlag));
-            }
-            else{
-                newF = newFlags.push(new Flag(idFlag));
+                    newF = newFlags.push(new Flag(idFlag,valueFlag));
+                }
+                else{
+                    newF = newFlags.push(new Flag(idFlag));
+                }
             }
         }
+        return newFlags;
     }
-    return newFlags;
-}
 
-parseIfPosible=(newFlags)=>
-{
-    const validate = new VarValidate;
-    newFlags.forEach(newFlags=>{
+    parseIfPosible=(newFlags)=>
+    {
+        const validate = new VarValidate;
+        newFlags.forEach(newFlags=>{
 
-        newFlags.value=validate.ifValueIsNumber(newFlags.value);
-        newFlags.value=validate.ifValueIsBoolean(newFlags.value);
-               
-    })
-    return newFlags;
-}
+            newFlags.value=validate.ifValueIsNumber(newFlags.value);
+            newFlags.value=validate.ifValueIsBoolean(newFlags.value);
+                
+        })
+        return newFlags;
+    }
 
 
-checkIfFlagLEmpty=(flag)=>
-{  
-    const isEmpty = false;
-    if(flag.id === "-l" && flag.value == null)
+    checkIfFlagLEmpty=(flag)=>
     {  
-        flag.value = false;
-        return flag;
-    }
-    else{
+        const isEmpty = false;
+        if(flag.id === "-l" && flag.value == null)
+        {  
+            flag.value = false;
+            return flag;
+        }
+        else{
 
-        flag.value = true;
-        return flag;
+            flag.value = true;
+            return flag;
+        }
     }
 }
-}
 
-const schemaL = new Schema('-l',false,'boolean');
+/*const schemaL = new Schema('-l',false,'boolean');
 const schemaP = new Schema('-p',0,'number');
 const schemaD = new Schema('-d','1','string');
 
@@ -122,7 +122,7 @@ const flagCreated = parses.buildIfIsFlag(splited,schema);
 
 console.log(flagCreated);
 
-console.log(parses.parseIfPosible(flagCreated));
+console.log(parses.parseIfPosible(flagCreated));*/
 
 /*const args = "-l -p 8080 -d /usr/logs";
 

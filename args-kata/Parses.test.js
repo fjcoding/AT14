@@ -2,6 +2,7 @@ import { Parses } from './Parses'
 import {Schema} from './Schema'
 import { Flag } from "./Flag.js";
 import { DefaultValue } from "./DefaultValue.js";
+import { VarValidate } from './VarValidate';
 
 test('isItValid from Parse class should return if flags from array are valid returning "true"',()=>
 {
@@ -121,5 +122,57 @@ test('completeIfEmpty should return the the missing value "asd" from flag "-d" c
     const expected = defValD.deftValue;
     //expect(result).toBe(expected);
     expect(result).toBe('asd');
+})
+
+test('splitterArguments should return the given string as a array pulling away the words ',()=>
+{
+    const arg="-l -p 8080 -d /usr/logs";
+
+    const detect = new Parses();
+
+    const result = detect.splitterArguments(arg);
+    
+    const expected = ['-l', '-p', '8080', '-d', '/usr/logs'];
+    
+    expect(result).toStrictEqual(expected);//esta funcion permite comparar arrays en el expected
+
+})
+
+test('buildIfIsFlag should return new flags given an array',()=>
+{
+    const arg=['-l', '-p', '8080', '-d', '/usr/logs'];
+
+    const schemaL = new Schema('-l',false,'boolean');
+    const schemaP = new Schema('-p',0,'number');
+    const schemaD = new Schema('-d','1','string');
+
+    const schema = [schemaL,schemaP,schemaD];
+
+    const detect = new Parses();
+
+    const result = detect.buildIfIsFlag(arg,schema);
+    
+    const expected = [new Flag ('-l',),
+                      new Flag ('-p', '8080' ),
+                      new Flag ('-d', '/usr/logs')];
+    
+    expect(result).toStrictEqual(expected);
+
+})
+
+test('parseIfPosible should swtich the values from its flags if they are number or string and return the flags with values switched',()=>
+{
+    const newFlags = [new Flag ('-l','true'),
+                    new Flag ('-p', '8080' ),
+                    new Flag ('-d', '/usr/logs')];
+    
+    const detect = new Parses;
+    const result = detect.parseIfPosible(newFlags);
+    const expected = [new Flag ('-l',true),
+                      new Flag ('-p', 8080),
+                      new Flag ('-d', '/usr/logs')]; 
+
+    expect(result).toStrictEqual(expected);
+
 })
 

@@ -94,6 +94,103 @@ test("valueReplaceDefault should replace the default value from the flag -d to '
     expect(result).toBe(expected);
 })
 
+test("isFlag should check if the arguments '-l' is a flag and return 'true'",()=>
+{
+
+    const arg = "-l";
+    const schemaL = new Schema('-l',false,'boolean');
+  
+    const fullSchema = [schemaL];
+
+    const detector = new VarValidate;
+    const result = detector.isFlag(arg,fullSchema);
+    const expected =  true;
+    expect(result).toBe(expected);
+})
+
+
+test("isFlag should check if the arguments '-p' is a flag and return 'true'",()=>
+{
+
+    const arg = "-p";
+    const schemaP = new Schema('-p',0,'number');
+  
+    const fullSchema = [schemaP];
+
+    const detector = new VarValidate;
+    const result = detector.isFlag(arg,fullSchema);
+    const expected =  true;
+    expect(result).toBe(expected);
+})
+
+test("isFlag should check if the arguments '-d' is a flag and return 'true'",()=>
+{
+
+    const arg = "-d";
+    const schemaD = new Schema('-d'," ",'string');
+  
+    const fullSchema = [schemaD];
+
+    const detector = new VarValidate;
+    const result = detector.isFlag(arg,fullSchema);
+    const expected =  true;
+    expect(result).toBe(expected);
+})
+
+test("isFlag should check if the arguments 'asd' is a flag and return 'false'",()=>
+{
+
+    const arg = "asd";
+    const schemaD = new Schema('-d'," ",'string');
+  
+    const fullSchema = [schemaD];
+
+    const detector = new VarValidate;
+    const result = detector.isFlag(arg,fullSchema);
+    const expected =  false;
+    expect(result).toBe(expected);
+})
+
+test(('ifValueIsNumber should return switched value "arg" to a type number "123"'),()=>
+{
+    const arg = '123'
+
+    const detector = new VarValidate;
+    const result = detector.ifValueIsNumber(arg);
+    const expected = 123;
+    expect(result).toBe(expected);
+})
+
+test(('ifValueIsNumber should not return switched value, it should keep as its original value'),()=>
+{
+    const arg = '123a'
+
+    const detector = new VarValidate;
+    const result = detector.ifValueIsNumber(arg);
+    const expected = '123a';
+    expect(result).toBe(expected);
+})
+
+test(('ifValueIsBoolean should return switched value to a boolean "true"'),()=>
+{
+    const arg = "true";
+
+    const detector  = new VarValidate();
+    const result = detector.ifValueIsBoolean(arg);
+    const expected = true;
+    expect(result).toBe(expected);
+})
+
+test(('ifValueIsBoolean should not return switched value, it should keep its value'),()=>
+{
+    const arg = "truefalse";
+
+    const detector  = new VarValidate();
+    const result = detector.ifValueIsBoolean(arg);
+    const expected = "truefalse";
+    expect(result).toBe(expected);
+})
+
 /*test("valueReplaceDefault should detect the flag value ",()=>
 {
     const defValL = new DefaultValue('-l', false);
