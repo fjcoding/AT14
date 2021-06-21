@@ -33,14 +33,18 @@ class Schema {
 
     setDefaultValue(flag = new Flag,flagSchema = new FlagSchema){
 
+
         if(this.validateFlagType(flag,flagSchema)){
 
             return true;
         }
         else{
 
-            flag.setValue(flagSchema.defaultValue);
-            return this.compare(flag.value,flagSchema.defaultValue);
+            let defaultValue = flagSchema.getDefaultValue();
+
+            flag.setValue(defaultValue);
+
+            return this.compare(flag.getValue(),defaultValue);
         }
     }
 
@@ -59,4 +63,4 @@ class Schema {
     }
 }
 
-export {Schema};
+export { Schema };
