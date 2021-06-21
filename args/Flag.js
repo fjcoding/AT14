@@ -3,16 +3,6 @@ class Flag{
         this.id = id;
         this.value = value;
     }
-
-    getFlagId(){
-        return this.id;
-    }
-    getFlagValue(){
-        return this.value;
-    }
-    setFlagValue(){
-      return this.value;
-    }
     
 }
 
@@ -30,14 +20,7 @@ console.log(flagLogging.value);
 console.log(flagDir.id);
 console.log(flagDir.value);
 
-console.log(flagId.getFlagId());
-console.log(flagValue.getFlagValue());
 
-/*console.log('----------Args------------' + Object.getOwnPropertyNames(flagPort));
-Object.getOwnPropertyNames(flagPort).forEach(
-  function(val) {
-    console.log(val + ' -> ' + flagPort[val]);
-  }
-);*/
+
 
 export{Flag};

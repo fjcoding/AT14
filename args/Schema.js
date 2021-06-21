@@ -20,7 +20,7 @@ class Schema{
                 const flagType =this.detector.detectType(flag.value);
                 isValid =flagSchema.dataType === flagType;
             }
-        });
+        }); 
         return isValid;
     }
 
@@ -33,15 +33,17 @@ class Schema{
     }
 
     setDefault(flag){
-        this.defaultVal.forEach(defaultValue =>{
-            if(flag.id===defaultValue.id){
-                flag.value= defaultValue.DefaultValue(defaultValue.value);
+        this.flagSchemas.forEach(flagSchema =>{
+            if(flag.id===flagSchema.id){
+               const flagDefaultValue= this.defaultVal.getDefaultValue(flag);
+               flag.value= flagDefaultValue;
             }
         });
         return flag;
 
     }
-    
+
+   
 
     
 
@@ -53,25 +55,16 @@ const dir = new FlagSchema('-d', '', 'string');
 
 const schema = new Schema([port, logging, dir]);
 
-const portArg = new Flag('-p',8080);
+const portArg = new Flag('-p');
 const loggingArg = new Flag('-l');
 const dirArg= new Flag('-d','/usr/logs');
 
-const def = new DefaultValue('-p');
 
-console.log('Flag is null?')
-console.log(schema.isNull(portArg));
+
+
 console.log('Set default flag');
-//console.log(schema.setDefault(portArg, def));
+console.log(schema.setDefault(portArg));
 
-
-
-
-
-
-//console.log(schema.isValid(portArg));
-//console.log(schema.isValid(loggingArg));
-//console.log(schema.isValid(dirArg));
 
 
 

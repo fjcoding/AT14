@@ -1,21 +1,23 @@
+import {Flag} from './Flag.js';
+
 class DefaultValue{
     constructor(id, value){
-        this.id =id;
+        this.flag= new Flag();
+        this.id=id;
         this.value=value;
-    }
+ 
+   }
+   getDefaultValue(flag){
+        if(flag.id==='-p'){
+            flag.value= 0;
+        }else if(flag.id==='-l'){
+            flag.value= false;
+        }else{
+            flag.value= '';
+        }
+        return flag.value;
+   }
+   
 }
-
-const defaultValue1= new DefaultValue('-p', 0);
-const defaultValue2= new DefaultValue('-l', false);
-const defaultValue3= new DefaultValue('-d', "");
-
-console.log(defaultValue1.id);
-console.log(defaultValue1.value);
-console.log(defaultValue2.id);
-console.log(defaultValue2.value);
-console.log(defaultValue3.id);
-console.log(defaultValue3.value);
-
-
 
 export{DefaultValue};
