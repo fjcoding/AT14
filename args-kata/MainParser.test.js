@@ -37,5 +37,12 @@ test('mainParser should return an array with "flags" and boolean "arguments"',()
 
 })
 
-test('printMainValues should print the flags and if any flags value doesnt accomplish the schema',()=>{})
-
+test('printMainValues should print the flags and if any flags value doesnt accomplish the schema', () => {
+    const detect = new MainParser();
+    const args = "-l asd"
+    const as = detect.printMainValues(args);
+  
+    //expect(t).toThrowError('UNKNOWN ERROR');
+    //or
+    expect(as).toThrowError('El valor de la') ;
+  });
