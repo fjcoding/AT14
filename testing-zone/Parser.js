@@ -6,16 +6,15 @@ class Parser {
 
     //flagSchemas
 
-
     port = new FlagSchema('-p', 0 , 'number');
     logging = new FlagSchema('-l', false ,'boolean');
     dir = new FlagSchema('-d', '', 'string');
 
     schema = new Schema([this.logging,this.dir,this.port])
 
+    dirArg = new Flag('-d','/usr/logs');
     portArg = new Flag('-p',8080);
     loggingArg = new Flag('-l');
-    dirArg = new Flag('-d','/usr/logs');
 
     constructor(command = ''){
 

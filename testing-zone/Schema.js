@@ -21,14 +21,14 @@ class Schema {
 
     validateFlagId(flag = new Flag,flagSchema = new FlagSchema) { 
 
-        return this.compare(flag.id,flagSchema.id); 
+        return this.compare(flag.getId(),flagSchema.getId()); 
     }
 
     validateFlagType(flag = new Flag,flagSchema = new FlagSchema){ 
 
-        let dataType = this.detector.detectType(flag.value);
+        let dataType = this.detector.detectType(flag.getValue());
 
-        return this.compare(flagSchema.dataType,dataType);
+        return this.compare(flagSchema.getDataType(),dataType);
     }
 
     setDefaultValue(flag = new Flag,flagSchema = new FlagSchema){
