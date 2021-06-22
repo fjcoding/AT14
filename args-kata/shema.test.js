@@ -68,7 +68,7 @@ test("Schema will verify if 2 elements are flags", () => {
   const dirSchema = new FlagSchema("-d", "string", "");
   const schema = new Schema([loginSchema, portSchema, dirSchema]);
 
-  const result = schema.compareTwoFlagsTogether("-p", "-d");
+  const result = schema.isTwoFlagsTogether("-p", "-d");
 
   const expected = true;
 
@@ -81,25 +81,9 @@ test("Schema will verify if 2 elements are not flags", () => {
   const dirSchema = new FlagSchema("-d", "string", "");
   const schema = new Schema([loginSchema, portSchema, dirSchema]);
 
-  const result = schema.compareTwoFlagsTogether("-p", "/user/pepe");
+  const result = schema.isTwoFlagsTogether("-p", "/user/pepe");
 
   const expected = false;
-
-  expect(result).toBe(expected);
-});
-
-test("Schema will parse the problem", () => {
-  const exercise = "-l -p ";
-  const exerciseSplit = exercise.split(" ");
-
-  const loginSchema = new FlagSchema("-l", "boolean", "false");
-  const portSchema = new FlagSchema("-p", "number", 0);
-  const dirSchema = new FlagSchema("-d", "string", "");
-  const schema = new Schema([loginSchema, portSchema, dirSchema]);
-
-  const result = schema.parse();
-
-  const expected = true;
 
   expect(result).toBe(expected);
 });

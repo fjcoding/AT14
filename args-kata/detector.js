@@ -16,11 +16,8 @@ const operator = {
     }
   }
 };
-class Detect {
+export class Detect {
   finalDetector = (expectedType, value) => {
     return operator[expectedType](value);
   };
 }
-const pepe = new Detect();
-
-export { Detect };
