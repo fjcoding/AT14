@@ -1,65 +1,34 @@
-import { Argument } from './Argument.js'
 import { FlagSchema } from './FlagSchema.js'
+import { Parser } from './Parser.js'
 import { TypeDetector } from './TypeDetector.js'
 import { Type } from './Type.js'
-
-class Schema {
-    constructor(flagSchemas, Arguments) {
-        this.flagSchemas = flagSchemas;
-        this.Arguments   = Arguments;
-        this.detector    = new TypeDetector;
-        this.setDefaultValues();
-    }
-
-    setDefaultValues(){
-        //console.log("setDefault");
-        this.flagSchemas.forEach(flagSchema => {
-            this.Arguments.forEach(argument =>  {
-                if (flagSchema.id === argument.flagId) {
-                    if(argument.Value === null){
-                        argument.setValue(flagSchema.defaultValue)                
-                    }                     
-                }
-            });
-        });
-    }
-
-    isValid() {
-        let isValid = true;
-        this.flagSchemas.forEach(flagSchema => {
-            this.Arguments.forEach(argument =>  {
-                if (flagSchema.id === argument.flagId) {
-                    const flagType = new Type(argument.Value).getType();
-                    isValid = isValid && (flagSchema.dataType === flagType);                   
-                    console.log(argument.flagId + " " + flagSchema.dataType + " " +flagType+ " "+isValid);                    
-                }
-            });            
-        });
-        return isValid;
-    }
-    /* DIVIDR FALG Y VALUE OTRA FUNCION*/
-}
+import { Schema } from './Schema.js'
 
 const port = new FlagSchema('-p', 0, 'number')
 const logging = new FlagSchema('-l', false, 'boolean')
 const dir = new FlagSchema('-d', '', 'string')
 
-const stringList  = new FlagSchema('-g', null, 'stringArray')
-const integerList = new FlagSchema('-i', '', 'numberArray')
-//const integerList = new FlagSchema('-d', '', 'numberArray')
+// const stringList  = new FlagSchema('-g', null, 'stringArray')
+// const integerList = new FlagSchema('-i', '', 'numberArray')
+// const integerList = new FlagSchema('-d', '', 'numberArray')
 
-// parser("-l -p 8080 -d /asd/sa")
-// const stringCmd = "-l -p 8080 -d /user/se -g";
+const stringCmd = "-l -p 8080 -d /asd/sa";
+const parserCmd = new Parser(stringCmd);
+const arrayArgs = parserCmd.getMaps();
+console.log(arrayArgs);
 
-const portArg = new Argument('-p',8080)
-const dirArg = new Argument('-d', '/usr/logs')
-const loggingArg = new Argument('-l')
+const schema = new Schema([port, logging, dir],arrayArgs);
+console.log(schema.isValid());
 
-const stringListArg  = new Argument('-g', ["this", "is", "a", "List"]);
-const numberListArg = new Argument('-i', [1,2,-3,5]);
 
-const schema = new Schema([port, logging, dir, stringList, integerList],[portArg, dirArg, loggingArg,stringListArg, numberListArg
-]);
+// const portArg = new Argument('-p',8080)
+// const dirArg = new Argument('-d', '/usr/logs')
+// const loggingArg = new Argument('-l')
+
+//const stringListArg  = new Argument('-g', ["this", "is", "a", "List"]);
+//const numberListArg = new Argument('-i', [1,2,-3,5]);
+
+// const schema = new Schema([port, logging, dir, stringList, integerList],[portArg, dirArg, loggingArg,stringListArg, numberListArg ]);
 /*
 console.log(schema.isValid(portArg));
 console.log(schema.isValid(loggingArg));
@@ -68,7 +37,7 @@ console.log(schema.isValid(stringListArg));
 console.log(schema.isValid(numberListArg));
 */
 // console.log(schema.isValid(loggingArg));
-console.log(schema.isValid());
+// console.log(schema.isValid());
 /*
 const Argument = require('./Argument')
 const Schema   = require('./Schema')

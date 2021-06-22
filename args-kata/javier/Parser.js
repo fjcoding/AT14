@@ -1,3 +1,5 @@
+import { Argument } from './Argument.js'
+
 class Parser{
     constructor(stringCmd){
         this.stringCmd = stringCmd;
@@ -23,26 +25,20 @@ class Parser{
     getMaps(){
         this.arrayArgs.forEach((element, index, arr)=>{
             if(this.isFLag(element)){
-                let myargs = {};                
+                let myargs = new Argument(element, null);                
                 if(arr[index+1]) 
                 {
-                    
-                    myargs.name  = element;
-                    myargs.value = null;
+                    myargs.setValue(null);
                     if(!this.isFLag(arr[index+1]))
                     {
-                        myargs.value = arr[index+1];
+                        myargs.setValue(arr[index+1]);
                     }
-                    
-                    this.args.push(myargs);                
                 }                    
                 else
                 {
-                    myargs.name  = element;
-                    myargs.value = null;
-                    this.args.push(myargs);                                    
+                    myargs.setValue(null);
                 }
-                
+                this.args.push(myargs);                      
             }                        
         })
         return this.args;

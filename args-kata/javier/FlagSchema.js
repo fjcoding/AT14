@@ -4,7 +4,6 @@ class FlagSchema {
         this.defaultValue = defaultValue;
         this.dataType = dataType;
     }
-
 }
 /*
 const flagSchemaPort = new FlagSchema('-p', 0, 'number')

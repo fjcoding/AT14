@@ -1,3 +1,4 @@
+import { Argument } from './Argument.js'
 import { Parser } from "./Parser.js";
 
 test('This Class has a method for return a Map without spaces',()=>{
@@ -6,9 +7,9 @@ test('This Class has a method for return a Map without spaces',()=>{
 
     expect(result).toEqual(
         expect.arrayContaining([
-            expect.objectContaining({name:'-l',value:null}),
-            expect.objectContaining({name:'-p', value:'8080'}),
-            expect.objectContaining({name:'-d', value:'/user/etc'}),
+            expect.objectContaining({flagId:'-l',Value:null}),
+            expect.objectContaining({flagId:'-p', Value:'8080'}),
+            expect.objectContaining({flagId:'-d', Value:'/user/etc'}),
         ])
     );
 });
@@ -19,9 +20,9 @@ test('This Class has a method for return a Map with spaces',()=>{
 
     expect(result).toEqual(
         expect.arrayContaining([
-            expect.objectContaining({name:'-l',value:null}),
-            expect.objectContaining({name:'-p', value:'8080'}),
-            expect.objectContaining({name:'-d', value:'/user/etc'}),
+            expect.objectContaining({flagId:'-l',Value:null}),
+            expect.objectContaining({flagId:'-p', Value:'8080'}),
+            expect.objectContaining({flagId:'-d', Value:'/user/etc'}),
         ])
     );
 });

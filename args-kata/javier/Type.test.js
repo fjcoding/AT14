@@ -15,6 +15,13 @@ test('The function getType() should be return a number for many number in File',
     });
 });
 */
+test('The function getType() should be return a number for a value -5',()=>{
+    const obj    = new Type(-5);
+    const result = obj.getType();
+    const excepted = "number";
+    expect(result).toBe(excepted);
+});
+
 test('The function getType() should be return a number for a value 5',()=>{
     const obj    = new Type(5);
     const result = obj.getType();

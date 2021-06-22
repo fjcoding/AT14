@@ -1,8 +1,25 @@
 class Type{
-    constructor(str){
+    constructor(str, defaultType="undefined"){
         this.str = str;
-        this.type = "undefined";
+        this.type = defaultType;
+        this.parserType();
         this.defineType();
+    }
+    parserType(){
+            switch(this.type)
+            {
+                case "number":  
+                    this.str = parseInt(this.str);
+                break;
+                case "boolean":   
+                    this.str = Boolean(this.str);
+                break;
+                case "string":    
+                    this.str = this.str + "";
+                break;            
+                default:
+                break;
+            }
     }
     defineType(){
         let defaultType = typeof(this.str);
