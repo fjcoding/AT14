@@ -5,6 +5,11 @@ class RomanCalculator {
         } else {
             return 1
         }
+        switch(romanNumeral){
+            case 'V': return 5;
+            case 'I': return 1;
+            
+        }
     }
 }
 
