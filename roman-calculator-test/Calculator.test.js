@@ -33,12 +33,16 @@ test("Given a roman numeral 'M' Roman Calculator should return 1000", () => {
     expect(calculator.toDecimalNumber('M')).toBe(1000)
 })
 
-test('Given a roman numeral verify if it is a valid roman numeral',()=>
-{
-
-})
-
 test("Verify that you only enter valid roman character", () => {
     const calculator = new RomanCalculator
     expect(calculator.isCharacterValid('8')).toBe(false)
 })
+
+/*
+test("Given two roman numbers I and V Calculator should return 6", () => {
+    const calculator = new RomanCalculator;
+    const number1 = calculator.toDecimalNumber('I');
+    const number2 = calculator.toDecimalNumber('V');
+    expect(calculator.isCharacterValid('8')).toBe(true)
+})
+*/
