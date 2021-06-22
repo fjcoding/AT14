@@ -1,4 +1,5 @@
 class RomanCalculator {
+    
     toDecimalNumber(romanNumeral) {
         /*if (romanNumeral === 'V') {
             return 5
@@ -14,6 +15,11 @@ class RomanCalculator {
             case 'C': return 100;
             case 'M': return 1000;  
         }
+    }
+
+    isCharacterValid(character){
+        var regex = /([I]|[V]|[X]|[L]|[C]|[D]|[M])/;
+        if(this.character.charAt(0) == )
     }
 }
 
