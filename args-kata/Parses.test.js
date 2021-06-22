@@ -19,6 +19,21 @@ test('isItValid from Parse class should return if flags from array are valid ret
     expect(result).toBe(expected);
 })
 
+/*test('isItValid from Parse class should return the "flagL" value and introduce the schema and the flagL value to the function',()=>
+{
+    const schemaL = new Schema('-l',false,'boolean');
+
+    const arraySchema = [schemaL];
+
+    const flagL = new Flag('-l',true);
+
+    const detect = new Parses;
+    const result = detect.isItValid(arraySchema,flagL);
+
+    const expected = flagL;
+    expect(result).toStrictEqual(expected);
+})*/
+
 test('isItValid from Parse class should introduce a boolean value, if flags from array are not valid it will return "false"',()=>
 {
     const schemaL = new Schema('-l',false,'boolean');

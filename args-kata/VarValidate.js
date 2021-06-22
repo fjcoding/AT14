@@ -69,7 +69,7 @@ class VarValidate
 
     ifValueIsNumber=(arg)=>
     {
-        if(!isNaN(arg) && arg!= null)
+        if(!isNaN(arg) && arg!= null && arg!= false && arg!= true)
         {
             arg=Number(arg)
         }
@@ -96,16 +96,5 @@ class VarValidate
 
     
 }
-//const value = new VarValidate;
 
-//console.log(value.ifValueIsNumber(true) +"   " +typeof(value.ifValueIsNumber(true)));
-/*const value = new VarValidate;
-const schemaL = new Schema('-l',false,'boolean');
-const schemaP = new Schema('-p',0,'number');
-const schemaD = new Schema('-d','1','string');
-
-const schema = [schemaL,schemaP,schemaD];
-//['-l','-p',8080,'-d','/usr/logs']
-const spliarray = '/usr/logs';
-console.log(value.isFlag(spliarray,schema))*/
 export{ VarValidate };
