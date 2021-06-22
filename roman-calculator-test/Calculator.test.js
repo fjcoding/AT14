@@ -37,3 +37,8 @@ test('Given a roman numeral verify if it is a valid roman numeral',()=>
 {
 
 })
+
+test("Verify that you only enter valid roman character", () => {
+    const calculator = new RomanCalculator
+    expect(calculator.isCharacterValid('8')).toBe(false)
+})
