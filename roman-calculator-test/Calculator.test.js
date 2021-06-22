@@ -32,3 +32,8 @@ test("Given a roman numeral 'M' Roman Calculator should return 1000", () => {
     const calculator = new RomanCalculator
     expect(calculator.toDecimalNumber('M')).toBe(1000)
 })
+
+test('Given a roman numeral verify if it is a valid roman numeral',()=>
+{
+
+})
