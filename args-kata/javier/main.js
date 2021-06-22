@@ -12,7 +12,7 @@ const dir = new FlagSchema('-d', '', 'string')
 // const integerList = new FlagSchema('-i', '', 'numberArray')
 // const integerList = new FlagSchema('-d', '', 'numberArray')
 
-const stringCmd = "-l -p 8080 -d /asd/sa";
+const stringCmd = "-l -p asd -d /user/asd";
 const parserCmd = new Parser(stringCmd);
 const arrayArgs = parserCmd.getMaps();
 console.log(arrayArgs);

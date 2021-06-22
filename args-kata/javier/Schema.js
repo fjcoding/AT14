@@ -31,7 +31,7 @@ class Schema {
             this.Arguments.forEach(argument =>  {
                 if (flagSchema.id === argument.flagId) {
                     const flagType = new Type(argument.Value, flagSchema.dataType);
-                    console.log(argument.Value +" ** "+ flagSchema.dataType + "**" +flagType);
+                    //console.log(argument.Value +" ** "+ flagSchema.dataType + "**" +flagType.getType());
                     isValid = isValid && (flagSchema.dataType === flagType.getType());                   
                     //console.log(argument.flagId + " " + flagSchema.dataType + " " +flagType+ " "+isValid);                    
                 }

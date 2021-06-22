@@ -27,7 +27,7 @@ test("TypeDetector should detect 'string' as the type of a value 'abcd'", () =>{
     const expected = 'string'
     expect(result).toBe(expected)
 })
-
+/*
 test("TypeDetector should detect 'numberArray' as the type of a value [4,8,4,-1,5]", () =>{
     const detector = new TypeDetector
     const result = detector.detectType([4,8,4,-1,5])
@@ -42,3 +42,4 @@ test("TypeDetector should detect 'stringArray' as the type of a value ['5','Hell
     const expected = 'stringArray'
     expect(result).toBe(expected)
 })
+*/
