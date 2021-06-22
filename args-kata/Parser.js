@@ -58,7 +58,7 @@ const logging = new ArgumentSchema('-l', false, 'boolean', false)
 const dir = new ArgumentSchema('-d', '', 'string', true)
 const parser = new Parser([port, logging, dir]);
 
-console.log(parser.parseador("-l -p abcd -d -k"));
+console.log(parser.parseador("-l"));
 
 export { Parser }
 

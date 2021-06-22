@@ -53,7 +53,6 @@ class CompleteArgument{
 const logging = new ArgumentSchema('-l', false, 'boolean', false)
 const dir = new ArgumentSchema('-d', '', 'string', true)
 
-
 const portArg = new Argument('-p', 8080)
 const loggingArg = new Argument('-l', false)
 const dirArg = new Argument('-d', 'alñjfñaljdf')
