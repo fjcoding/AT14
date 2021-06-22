@@ -18,8 +18,10 @@ class RomanCalculator {
     }
 
     isCharacterValid(character){
-        var regex = /([I]|[V]|[X]|[L]|[C]|[D]|[M])/;
-        if(this.character.charAt(0) == )
+        let regex = /([I]|[V]|[X]|[L]|[C]|[D]|[M])/;
+        if(character.search(regex)>=0)
+            return true;
+        return false;    
     }
 }
 
