@@ -1,0 +1,23 @@
+div {
+    background-color: red;
+    height: 20px;
+    width: 20px;
+  }
+  
+  .block {
+    background-color: blue;
+  }
+  
+  .takenBlock {
+    background-color: blue;
+  }
+  
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 200px;
+  }
+  
+  .end {
+    background-color: white;
+  }
