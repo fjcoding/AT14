@@ -1,14 +1,9 @@
 class RomanCalculator {
     
     toDecimalNumber(romanNumeral) {
-        /*if (romanNumeral === 'V') {
-            return 5
-        } else {
-            return 1
-        }*/
         switch(romanNumeral){
-            case 'V': return 5;
             case 'I': return 1;
+            case 'V': return 5;            
             case 'X': return 10;
             case 'L': return 50;
             case 'D': return 500;
@@ -23,6 +18,7 @@ class RomanCalculator {
             return true;
         return false;    
     }
+   
 }
 
 export { RomanCalculator }

@@ -38,11 +38,7 @@ test("Verify that you only enter valid roman character", () => {
     expect(calculator.isCharacterValid('8')).toBe(false)
 })
 
-/*
-test("Given two roman numbers I and V Calculator should return 6", () => {
-    const calculator = new RomanCalculator;
-    const number1 = calculator.toDecimalNumber('I');
-    const number2 = calculator.toDecimalNumber('V');
-    expect(calculator.isCharacterValid('8')).toBe(true)
+test("Verify that you only enter valid roman character", () => {
+    const calculator = new RomanCalculator
+    expect(calculator.isCharacterValid('M')).toBe(true)
 })
-*/
