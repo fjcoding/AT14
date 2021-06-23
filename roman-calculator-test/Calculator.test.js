@@ -52,7 +52,7 @@ test("Given a roman two numerals 'II' Roman Calculator should return 2", () => {
     expect(calculator.twoRoman('II')).toBe(2)
 })
 
-test("Given a roman three numerals 'III' Roman Calculator should return 2", () => {
+test("Given a roman three numerals 'III' Roman Calculator should return 3", () => {
     const calculator = new RomanCalculator
     expect(calculator.twoRoman('III')).toBe(3)
 })
@@ -66,4 +66,17 @@ test("Given a roman four numerals 'XXII' Roman Calculator should return 22", () 
     expect(calculator.twoRoman('XXII')).toBe(22)
 })
 
+test("Given a roman two numerals 'IV' Roman Calculator first one is less than the second one, should return 4", () => {
+    const calculator = new RomanCalculator
+    expect(calculator.isLess('IV')).toBe(4)
+})
 
+test("Given a roman two numerals 'IX' Roman Calculator first one is less than the second one, should return 9", () => {
+    const calculator = new RomanCalculator
+    expect(calculator.isLess('IX')).toBe(9)
+})
+
+test("Given a roman two numeral 'XC' Roman Calculator first one is less than the second one should return 90", () => {
+    const calculator = new RomanCalculator
+    expect(calculator.isLess('XC')).toBe(90)
+})
