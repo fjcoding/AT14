@@ -100,3 +100,13 @@ test("Given two roman numeral 'X' and 'C' sum roman numbers, should return 110",
     const calculator = new RomanCalculator
     expect(calculator.sumRomanNumeral('X', 'C')).toBe(110)
 })
+
+test("Given two roman numeral 'X' and 'C' sum roman numbers, should return 110", () => {
+    const calculator = new RomanCalculator
+    expect(calculator.sumRomanNumeral('X', 'C')).toBe(110)
+})
+
+test("Given a roman numeral 'LIX' Roman Calculator should return 59", () => {
+    const calculator = new RomanCalculator
+    expect(calculator.convertRomanToDecimal('LIX')).toBe(59)
+})
