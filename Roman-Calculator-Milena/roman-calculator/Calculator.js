@@ -20,13 +20,12 @@ class RomanCalculator {
         else return false;  
     }
 
-    WhenToAddInTheCharacterArray(character){
+   /* WhenToAddInTheCharacterArray(character){
         return true;
     }
-
     WhenToSubtracInTheCharacterArray(character){
         return false;
-    }
+    }*/
 
 }
 

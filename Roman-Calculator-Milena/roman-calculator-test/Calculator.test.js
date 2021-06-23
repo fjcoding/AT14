@@ -40,23 +40,22 @@ test("Verify that you only enter valid roman character", () => {
 
 test("Verify that characters are joined correctly, this test has to pass", () => {
     const calculator = new RomanCalculator
-    expect(calculator.WhenToAddInTheCharacterArray('VI')).toBe(true)
+    expect(calculator.isCharacterValid('VI')).toBe(true)
 })
 
 test("Verify that characters are joined correctly; this case test has to pass", () => {
     const calculator = new RomanCalculator
-    expect(calculator.WhenToAddInTheCharacterArray('IV')).toBe(true)
+    expect(calculator.isCharacterValid('IV')).toBe(true)
 })
 
 test("Verify that characters are joined correctly; to verify wrong union", () => {
     const calculator = new RomanCalculator
-    expect(calculator.WhenToAddInTheCharacterArray('DX')).toBe(true)
+    expect(calculator.isCharacterValid('DX')).toBe(true)
 })
 
-/*continuar aqui funcion joinCharacterInAString*/
 
 test("The rules for writing Roman numerals dictate that: If the number on the left is less, it means subtract the lesser from the greater.", () => {
     const calculator = new RomanCalculator
-    expect(calculator.WhenToSubtracInTheCharacterArray('IX')).toBe(false)
+    expect(calculator.isCharacterValid('IX')).toBe(false)
 })
 
