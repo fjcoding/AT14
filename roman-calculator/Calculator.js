@@ -15,7 +15,6 @@ class RomanCalculator {
             {
                 value = value - lastValue + (currentValue - lastValue);
             }    
-            //console.log(currentValue + " ** " + lastValue + " ** " + value);            
             lastValue = currentValue;
         });
         return value;
