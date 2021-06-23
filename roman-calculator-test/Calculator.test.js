@@ -73,18 +73,88 @@ test("Given a roman numeral 'LX' Roman Calculator should return 60", () => {
     expect(calculator.toDecimalNumber('LX')).toBe(60)
 })
 
+test("Given a roman numeral 'II' Roman Calculator should return 2", () => {
+    const calculator = new RomanCalculator
+    expect(calculator.toDecimalNumber('II')).toBe(2)
+})
+
+test("Given a roman numeral 'VII' Roman Calculator should return 7", () => {
+    const calculator = new RomanCalculator
+    expect(calculator.toDecimalNumber('VII')).toBe(7)
+})
+
+test("Given a roman numeral 'VIII' Roman Calculator should return 8", () => {
+    const calculator = new RomanCalculator
+    expect(calculator.toDecimalNumber('VIII')).toBe(8)
+})
+
+test("Given a roman numeral 'III' Roman Calculator should return 3", () => {
+    const calculator = new RomanCalculator
+    expect(calculator.toDecimalNumber('III')).toBe(3)
+})
+
+
+test("Given a roman numeral 'LIX' Roman Calculator should return 59", () => {
+    const calculator = new RomanCalculator
+    expect(calculator.toDecimalNumber('LIX')).toBe(59)
+})
+
+test("Given a roman numeral 'LIV' Roman Calculator should return 54", () => {
+    const calculator = new RomanCalculator
+    expect(calculator.toDecimalNumber('LIV')).toBe(54)
+})
+
 test("Verify that you only enter valid roman character", () => {
     const calculator = new RomanCalculator
     expect(calculator.isCharacterValid('8')).toBe(false)
 })
 
-
-
-/*
-test("Given two roman numbers I and V Calculator should return 6", () => {
-    const calculator = new RomanCalculator;
-    const number1 = calculator.toDecimalNumber('I');
-    const number2 = calculator.toDecimalNumber('V');
-    expect(calculator.isCharacterValid('8')).toBe(true)
+test("Given a decimal numeral 5 Roman Calculator should return V", () => {
+    const calculator = new RomanCalculator
+    expect(calculator.toRomanNumber(5)).toBe("V")
 })
-*/
+
+test("Given a decimal numeral 4 Roman Calculator should return IV", () => {
+    const calculator = new RomanCalculator
+    expect(calculator.toRomanNumber(4)).toBe("IV")
+})
+
+test("Given a decimal numeral 6 Roman Calculator should return VI", () => {
+    const calculator = new RomanCalculator
+    expect(calculator.toRomanNumber(6)).toBe("VI")
+})
+
+test("Given a decimal numeral 14 Roman Calculator should return XIV", () => {
+    const calculator = new RomanCalculator
+    expect(calculator.toRomanNumber(14)).toBe("XIV")
+})
+
+test("Given a decimal numeral 3 Roman Calculator should return III", () => {
+    const calculator = new RomanCalculator
+    expect(calculator.toRomanNumber(3)).toBe("III")
+})
+
+test("Given two roman numbers I and V Calculator should return VI", () => {
+    const calculator = new RomanCalculator;
+    const number1    = calculator.toDecimalNumber('I');
+    const number2    = calculator.toDecimalNumber('V');
+    const result     = number1 + number2;
+    expect(calculator.toRomanNumber(result)).toBe("VI")
+})
+
+test("Given two roman numbers XX and II Calculator should return XXII", () => {
+    const calculator = new RomanCalculator;
+    const number1    = calculator.toDecimalNumber('XX');
+    const number2    = calculator.toDecimalNumber('II');
+    const result     = number1 + number2;
+    expect(calculator.toRomanNumber(result)).toBe("XXII")
+})
+
+
+test("Given two roman numbers XIV and LX Calculator should return LXXIV", () => {
+    const calculator = new RomanCalculator;
+    const number1    = calculator.toDecimalNumber('XIV');
+    const number2    = calculator.toDecimalNumber('LX');
+    const result     = number1 + number2;
+    expect(calculator.toRomanNumber(result)).toBe("LXXIV")
+})
