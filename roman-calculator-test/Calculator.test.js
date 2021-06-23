@@ -80,3 +80,23 @@ test("Given a roman two numeral 'XC' Roman Calculator first one is less than the
     const calculator = new RomanCalculator
     expect(calculator.isLess('XC')).toBe(90)
 })
+
+test("Given a roman two numeral 'CM' Roman Calculator first one is less than the second one should return 900", () => {
+    const calculator = new RomanCalculator
+    expect(calculator.isLess('CM')).toBe(900)
+})
+
+/*test("Given a roman verify number of digits 'I' can't have more than three", () => {
+    const calculator = new RomanCalculator
+    expect(calculator.verifyNumberDigits('IIII')).toBe(false)
+})*/
+
+test("Given two roman numeral 'I' and 'V' sum roman numbers, should return 6", () => {
+    const calculator = new RomanCalculator
+    expect(calculator.sumRomanNumeral('I', 'V')).toBe(6)
+})
+
+test("Given two roman numeral 'X' and 'C' sum roman numbers, should return 110", () => {
+    const calculator = new RomanCalculator
+    expect(calculator.sumRomanNumeral('X', 'C')).toBe(110)
+})
