@@ -32,11 +32,53 @@ test("Given a roman numeral 'M' Roman Calculator should return 1000", () => {
     const calculator = new RomanCalculator
     expect(calculator.toDecimalNumber('M')).toBe(1000)
 })
+// To numbers with length 2
+test("Given a roman numeral 'CM' Roman Calculator should return 900", () => {
+    const calculator = new RomanCalculator
+    expect(calculator.toDecimalNumber('CM')).toBe(900)
+})
+
+test("Given a roman numeral 'XC' Roman Calculator should return 90", () => {
+    const calculator = new RomanCalculator
+    expect(calculator.toDecimalNumber('XC')).toBe(90)
+})
+test("Given a roman numeral 'IX' Roman Calculator should return 9", () => {
+    const calculator = new RomanCalculator
+    expect(calculator.toDecimalNumber('IX')).toBe(9)
+})
+
+
+test("Given a roman numeral 'CD' Roman Calculator should return 400", () => {
+    const calculator = new RomanCalculator
+    expect(calculator.toDecimalNumber('CD')).toBe(400)
+})
+
+test("Given a roman numeral 'XL' Roman Calculator should return 40", () => {
+    const calculator = new RomanCalculator
+    expect(calculator.toDecimalNumber('XL')).toBe(40)
+})
+
+test("Given a roman numeral 'IV' Roman Calculator should return 4", () => {
+    const calculator = new RomanCalculator
+    expect(calculator.toDecimalNumber('IV')).toBe(4)
+})
+
+test("Given a roman numeral 'XIV' Roman Calculator should return 14", () => {
+    const calculator = new RomanCalculator
+    expect(calculator.toDecimalNumber('XIV')).toBe(14)
+})
+
+test("Given a roman numeral 'LX' Roman Calculator should return 60", () => {
+    const calculator = new RomanCalculator
+    expect(calculator.toDecimalNumber('LX')).toBe(60)
+})
 
 test("Verify that you only enter valid roman character", () => {
     const calculator = new RomanCalculator
     expect(calculator.isCharacterValid('8')).toBe(false)
 })
+
+
 
 /*
 test("Given two roman numbers I and V Calculator should return 6", () => {
