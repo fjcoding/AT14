@@ -46,3 +46,24 @@ test("Given two roman numbers I and V Calculator should return 6", () => {
     expect(calculator.isCharacterValid('8')).toBe(true)
 })
 */
+
+test("Given a roman two numerals 'II' Roman Calculator should return 2", () => {
+    const calculator = new RomanCalculator
+    expect(calculator.twoRoman('II')).toBe(2)
+})
+
+test("Given a roman three numerals 'III' Roman Calculator should return 2", () => {
+    const calculator = new RomanCalculator
+    expect(calculator.twoRoman('III')).toBe(3)
+})
+test("Given a roman two numerals 'VII' Roman Calculator should return 7", () => {
+    const calculator = new RomanCalculator
+    expect(calculator.twoRoman('VII')).toBe(7)
+})
+
+test("Given a roman four numerals 'XXII' Roman Calculator should return 22", () => {
+    const calculator = new RomanCalculator
+    expect(calculator.twoRoman('XXII')).toBe(22)
+})
+
+
