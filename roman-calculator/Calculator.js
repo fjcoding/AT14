@@ -1,27 +1,7 @@
 class RomanCalculator {
     
-    toDecimalNumber(romanNumeral) {
-        romanNumeral     = Array.from(romanNumeral); 
-        let value        = 0;
-        let lastValue    = this.getNumberValue(romanNumeral[0]);
-        let currentValue = 0;
-        romanNumeral.forEach(element => {
-            currentValue = this.getNumberValue(element);
-            if(lastValue >= currentValue)
-            {
-                value = value + currentValue;
-            }
-            else
-            {
-                value = value - lastValue + (currentValue - lastValue);
-            }    
-            //console.log(currentValue + " ** " + lastValue + " ** " + value);            
-            lastValue = currentValue;
-        });
-        return value;
-    }
+    getNumberValue(romanNumeral = ''){
 
-    getNumberValue(romanNumeral){
         switch(romanNumeral){
             case 'I': return 1;            
             //case 'IV': return 4;
@@ -41,12 +21,71 @@ class RomanCalculator {
         }
     }
 
-    isCharacterValid(character){
+    isCharacterValid(character = ''){
+
         let regex = /([I]|[V]|[X]|[L]|[C]|[D]|[M])/;
-        if(character.search(regex)>=0)
-            return true;
-        return false;    
+
+        return (character.search(regex)>=0) ? true : false;
     }
+
+    romanToDecimal(romanNumber = '') { 
+
+        let decimal = 0;
+        let getNumberValue;
+        let previousValue = 0;
+
+        for (let i = 0; i < romanNumber.length; i++) {
+
+            getNumberValue = this.getNumberValue(romanNumber.charAt(i));
+
+            decimal += (previousValue >= getNumberValue) 
+                ? getNumberValue
+                : getNumberValue - previousValue * 2;
+
+            previousValue = getNumberValue;
+        }
+        return decimal;
+    }
+
+    sumNumbers(numberOne = 0, numberTwo = 0) {
+
+        return numberOne + numberTwo;
+    }
+
+    sumRomanNumbers(romanNumberOne = '', romanNumberTwo = '') {
+
+        let resultado = this.sumNumbers(this.romanToDecimal(romanNumberOne), this.romanToDecimal(romanNumberTwo));
+
+        return this.decimalToRoman(resultado);
+    }
+
+    decimalToRoman(number = 0) {
+
+        let remainder = number;
+        let roman = '';
+
+        let  romanValues = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I']; 
+        let decimalValues = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+
+        for(let i = 0; i < romanValues.length; i++) {
+
+            [roman , remainder] = this.addRomanNumber(remainder, decimalValues[i], romanValues[i], roman);
+        }        
+
+        return  roman;
+    }
+
+    addRomanNumber(n = 0, decimalnumber = 0, romanEquivalence = 0, romanNumber = 0) {
+
+        let remainder = n;
+
+        while(remainder >= decimalnumber){
+
+            romanNumber += romanEquivalence;
+            remainder -= decimalnumber;
+        }
+        return [romanNumber, remainder];
+    }   
 }
 
 export { RomanCalculator }
