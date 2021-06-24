@@ -20,13 +20,44 @@ class RomanCalculator {
         else return false;  
     }
 
-   /* WhenToAddInTheCharacterArray(character){
-        return true;
-    }
-    WhenToSubtracInTheCharacterArray(character){
-        return false;
-    }*/
+    romanToDecimal(numberRoman) {    
+        var decimalNumber = 0, preview =0;
+        for (var i = 0; i < numberRoman.length; i++) {
+            if(this.isCharacterValid(numberRoman)){
+                if(this.toDecimalNumber(numberRoman.charAt(i) <= preview )){
+                    decimalNumber = decimalNumber + this.toDecimalNumber(numberRoman.charAt(i));
+                    preview = this.toDecimalNumber(numberRoman.charAt(i));
+                } 
+                else{
+                    decimalNumber = decimalNumber + this.toDecimalNumber(numberRoman.charAt(i)) - 2*preview;
+                    preview = this.toDecimalNumber(numberRoman.charAt(i));
+                }
+            }
+        }
+        return decimalNumber;
+    } 
+  
+       
 
+    decimalToRoman(numberDecimal){ 
+        if (numberDecimal > 3999){ 
+            return false;
+        } 
+        const units = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"];
+        const tens = ["", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"];
+        const hundreds = ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"];
+        const thousands = ["", "M", "MM", "MMM"];
+      
+        const m = Math.floor(numberDecimal / 1000);
+        const cm = numberDecimal % 1000;
+        const c = Math.floor(cm / 100);
+        const xc = cm % 100;
+        const x = Math.floor(xc / 10);
+        const i = xc % 10;
+      
+        var roman = thousands[m] + hundreds[c] + tens[x] + units[i];
+      
+        return roman;
+      }
 }
-
 export { RomanCalculator }
