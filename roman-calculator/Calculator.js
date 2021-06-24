@@ -79,36 +79,28 @@ class RomanCalculator {
     }
   };
 
-  limiting = (romanNumber) => {
-    let contadorSeguidos = 0;
-    const romNumber = romanNumber;
-    const romNumberSplit = romNumber.split("");
-    romNumberSplit.forEach((character, index, array) => {
-      const lengthRomNumberSplit = array.length;
-      if (
-        character === array[index + 1] ||
-        array[lengthRomNumberSplit - 2] === array[lengthRomNumberSplit - 3]
-      ) {
-        contadorSeguidos += 1;
-      } else {
-        contadorSeguidos = 0;
-      }
-      console.log(contadorSeguidos);
-      const checking = listOfLimits[character];
-      ///if (arr[lengthRomNumberSplit - 2] === arr[lengthRomNumberSplit - 3])
+  getLimits = (romanCharacter) => listOfLimits[romanCharacter];
 
-      if (contadorSeguidos > checking) {
-        return false;
-      } else {
-        contadorSeguidos = 0;
+  limiting = (romanNumber) => {
+    let islimited = false;
+    const romanNumberList = romanNumber;
+    const listromanNumberList = romanNumberList.split("");
+
+    listromanNumberList.forEach((element) => {
+      const countingElement = listromanNumberList.filter(
+        (x) => x === element
+      ).length;
+      const limitOfElement = this.getLimits(element);
+      if (countingElement > limitOfElement) {
+        islimited = true;
       }
     });
-    return true;
+    return islimited;
   };
 }
 
 const p = new RomanCalculator();
-const strings = p.toPutIntoStrings("CCC", "II");
+//const strings = p.toPutIntoStrings("CCC", "II");
 const g = p.limiting("CCCC");
 console.log(g);
 

@@ -113,8 +113,26 @@ test("Concatenate two numbers taking first the bigger number and later de lower 
   expect(calculator.concatenate("I", "C")).toBe("CI");
 });
 
-test("put limits on the characters in a row that can appear in a problem ", () => {
+test("Get the limit times that a character could appear-> 'C'", () => {
   const calculator = new RomanCalculator();
 
-  expect(calculator.limiting("CCCC")).toBe(false);
+  expect(calculator.getLimits("C")).toBe(3);
+});
+
+test("Get the limit times that a character could appear-> 'V'", () => {
+  const calculator = new RomanCalculator();
+
+  expect(calculator.getLimits("V")).toBe(1);
+});
+
+test("The Roman number has a character more times than allowed, testing -> CCCC", () => {
+  const calculator = new RomanCalculator();
+
+  expect(calculator.limiting("CCCC")).toBe(true);
+});
+
+test("The Roman number has a character more times than allowed, testing -> I ", () => {
+  const calculator = new RomanCalculator();
+
+  expect(calculator.limiting("I")).toBe(false);
 });
