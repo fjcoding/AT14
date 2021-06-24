@@ -54,9 +54,9 @@ class RomanCalculator {
 
     sumRomanNumbers(romanNumberOne = '', romanNumberTwo = '') {
 
-        let resultado = this.sumNumbers(this.romanToDecimal(romanNumberOne), this.romanToDecimal(romanNumberTwo));
+        let result = this.sumNumbers(this.romanToDecimal(romanNumberOne), this.romanToDecimal(romanNumberTwo));
 
-        return this.decimalToRoman(resultado);
+        return this.decimalToRoman(result);
     }
 
     decimalToRoman(number = 0) {
