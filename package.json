@@ -3,17 +3,23 @@
   "version": "1.0.0",
   "description": "- Learn basics for software development",
   "main": "main.js",
-  "dependencies": {},
+  "dependencies": {
+    "http-server": "^0.12.3"
+  },
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.14.5",
     "jest": "^27.0.5"
   },
   "jest": {
     "collectCoverage": true,
-    "coverageReporters": ["json", "html"]
+    "coverageReporters": [
+      "json",
+      "html"
+    ]
   },
   "scripts": {
-    "test": "jest  --coverage"
+    "test": "jest  --coverage",
+    "arkanoid": "http-server"
   },
   "repository": {
     "type": "git",
