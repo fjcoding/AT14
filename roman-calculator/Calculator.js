@@ -25,7 +25,7 @@ class RomanCalculator {
 
         let regex = /([I]|[V]|[X]|[L]|[C]|[D]|[M])/;
 
-        return (character.search(regex)>=0) ? true : false;
+        return character.search(regex)>=0 ? true : false;
     }
 
     romanToDecimal(romanNumber = '') { 
@@ -64,7 +64,7 @@ class RomanCalculator {
         let remainder = number;
         let roman = '';
 
-        let  romanValues = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I']; 
+        let romanValues = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I']; 
         let decimalValues = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
 
         for(let i = 0; i < romanValues.length; i++) {
