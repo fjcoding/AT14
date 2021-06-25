@@ -1,4 +1,9 @@
+import { Grid } from './src/grid.js'
+
 document.addEventListener('DOMContentLoaded', () => {
+    const grid = new Grid(10, 20);
+    grid.draw(document, 'grid');
+
     const squares = document.querySelectorAll('.grid div')
     const startBtn = document.getElementById('start')
     let currentIndex = 0
