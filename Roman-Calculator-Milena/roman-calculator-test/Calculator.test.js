@@ -144,3 +144,43 @@ test("the conversion of the roman number: CM to decimal number must be: 900" , (
     const calculator = new RomanCalculator
     expect(calculator.romanToDecimal('CM')).toBe(900)
 })
+
+test("the sum of the numbers 1 + 2, must be = 3" , () => {
+    const calculator = new RomanCalculator
+    expect(calculator.Sum(1 , 2)).toBe(3)
+})
+
+test("the sum of the roman numbers X + I, must be = XI" , () => {
+    const calculator = new RomanCalculator
+    expect(calculator.SumRomanNumbers('X', 'I')).toBe('XI')
+})
+
+test("the rest of the numbers 5 - 3, must be = 2" , () => {
+    const calculator = new RomanCalculator
+    expect(calculator.Res(5, 3)).toBe(2)
+})
+
+test("the rest of the roman numbers X - I, must be = IX" , () => {
+    const calculator = new RomanCalculator
+    expect(calculator.ResRomanNumbers('X', 'I')).toBe('IX')
+})
+
+test("the multiplication of the numbers 2 * 2 , must be = 4" , () => {
+    const calculator = new RomanCalculator
+    expect(calculator.Multiplication(2, 2)).toBe(4)
+})
+
+test("the multiplication of the roman numbers X * X, must be = C" , () => {
+    const calculator = new RomanCalculator
+    expect(calculator.MultiplicationRomanNumbers('X', 'X')).toBe('C')
+})
+
+test("the division of the numbers 2 / 2 , must be = 1" , () => {
+    const calculator = new RomanCalculator
+    expect(calculator.Division(2, 2)).toBe(1)
+})
+
+test("the division of the roman numbers X / X, must be = I" , () => {
+    const calculator = new RomanCalculator
+    expect(calculator.DivisionRomanNumbers('X', 'X')).toBe('I')
+})

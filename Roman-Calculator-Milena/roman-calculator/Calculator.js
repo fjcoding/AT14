@@ -59,5 +59,44 @@ class RomanCalculator {
       
         return roman;
       }
+
+      //operations of a basic calculator
+      
+    Sum(number1 , number2){
+        return number1 + number2;
+    }
+
+    SumRomanNumbers(numberRoman1, numberRoman2){
+        let result = this.Sum(this.romanToDecimal(numberRoman1), this.romanToDecimal(numberRoman2));
+        return this.decimalToRoman(result);
+    }
+
+    Res(number1, number2){
+        return number1 - number2
+    }
+
+    ResRomanNumbers(numberRoman1, numberRoman2){
+        let result = this.Res(this.romanToDecimal(numberRoman1), this.romanToDecimal(numberRoman2));
+        return this.decimalToRoman(result);
+    }
+
+    Multiplication(number1, number2){
+        return number1 * number2
+    }
+
+    MultiplicationRomanNumbers(numberRoman1, numberRoman2){
+        let result = this.Multiplication(this.romanToDecimal(numberRoman1), this.romanToDecimal(numberRoman2));
+        return this.decimalToRoman(result);
+    }
+
+    Division(number1, number2){
+        return number1 / number2
+    }
+
+    DivisionRomanNumbers(numberRoman1, numberRoman2){
+        let result = this.Division(this.romanToDecimal(numberRoman1), this.romanToDecimal(numberRoman2));
+        return this.decimalToRoman(result);
+    }
+
 }
 export { RomanCalculator }
