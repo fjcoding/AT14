@@ -1,9 +1,7 @@
-class Main{
-
-    config = {
+  var config = {
         type: Phaser.AUTO,
-        width: 640,
-        height: 480,
+        width: 800,
+        height: 600,
         physics: {
             default: 'arcade',
             arcade: {
@@ -16,9 +14,9 @@ class Main{
         }
     };
 
-    game = new Phaser.Game(config);
+    var game = new Phaser.Game(config);
 
-    preload ()
+    function preload ()
     {
         this.load.setBaseURL('http://labs.phaser.io');
 
@@ -27,7 +25,7 @@ class Main{
         this.load.image('red', 'assets/particles/red.png');
     }
 
-    create ()
+    function create ()
     {
         this.add.image(400, 300, 'sky');
 
@@ -47,6 +45,3 @@ class Main{
 
         emitter.startFollow(logo);
     }
-}
-
-export { Main };
