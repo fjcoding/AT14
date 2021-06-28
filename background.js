@@ -24,7 +24,8 @@ export class Background extends Phaser.Scene{
         this.add.image(320,200,'background');
         this.platform= this.physics.add.image(320,365, 'platform').setImmovable();
         this.platform.body.allowGravity=false;
-
+        this.platform.setCollideWorldBounds(true);
+        
         this.gameoverImage=this.add.image(320,90,'gameover');
         this.gameoverImage.visible=false;
 
