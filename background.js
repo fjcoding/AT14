@@ -1,4 +1,5 @@
 import { Scoreboard } from "./components/Scoreboard.js";
+import {Ball} from './components/ball.js';
 export class Background extends Phaser.Scene{
 
     constructor(){
@@ -7,6 +8,7 @@ export class Background extends Phaser.Scene{
 
     init(){
         this.scoreboard= new Scoreboard(this);
+        this.ball= new Ball(this);
     }
 
     preload(){
