@@ -1,11 +1,7 @@
 class RomanCalculator {
     
     toDecimalNumber(romanNumeral) {
-        /*if (romanNumeral === 'V') {
-            return 5
-        } else {
-            return 1
-        }*/
+       
         switch(romanNumeral){
             case 'V': return 5;
             case 'I': return 1;
@@ -48,44 +44,48 @@ class RomanCalculator {
 
     sumRomanNumeral(romanOne, romanTwo){
         let result=0;
-        result=this.toDecimalNumber(romanOne)+this.toDecimalNumber(romanTwo);
+        result=this.convertRomanToDecimal(romanOne)+this.convertRomanToDecimal(romanTwo);
 
         return result;
     }
 
     convertRomanToDecimal(roman){
-        var decimalVal= 'IVXLC';
-        var romanVal=[1,5,10,50,100];
+        var decimalVal= 'IVXLCDM';
+        var romanVal=[1,5,10,50,100,500,1000];
          let sum=0;
          let last='';
-         let c= 1;
+         let count= 1;
         
          for (let i = 0; i < roman.length; i++) {
-             let val= romanVal[decimalVal.indexOf(roman[i])];
+             let value= romanVal[decimalVal.indexOf(roman[i])];
              if(roman[i]==last){
-                 c++;
-             }else if(romanVal[decimalVal.indexOf(roman[i-1])]<val){
-                if(c==3){
-                  //  'error 3 seguidos antes de un mayor')
-                    break;
-                }
-                val= -2*romanVal[decimalVal.indexOf(roman[i-1])]+val;
+                 count++;
+             }else if(romanVal[decimalVal.indexOf(roman[i-1])]<value){
+                 value= -2*romanVal[decimalVal.indexOf(roman[i-1])]+value;
              }else{
-                 c=1;
-             }
-             if(c==4){
-                // 'error 4 seguidos')
-                 break;
+                 count=1;
              }
              last= roman[i];
-             sum=sum+val;
-             
-             
+             sum=sum+value; 
          }
          return(sum);
     }
 
-       
+    convertDecimalToRoman(decimal){
+        var roman = '';
+        var romanValue = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I'];
+        var decimalValue = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+
+        for (let i = 0; i < romanValue.length; i++) {
+            while (decimal >= decimalValue[i]) {
+              roman += romanValue[i];
+              decimal -= decimalValue[i];
+            }
+        }
+          return roman;
+     }
+    
+      
     
 }
 
