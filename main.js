@@ -1,4 +1,4 @@
-  var config = {
+    var config = {
         type: Phaser.AUTO,
         width: 800,
         height: 600,
@@ -9,14 +9,14 @@
             }
         },
         scene: {
-            preload: preload,
+            preload: cargar,
             create: create
         }
     };
 
     var game = new Phaser.Game(config);
 
-    function preload ()
+    function cargar ()
     {
         this.load.setBaseURL('http://labs.phaser.io');
 
