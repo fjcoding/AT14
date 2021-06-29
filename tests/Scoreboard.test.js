@@ -1,14 +1,22 @@
-import { jest } from "@jest/globals";
 
-jest.mock('./components/Scoreboard.js');
-const scoreboard = require('./components/Scoreboard.js');
-const mMock = jest.fn();
-scoreboard.mockImplementation(() => {
-  return {
-    m: mMock,
-  };
+import { expect, jest } from '@jest/globals';
+import {Scoreboard} from '../components/Scoreboard';
+
+jest.mock('../components/Scoreboard');
+
+test('Mocking function incrementPoints', () => {
+  const scoreboard = new Scoreboard();
+  console.log(scoreboard.incrementPoints());
+  console.log(scoreboard.create());
 });
 
-const some = new scoreboard();
-some.m('scene');
-console.log('Calls to m: ', mMock.mock.calls);
+test("Mocking constructor",()=>{
+  const score= jest.fn();
+  const a= new score();
+  a.scene='scene';
+  const b={};
+  const bound= score.bind(b);
+  bound();
+
+  console.log(score.mock.instances);
+});

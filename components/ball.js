@@ -9,4 +9,10 @@ export class Ball{
         this.ball.setBounce(1);
         this.ball.setCollideWorldBounds(true);
     }
+
+    get() {
+        return this.ball;
+      }
+
+    
 }

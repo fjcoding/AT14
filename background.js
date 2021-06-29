@@ -93,3 +93,5 @@ export class Background extends Phaser.Scene{
     }
 
 }
+
+exports.platformImpact=platformImpact;
