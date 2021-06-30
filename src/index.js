@@ -10,8 +10,13 @@ var drawText = function(text, color, font, x, y) {
     context.fillText(text, x, y)
 }
 
+function drawPlayButton() {
+    drawText("Play", "#ddd", "25px Noto Sans", 340, 580)
+}
+
 function drawWelcome() {
     drawText("ARKANOID", "#d9effc", "50px Saira Stencil One", 75, 275)
 }
 
 drawWelcome()
+drawPlayButton()
