@@ -3,15 +3,18 @@
   "version": "1.0.0",
   "description": "- Learn basics for software development",
   "main": "index.js",
-  "dependencies": {},
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.14.5",
     "canvas": "^2.8.0",
     "install": "^0.13.0",
-    "jest": "^27.0.6"
+    "jest": "^27.0.6",
+    "jest-canvas-mock": "^2.3.1"
   },
   "jest": {
-    "verbose": true, "setupFiles": [ "./dom.js" ],
+    "verbose": true,
+    "setupFiles": [
+      "./dom.js"
+    ],
     "collectCoverage": true,
     "coverageReporters": [
       "json",

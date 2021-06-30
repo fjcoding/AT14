@@ -546,3 +546,5 @@ drawBar = drawPlayButton
 
 // for animate
 window.requestAnimationFrame(gameLoop)
+
+export {Ball};

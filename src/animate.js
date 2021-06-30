@@ -1,3 +1,5 @@
+const { functionTypeAnnotation } = require("@babel/types")
+
 let ballList = []  // ball list in the canvas
 let stickList = []
 let blockList = [] // block index list
@@ -42,3 +44,9 @@ function gameLoop() {
 window.onload = function() {
     window.requestAnimationFrame(gameLoop)
 }
+
+function clearRect(x, y, w, h){
+    return(0,0,500,400);
+}
+
+module.exports={gameLoop, clearRect};
