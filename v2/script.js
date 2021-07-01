@@ -2,6 +2,7 @@ import { BG_IMG, LEVEL_IMG, LIFE_IMG, SCORE_IMG, WALL_HIT, LIFE_LOST, PADDLE_HIT
 import { Stage } from './stage.js'
 import { Paddle } from './paddle.js'
 import { Bricks } from './bricks.js'
+import { Ball } from './ball.js'
 
 /*
 import {Sum} from './sum.js' 
@@ -55,6 +56,10 @@ const brickObj  = new Bricks(ctx);
 
 
 //let bricks = [];
+const ballObj = new Ball(ctx, cvs, paddleObj.paddle.y, BALL_RADIUS);
+
+/*
+let bricks = [];
 
 /*function createBricks(){
     for(let r = 0; r < brick.row; r++){
@@ -77,9 +82,9 @@ function draw(){
     
     //drawPaddle();
     paddleObj.setdrawPaddle();
+    //drawBall();
+    ballObj.setDrawBall();    
     /*
-    drawBall();
-    
     drawBricks();
     */
     
