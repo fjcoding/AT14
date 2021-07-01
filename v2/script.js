@@ -36,20 +36,6 @@ let leftArrow = false;
 let rightArrow = false;
 
 
-
-// CREATE THE BRICKS
-/*const brick = {
-    row : 1,
-    column : 5,
-    width : 55,
-    height : 20,
-    offSetLeft : 20,
-    offSetTop : 20,
-    marginTop : 40,
-    fillColor : "#2e3548",
-    strokeColor : "#FFF"
-}*/
-
 const stageObj  = new Stage(ctx, BG_IMG);
 const paddleObj = new Paddle(ctx, cvs, PADDLE_WIDTH, PADDLE_MARGIN_BOTTOM , PADDLE_HEIGHT);
 const brickObj  = new Bricks(ctx);
@@ -57,22 +43,6 @@ const brickObj  = new Bricks(ctx);
 
 //let bricks = [];
 const ballObj = new Ball(ctx, cvs, paddleObj.paddle.y, BALL_RADIUS);
-
-/*
-let bricks = [];
-
-/*function createBricks(){
-    for(let r = 0; r < brick.row; r++){
-        bricks[r] = [];
-        for(let c = 0; c < brick.column; c++){
-            bricks[r][c] = {
-                x : c * ( brick.offSetLeft + brick.width ) + brick.offSetLeft,
-                y : r * ( brick.offSetTop + brick.height ) + brick.offSetTop + brick.marginTop,
-                status : true
-            }
-        }
-    }
-}*/
 
 //createBricks();
 brickObj.setCreateBricks();
