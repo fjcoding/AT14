@@ -2,6 +2,7 @@ export class Stage {
     constructor(ctx, BG_IMG){
         this.ctx = ctx;
         this.BG_IMG = BG_IMG;
+        this.value  = 100; 
 
     }
     setDrawImage(){
@@ -19,5 +20,8 @@ export class Stage {
         let width  = 25;
         let height = 25; 
         this.ctx.drawImage(img, imgX, imgY, width, height);
+    }
+    getDummy(){
+        return this.value;
     }
 }
