@@ -1,5 +1,6 @@
-import {BG_IMG, LEVEL_IMG, LIFE_IMG, SCORE_IMG, WALL_HIT, LIFE_LOST, PADDLE_HIT, BRICK_HIT} from './components.js'
-import {Stage} from './stage.js'
+import { BG_IMG, LEVEL_IMG, LIFE_IMG, SCORE_IMG, WALL_HIT, LIFE_LOST, PADDLE_HIT, BRICK_HIT } from './components.js'
+import { Stage } from './stage.js'
+import { Paddle } from './paddle.js'
 
 /*
 import {Sum} from './sum.js' 
@@ -47,7 +48,8 @@ const brick = {
     strokeColor : "#FFF"
 }
 
-const stageObj = new Stage(ctx, BG_IMG);
+const stageObj  = new Stage(ctx, BG_IMG);
+const paddleObj = new Paddle(ctx, cvs, PADDLE_WIDTH, PADDLE_MARGIN_BOTTOM , PADDLE_HEIGHT);
 /*
 let bricks = [];
 
@@ -68,12 +70,11 @@ createBricks();
 */
 
 
-
-// DRAW FUNCTION
 function draw(){
-    /*
-    drawPaddle();
     
+    //drawPaddle();
+    paddleObj.setdrawPaddle();
+    /*
     drawBall();
     
     drawBricks();
