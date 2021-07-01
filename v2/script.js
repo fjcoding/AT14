@@ -1,6 +1,7 @@
 import { BG_IMG, LEVEL_IMG, LIFE_IMG, SCORE_IMG, WALL_HIT, LIFE_LOST, PADDLE_HIT, BRICK_HIT } from './components.js'
 import { Stage } from './stage.js'
 import { Paddle } from './paddle.js'
+import { Bricks } from './bricks.js'
 
 /*
 import {Sum} from './sum.js' 
@@ -36,7 +37,7 @@ let rightArrow = false;
 
 
 // CREATE THE BRICKS
-const brick = {
+/*const brick = {
     row : 1,
     column : 5,
     width : 55,
@@ -46,14 +47,16 @@ const brick = {
     marginTop : 40,
     fillColor : "#2e3548",
     strokeColor : "#FFF"
-}
+}*/
 
 const stageObj  = new Stage(ctx, BG_IMG);
 const paddleObj = new Paddle(ctx, cvs, PADDLE_WIDTH, PADDLE_MARGIN_BOTTOM , PADDLE_HEIGHT);
-/*
-let bricks = [];
+const brickObj  = new Bricks(ctx);
 
-function createBricks(){
+
+//let bricks = [];
+
+/*function createBricks(){
     for(let r = 0; r < brick.row; r++){
         bricks[r] = [];
         for(let c = 0; c < brick.column; c++){
@@ -64,10 +67,10 @@ function createBricks(){
             }
         }
     }
-}
+}*/
 
-createBricks();
-*/
+//createBricks();
+brickObj.setCreateBricks();
 
 
 function draw(){
@@ -79,6 +82,9 @@ function draw(){
     
     drawBricks();
     */
+    
+    brickObj.setDrawBricks();
+    
     // SHOW SCORE
     stageObj.showGameStats(SCORE, 35, 25, SCORE_IMG, 5, 5);
     // showGameStats(SCORE, 35, 25, SCORE_IMG, 5, 5);
