@@ -9,3 +9,7 @@ test('Create Ball', () => {
     ctx.stroke();
     expect(95).toBe(95); 
 })
+
+test("Play Game",()=>{
+    expect(95).toBe(95);
+})
