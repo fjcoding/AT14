@@ -3,6 +3,7 @@ import { Stage } from './stage.js'
 import { Paddle } from './paddle.js'
 import { drawPaddle } from './drawPaddle.js'
 import { Bricks } from './bricks.js'
+import { drawBall } from './drawBall.js'
 import { Ball } from './ball.js'
 
 /*
@@ -51,7 +52,14 @@ const brickObj  = new Bricks(ctx,1,5,55,20,20,20,40,"#2e3548","#FFF");
 
 
 //let bricks = [];
-const ballObj = new Ball(ctx, cvs, paddleObj.getY(), BALL_RADIUS);
+let ball_x = cvs.width/2;
+let ball_y = paddleObj.getY() - BALL_RADIUS;
+let ball_radius = BALL_RADIUS;
+let ball_speed = 4;
+let ball_dx =  3 * (Math.random() * 2 - 1);
+let ball_dy = -3;        
+const ballObj = new Ball(ball_x, ball_y, ball_radius, ball_speed, ball_dx, ball_dy);
+const drawballObj = new drawBall(ctx, cvs, paddleObj.getY(), BALL_RADIUS, ballObj);
 
 //createBricks();
 brickObj.setCreateBricks();
@@ -62,7 +70,7 @@ function draw(){
     //drawPaddle();
     drawPaddleObj.setdrawPaddle();
     //drawBall();
-    ballObj.setDrawBall();    
+    drawballObj.setDrawBall();    
     /*
     drawBricks();
     */
@@ -82,8 +90,8 @@ function draw(){
 
 function update(){
     paddleObj.movePaddle(rightArrow, leftArrow);
+    ballObj.moveBall();
     /*
-    moveBall();
     ballWallCollision();
     ballPaddleCollision();
     ballBrickCollision();
@@ -108,16 +116,16 @@ loop();
 
 // CONTROL THE PADDLE
 document.addEventListener("keydown", function(event){
-    if(event.keyCode == 37){
+    if(event.keyCode == 37 || event.keyCode == 65){
         leftArrow = true;
-    }else if(event.keyCode == 39){
+    }else if(event.keyCode == 39 || event.keyCode == 68){
         rightArrow = true;
     }
  });
  document.addEventListener("keyup", function(event){
-    if(event.keyCode == 37){
+    if(event.keyCode == 37  || event.keyCode == 65){
         leftArrow = false;
-    }else if(event.keyCode == 39){
+    }else if(event.keyCode == 39  || event.keyCode == 68){
         rightArrow = false;
     }
  });
