@@ -1,5 +1,6 @@
 import { BG_IMG, LEVEL_IMG, LIFE_IMG, SCORE_IMG, WALL_HIT, LIFE_LOST, PADDLE_HIT, BRICK_HIT } from './components.js'
 import { Stage } from './stage.js'
+import { drawStage } from './drawStage.js'
 import { Paddle } from './paddle.js'
 import { drawPaddle } from './drawPaddle.js'
 import { Bricks } from './bricks.js'
@@ -37,7 +38,7 @@ let GAME_OVER = false;
 let leftArrow = false;
 let rightArrow = false;
 
-const stageObj  = new Stage(ctx, BG_IMG);
+const drawStageObj  = new drawStage(ctx, BG_IMG);
 
 let paddle_x      = cvs.width/2 - PADDLE_WIDTH/2;
 let paddle_y      = cvs.height - PADDLE_MARGIN_BOTTOM - PADDLE_HEIGHT;
@@ -61,6 +62,8 @@ let ball_dy = -3;
 const ballObj = new Ball(ball_x, ball_y, ball_radius, ball_speed, ball_dx, ball_dy);
 const drawballObj = new drawBall(ctx, cvs, paddleObj.getY(), BALL_RADIUS, ballObj);
 
+const stageObj      = new Stage(cvs, ballObj, paddleObj, LIFE, BALL_RADIUS);
+
 //createBricks();
 brickObj.setCreateBricks();
 
@@ -78,19 +81,20 @@ function draw(){
     brickObj.setDrawBricks();
     
     // SHOW SCORE
-    stageObj.showGameStats(SCORE, 35, 25, SCORE_IMG, 5, 5);
+    drawStageObj.showGameStats(SCORE, 35, 25, SCORE_IMG, 5, 5);
     // showGameStats(SCORE, 35, 25, SCORE_IMG, 5, 5);
     // SHOW LIVES
     //showGameStats(LIFE, cvs.width - 25, 25, LIFE_IMG, cvs.width-55, 5); 
-    stageObj.showGameStats(LIFE, cvs.width - 25, 25, LIFE_IMG, cvs.width-55, 5);
+    drawStageObj.showGameStats(LIFE, cvs.width - 25, 25, LIFE_IMG, cvs.width-55, 5);
     // SHOW LEVEL
     //showGameStats(LEVEL, cvs.width/2, 25, LEVEL_IMG, cvs.width/2 - 30, 5);
-    stageObj.showGameStats(LEVEL, cvs.width/2, 25, LEVEL_IMG, cvs.width/2 - 30, 5);
+    drawStageObj.showGameStats(LEVEL, cvs.width/2, 25, LEVEL_IMG, cvs.width/2 - 30, 5);
 }
 
 function update(){
     paddleObj.movePaddle(rightArrow, leftArrow);
     ballObj.moveBall();
+    stageObj.ballWallCollision();
     /*
     ballWallCollision();
     ballPaddleCollision();
@@ -104,7 +108,7 @@ function update(){
 function loop(){
     // CLEAR THE CANVAS
     // ctx.drawImage(BG_IMG, 0, 0);
-    stageObj.setDrawImage();
+    drawStageObj.setDrawImage();
     draw();
     update();
     if(! GAME_OVER){

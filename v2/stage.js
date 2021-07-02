@@ -1,29 +1,29 @@
 export class Stage {
 
-    //BG_IMG name format should be replace with Camel Case
-    constructor(ctx, BG_IMG){
+    constructor(cvs, ball, paddle, LIFE, BALL_RADIUS){
+        this.cvs         = cvs;
+        this.ball        = ball;
+        this.paddle      = paddle;
+        this.LIFE        = BALL_RADIUS;
+        this.BALL_RADIUS = BALL_RADIUS;
+    }
 
-        this.ctx = ctx;
-        this.BG_IMG = BG_IMG;
-        this.value  = 100; 
-    }
-    setDrawImage(){
-        this.ctx.drawImage(this.BG_IMG, 0, 0);
-    }
-    // show game stats
-    // text defined to write
-    showGameStats(text, textX, textY, img, imgX, imgY){
-        // draw text
-        this.ctx.fillStyle = "#FFF";
-        this.ctx.font = "25px Germania One";
-        this.ctx.fillText(text, textX, textY);
+    ballWallCollision(){
+        if(this.ball.x + this.ball.radius > this.cvs.width || this.ball.x - this.ball.radius < 0){
+            this.ball.dx = - this.ball.dx;
+            //WALL_HIT.play();
+        }
         
-        // draw image
-        let width  = 25;
-        let height = 25; 
-        this.ctx.drawImage(img, imgX, imgY, width, height);
-    }
-    getDummy(){
-        return this.value;
+        if(this.ball.y - this.ball.radius < 0){
+            this.ball.dy = -this.ball.dy;
+            //WALL_HIT.play();
+        }
+        
+        if(this.ball.y + this.ball.radius > this.cvs.height){
+            this.LIFE--; // LOSE LIFE
+            //LIFE_LOST.play();
+            //resetBall();
+            this.ball.resetBall(this.cvs, this.paddle, this.BALL_RADIUS);
+        }
     }
 }

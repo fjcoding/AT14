@@ -16,6 +16,13 @@ export class Ball{
         this.x += this.dx;
         this.y += this.dy;
     }
+    
+    resetBall(cvs, paddle, BALL_RADIUS){
+        this.x = cvs.width/2;
+        this.y = paddle.y - BALL_RADIUS;
+        this.dx = 3 * (Math.random() * 2 - 1);
+        this.dy = -3;
+    }    
 
 }
 
