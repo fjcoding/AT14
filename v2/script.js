@@ -1,6 +1,7 @@
 import { BG_IMG, LEVEL_IMG, LIFE_IMG, SCORE_IMG, WALL_HIT, LIFE_LOST, PADDLE_HIT, BRICK_HIT } from './components.js'
 import { Stage } from './stage.js'
 import { Paddle } from './paddle.js'
+import { drawPaddle } from './drawPaddle.js'
 import { Bricks } from './bricks.js'
 import { Ball } from './ball.js'
 
@@ -36,13 +37,21 @@ let leftArrow = false;
 let rightArrow = false;
 
 const stageObj  = new Stage(ctx, BG_IMG);
-const paddleObj = new Paddle(ctx, cvs, PADDLE_WIDTH, PADDLE_MARGIN_BOTTOM , PADDLE_HEIGHT);
+
+let paddle_x      = cvs.width/2 - PADDLE_WIDTH/2;
+let paddle_y      = cvs.height - PADDLE_MARGIN_BOTTOM - PADDLE_HEIGHT;
+let paddle_width  = PADDLE_WIDTH;
+let paddle_height = PADDLE_HEIGHT;
+let paddle_dx     = 5;
+
+const paddleObj = new Paddle(cvs, paddle_x, paddle_y, paddle_width, paddle_height, paddle_dx);
+const drawPaddleObj = new drawPaddle(ctx, cvs, PADDLE_WIDTH, PADDLE_MARGIN_BOTTOM , PADDLE_HEIGHT, paddleObj);
 
 const brickObj  = new Bricks(ctx,1,5,55,20,20,20,40,"#2e3548","#FFF");
 
 
 //let bricks = [];
-const ballObj = new Ball(ctx, cvs, paddleObj.paddle.y, BALL_RADIUS);
+const ballObj = new Ball(ctx, cvs, paddleObj.getY(), BALL_RADIUS);
 
 //createBricks();
 brickObj.setCreateBricks();
@@ -51,7 +60,7 @@ brickObj.setCreateBricks();
 function draw(){
     
     //drawPaddle();
-    paddleObj.setdrawPaddle();
+    drawPaddleObj.setdrawPaddle();
     //drawBall();
     ballObj.setDrawBall();    
     /*
@@ -71,19 +80,44 @@ function draw(){
     stageObj.showGameStats(LEVEL, cvs.width/2, 25, LEVEL_IMG, cvs.width/2 - 30, 5);
 }
 
+function update(){
+    paddleObj.movePaddle(rightArrow, leftArrow);
+    /*
+    moveBall();
+    ballWallCollision();
+    ballPaddleCollision();
+    ballBrickCollision();
+    gameOver();
+    levelUp();
+    */
+}
+
 // GAME LOOP
 function loop(){
     // CLEAR THE CANVAS
     // ctx.drawImage(BG_IMG, 0, 0);
     stageObj.setDrawImage();
     draw();
-    /*    
     update();
-    */
     if(! GAME_OVER){
         requestAnimationFrame(loop);
     }
-
 }
 
 loop();
+
+// CONTROL THE PADDLE
+document.addEventListener("keydown", function(event){
+    if(event.keyCode == 37){
+        leftArrow = true;
+    }else if(event.keyCode == 39){
+        rightArrow = true;
+    }
+ });
+ document.addEventListener("keyup", function(event){
+    if(event.keyCode == 37){
+        leftArrow = false;
+    }else if(event.keyCode == 39){
+        rightArrow = false;
+    }
+ });
