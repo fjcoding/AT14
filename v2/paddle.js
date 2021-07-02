@@ -1,28 +1,24 @@
 export class Paddle{
-    constructor(ctx, cvs, PADDLE_WIDTH, PADDLE_MARGIN_BOTTOM, PADDLE_HEIGHT){
-        this.ctx = ctx;
-        this.cvs = cvs;
-        this.paddle = {
-            x : this.cvs.width/2 - PADDLE_WIDTH/2,
-            y : this.cvs.height - PADDLE_MARGIN_BOTTOM - PADDLE_HEIGHT,
-            width : PADDLE_WIDTH,
-            height : PADDLE_HEIGHT,
-            dx :5
+    constructor(cvs, x, y, width, height, dx)
+    {
+        this.x      = x; //: this.cvs.width/2 - PADDLE_WIDTH/2,
+        this.y      = y; //: this.cvs.height - PADDLE_MARGIN_BOTTOM - PADDLE_HEIGHT,
+        this.width  = width; //: PADDLE_WIDTH,
+        this.height = height; //: PADDLE_HEIGHT,
+        this.dx     = dx; //:5
+        this.cvs    = cvs;
+ 
+    }
+    getX(){return this.x;}
+    getY(){return this.y;}
+    getdX(){return this.dx;}
+    
+    movePaddle(rightArrow, leftArrow){
+        if(rightArrow && this.x + this.width < this.cvs.width){
+            this.x += this.dx;
+        }else if(leftArrow && this.x > 0){
+            this.x -= this.dx;
         }
-        this.PADDLE_WIDTH = PADDLE_WIDTH;
-        this.PADDLE_MARGIN_BOTTOM = PADDLE_MARGIN_BOTTOM;
-        this.PADDLE_HEIGHT = PADDLE_HEIGHT;
-    }
-    setdrawPaddle(){
-        this.ctx.fillStyle = "#2e3548";
-        this.ctx.fillRect(this.paddle.x, this.paddle.y, this.paddle.width, this.paddle.height);
-        
-        this.ctx.strokeStyle = "#ffcd05";
-        this.ctx.strokeRect(this.paddle.x, this.paddle.y, this.paddle.width, this.paddle.height);
-    }
-
-    getPADDLE_WIDTH(){
-        return this.PADDLE_WIDTH;
     }
 
 }

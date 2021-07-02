@@ -1,31 +1,28 @@
 export class Ball{
-    constructor(ctx, cvs, paddleY, BALL_RADIUS) {
-        this.ctx = ctx;
-        this.cvs = cvs;
-        this.paddleY = paddleY;
-        this.BALL_RADIUS = BALL_RADIUS;
-        this.ball = {
-            x : this.cvs.width/2,
-            y : this.paddleY - this.BALL_RADIUS,
-            radius : this.BALL_RADIUS,
-            speed : 4,
-            dx : 3 * (Math.random() * 2 - 1),
-            dy : -3
-        }        
+    constructor(x, y, radius, speed, dx, dy) {
+        this.x = x; //: this.cvs.width/2,
+        this.y = y; //: this.paddleY - this.BALL_RADIUS,
+        this.radius = radius; //: this.BALL_RADIUS,
+        this.speed = speed; //: 4,
+        this.dx = dx; // : 3 * (Math.random() * 2 - 1),
+        this.dy = dy; //: -3        
     }
+    
+    getX(){return this.x;}
+    getY(){return this.x;}
+    getRadius(){return this.radius;}
 
-    setDrawBall(){
-        this.ctx.beginPath();        
-        this.ctx.arc(this.ball.x, this.ball.y, this.ball.radius, 0, Math.PI*2);
-        this.ctx.fillStyle = "#ffcd05";
-        this.ctx.fill();        
-        this.ctx.strokeStyle = "#2e3548";
-        this.ctx.stroke();        
-        this.ctx.closePath();
+    moveBall(){
+        this.x += this.dx;
+        this.y += this.dy;
     }
-
-    getPaddleY (){
-        return this.paddleY;
-    }
+    
+    resetBall(cvs, paddle, BALL_RADIUS){
+        this.x = cvs.width/2;
+        this.y = paddle.y - BALL_RADIUS;
+        this.dx = 3 * (Math.random() * 2 - 1);
+        this.dy = -3;
+    }    
 
 }
+
