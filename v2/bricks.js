@@ -2,6 +2,9 @@ export class Bricks
 {
     constructor(ctx, row = 0, column = 0, width = 0, height = 0, offSetLeft = 0, offSetTop = 0, marginTop = 0, fillColor = '', strokeColor = '')
     {
+        //Changing this part of code to make it cleaner and dynamic
+        
+        this.ctx = ctx;
         this.row = row;
         this.column = column;
         this.width = width;
@@ -11,7 +14,6 @@ export class Bricks
         this.marginTop = marginTop;
         this.fillColor = fillColor;
         this.strokeColor = strokeColor;
-        this.ctx = ctx;
         this.bricks = [];
     }
 
