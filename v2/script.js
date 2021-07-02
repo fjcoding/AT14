@@ -35,10 +35,10 @@ let GAME_OVER = false;
 let leftArrow = false;
 let rightArrow = false;
 
-
 const stageObj  = new Stage(ctx, BG_IMG);
 const paddleObj = new Paddle(ctx, cvs, PADDLE_WIDTH, PADDLE_MARGIN_BOTTOM , PADDLE_HEIGHT);
-const brickObj  = new Bricks(ctx);
+
+const brickObj  = new Bricks(ctx,1,5,55,20,20,20,40,"#2e3548","#FFF");
 
 
 //let bricks = [];
