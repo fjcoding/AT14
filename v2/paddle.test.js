@@ -25,3 +25,21 @@ test("Verify that Fillrect function is receiving the right color", () => {
   paddle.setdrawPaddle();
   expect(ctx.fillStyle).toBe("#2e3548");
 });
+
+test("Verify that strokeRect function is called When setDrawPaddle is executed", () => {
+  const paddle = new Paddle(ctx, cvs, 200, 10, 300);
+  paddle.strokeStyle();
+  expect(ctx.fillRect).toHaveBeenCalled();
+});
+
+test("Verify that strokeRect function is receiving right Arguments", () => {
+  const paddle = new Paddle(ctx, cvs, 200, 10, 300);
+  paddle.strokeStyle();
+  expect(ctx.fillRect).toHaveBeenCalledWith(100, -110, 200, 300);
+});
+
+test("Verify that strokeRect function is receiving the right color", () => {
+  const paddle = new Paddle(ctx, cvs, 200, 10, 300);
+  paddle.strokeStyle();
+  expect(ctx.fillStyle).toBe("#ffcd05");
+});
