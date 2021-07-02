@@ -1,9 +1,11 @@
 export class Stage {
+
+    //BG_IMG name format should be replace with Camel Case
     constructor(ctx, BG_IMG){
+
         this.ctx = ctx;
         this.BG_IMG = BG_IMG;
         this.value  = 100; 
-
     }
     setDrawImage(){
         this.ctx.drawImage(this.BG_IMG, 0, 0);
