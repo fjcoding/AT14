@@ -1,21 +1,34 @@
-import { Paddle } from '../paddle.js'
+import { Paddle } from "../paddle";
 
-test('Give a value this should be return position x', () => { 
-    const cvs = document.createElement('canvas'); 
-    const ctx = cvs.getContext('2d'); 
+const cvs = { width: 400, height: 200 };
 
-    const PADDLE_WIDTH = 100;
-    const PADDLE_MARGIN_BOTTOM = 50;
-    const PADDLE_HEIGHT = 20;
+test("Verify function getX, getting the value => 15  0 ", () => {
+  const padle = new Paddle(cvs, 100, 20, 30, 5);
+  const gettingX = padle.getX();
+  expect(gettingX).toBe(150);
+});
 
-    let paddle_x      = cvs.width/2 - PADDLE_WIDTH/2;
-    let paddle_y      = cvs.height - PADDLE_MARGIN_BOTTOM - PADDLE_HEIGHT;
-    let paddle_width  = PADDLE_WIDTH;
-    let paddle_height = PADDLE_HEIGHT;
-    let paddle_dx     = 5;
-    
-    const paddleObj = new Paddle(cvs, paddle_x, paddle_y, paddle_width, paddle_height, paddle_dx);
-    expect(paddleObj.getdX()).toBe(5); 
-})
+test("Verify function getY, getting the value => 150 ", () => {
+  const padle = new Paddle(cvs, 100, 20, 30, 5);
+  const gettingY = padle.getY();
+  expect(gettingY).toBe(150);
+});
 
+test("Verify function getdX, getting the value => 5 ", () => {
+  const padle = new Paddle(cvs, 100, 20, 30, 5);
+  const gettingdX = padle.getdX();
+  expect(gettingdX).toBe(5);
+});
 
+test("Verify that function movePaddle is moving x to the right", () => {
+  const padle = new Paddle(cvs, 100, 20, 30, 5);
+  expect(padle.x).toBe(150);
+  padle.movePaddle(true, false);
+  expect(padle.x).toBe(155);
+});
+test("Verify that fucntion movePaddle is moving x to the left ", () => {
+  const padle = new Paddle(cvs, 100, 20, 30, 5);
+  expect(padle.x).toBe(150);
+  padle.movePaddle(false, true);
+  expect(padle.x).toBe(145);
+});

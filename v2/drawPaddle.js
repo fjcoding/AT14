@@ -17,10 +17,5 @@ export class drawPaddle{
         this.ctx.strokeRect(this.paddle.x, this.paddle.y, this.paddle.width, this.paddle.height);
     }
 
-    getPADDLE_WIDTH(){
-        return this.PADDLE_WIDTH;
-    }
-
 }
 // CREATE THE PADDLE
-

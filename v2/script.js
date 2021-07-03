@@ -40,13 +40,12 @@ let rightArrow = false;
 
 const drawStageObj  = new drawStage(ctx, BG_IMG);
 
-let paddle_x      = cvs.width/2 - PADDLE_WIDTH/2;
-let paddle_y      = cvs.height - PADDLE_MARGIN_BOTTOM - PADDLE_HEIGHT;
+let paddle_bottom = PADDLE_MARGIN_BOTTOM;
 let paddle_width  = PADDLE_WIDTH;
 let paddle_height = PADDLE_HEIGHT;
 let paddle_dx     = 5;
 
-const paddleObj     = new Paddle(cvs, paddle_x, paddle_y, paddle_width, paddle_height, paddle_dx);
+const paddleObj     = new Paddle(cvs, paddle_width, paddle_height, paddle_bottom, paddle_dx);
 const drawPaddleObj = new drawPaddle(ctx, cvs, paddleObj);
 const brickObj      = new Bricks(ctx,1,5,55,20,20,20,40,"#2e3548","#FFF");
 

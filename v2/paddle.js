@@ -1,14 +1,13 @@
 export class Paddle{
-    constructor(cvs, x, y, width, height, dx)
+    constructor(cvs, width, height, bottom,  dx)
     {
-        this.x      = x;        //: this.cvs.width/2 - PADDLE_WIDTH/2,
-        this.y      = y;        //: this.cvs.height - PADDLE_MARGIN_BOTTOM - PADDLE_HEIGHT,
         this.width  = width;    //: PADDLE_WIDTH,
         this.height = height;   //: PADDLE_HEIGHT,
         this.dx     = dx;       //: 5
         this.cvs    = cvs;
-        this.margin_bottom = this.cvs.height - this.y - this.height;
- 
+        this.margin_bottom = bottom;
+        this.x      = this.cvs.width/2 - this.width/2;
+        this.y      = this.cvs.height - this.margin_bottom - this.height;        
     }
 
     getX(){  return this.x;  }
@@ -23,7 +22,6 @@ export class Paddle{
             this.x -= this.dx;
         }
     }
-
+ 
 }
 // CREATE THE PADDLE
-
