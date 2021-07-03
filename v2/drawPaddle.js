@@ -1,10 +1,9 @@
-export class drawPaddle{
-    
-    constructor(ctx, cvs, PADDLE_WIDTH, PADDLE_MARGIN_BOTTOM, PADDLE_HEIGHT , paddle){
-        this.ctx    = ctx;
-        this.cvs    = cvs;
-        this.paddle = paddle;
-        /*
+export class drawPaddle {
+  constructor(ctx, cvs, paddle) {
+    this.ctx = ctx;
+    this.cvs = cvs;
+    this.paddle = paddle;
+    /*
         this.paddle = {
             x : this.cvs.width/2 - PADDLE_WIDTH/2,
             y : this.cvs.height - PADDLE_MARGIN_BOTTOM - PADDLE_HEIGHT,
@@ -13,22 +12,23 @@ export class drawPaddle{
             dx :5
         }
         */
-        this.PADDLE_WIDTH = PADDLE_WIDTH;
-        this.PADDLE_MARGIN_BOTTOM = PADDLE_MARGIN_BOTTOM;
-        this.PADDLE_HEIGHT = PADDLE_HEIGHT;
-    }
-    setdrawPaddle(){
-        this.ctx.fillStyle = "#2e3548";
-        this.ctx.fillRect(this.paddle.x, this.paddle.y, this.paddle.width, this.paddle.height);
-        
-        this.ctx.strokeStyle = "#ffcd05";
-        this.ctx.strokeRect(this.paddle.x, this.paddle.y, this.paddle.width, this.paddle.height);
-    }
+  }
+  setdrawPaddle() {
+    this.ctx.fillStyle = "#2e3548";
+    this.ctx.fillRect(
+      this.paddle.x,
+      this.paddle.y,
+      this.paddle.width,
+      this.paddle.height
+    );
 
-    getPADDLE_WIDTH(){
-        return this.PADDLE_WIDTH;
-    }
-
+    this.ctx.strokeStyle = "#ffcd05";
+    this.ctx.strokeRect(
+      this.paddle.x,
+      this.paddle.y,
+      this.paddle.width,
+      this.paddle.height
+    );
+  }
 }
 // CREATE THE PADDLE
-
