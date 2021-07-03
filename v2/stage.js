@@ -1,10 +1,9 @@
 export class Stage {
 
-    constructor(cvs, ball, paddle, LIFE, BALL_RADIUS){
+    constructor(cvs, ball, paddle, BALL_RADIUS){
         this.cvs         = cvs;
         this.ball        = ball;
         this.paddle      = paddle;
-        this.LIFE        = BALL_RADIUS;
         this.GAME_OVER   = BALL_RADIUS;
         this.BALL_RADIUS = BALL_RADIUS;
 
@@ -19,11 +18,21 @@ export class Stage {
         gameover.style.display = "block";
         youlose.style.display = "block";
     }
-    gameOver()
+    /*gameOver()
     {
         if(this.LIFE <= 0){
             this.showYouLose(null, null);
             this.GAME_OVER = true;
         }
-    }    
+    }*/
+
+    gameOver(LIFE,gameover,youwon)
+    {
+        if(LIFE <= 0){
+            this.GAME_OVER = this.showYouLose(gameover,youwon);
+            this.GAME_OVER = true;
+        }
+        return this.GAME_OVER;
+    }
+
 }
