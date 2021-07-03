@@ -9,7 +9,7 @@ export class lvlUp
         this.bricks  =   bricks;
         this.ball    =   ball;
         this.LEVEL   = LEVEL;
-        this.MAX_LEVEL = 2;
+        this.MAX_LEVEL = MAX_LEVEL;
         this.GAME_OVER = GAME_OVER;
         this.gameover  = gameover;
         this.youwon    = youwon;
@@ -27,7 +27,6 @@ export class lvlUp
         
         if(isLevelDone){
             //WIN.play(); music from components.js
-            console.log("valores son: "+this.LEVEL +"      "+this.MAX_LEVEL)
             if(this.LEVEL >= this.MAX_LEVEL){
                 showYouWin.showYouWin(this.gameover,this.youwon);
                 this.GAME_OVER = true;
@@ -38,7 +37,8 @@ export class lvlUp
             this.ball.speed += 0.5;
             this.ball.resetBall(this.cvs, this.paddle,this.BALL_RADIUS);
             this.LEVEL++;
-            return this.GAME_OVER = false;
+            
         }
+        return this.GAME_OVER = false;
     }
 }

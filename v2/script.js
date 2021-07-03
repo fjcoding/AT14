@@ -44,6 +44,7 @@ const SCORE_UNIT = 10;
 let LEVEL = 1;
 const MAX_LEVEL = 3;
 let GAME_OVER = false;
+let GAME_OVER_LVL = false;
 let leftArrow = false;
 let rightArrow = false;
 
@@ -67,9 +68,10 @@ let ball_speed = 4;
 let ball_dx =  3 * (Math.random() * 2 - 1);
 let ball_dy = -3;        
 const ballObj     = new Ball(ball_x, ball_y, ball_radius, ball_speed, ball_dx, ball_dy);
+ballObj.setLIFE(LIFE);
 const drawballObj = new drawBall(ctx, cvs, paddleObj.getY(), ballObj);
-const stageObj    = new Stage(cvs, ballObj, paddleObj, LIFE, BALL_RADIUS);
-const brickObj    = new Bricks(ctx,1,1,55,20,20,20,40,"#2e3548","#FFF");
+const stageObj    = new Stage(cvs, ballObj, paddleObj, BALL_RADIUS,GAME_OVER);
+const brickObj    = new Bricks(ctx,1,5,55,20,20,20,40,"#2e3548","#FFF");
 const bricks      = brickObj.setCreateBricks();
 const drawBrickObj    = new drawBricks(ctx,brickObj);
 const lvlUpObj    = new lvlUp(cvs, paddleObj, BALL_RADIUS,brickObj,bricks,ballObj,LEVEL,MAX_LEVEL,GAME_OVER,gameover,youwon)
@@ -111,10 +113,11 @@ function update(){
     ballObj.ballPaddleCollision(paddleObj);
 
     ballObj.ballBrickCollision(brickObj, bricks, SCORE, SCORE_UNIT)
-    stageObj.gameOver();
-    
-    GAME_OVER = lvlUpObj.levelUp(stageObj);
-    
+    let LIFE = ballObj.getLIFE();
+    GAME_OVER = stageObj.gameOver(LIFE,gameover,youlose);
+    GAME_OVER_LVL = lvlUpObj.levelUp(stageObj);
+
+
 }
 
 // GAME LOOP
@@ -124,7 +127,7 @@ function loop(){
     drawStageObj.setDrawImage();
     draw();
     update();
-    if(! GAME_OVER){
+    if(! GAME_OVER && ! GAME_OVER_LVL){
         requestAnimationFrame(loop);
     }
 }
@@ -146,3 +149,6 @@ document.addEventListener("keydown", function(event){
         rightArrow = false;
     }
  });
+ restart.addEventListener("click", function(){
+    location.reload(); // reload the page
+})
