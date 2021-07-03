@@ -1,4 +1,4 @@
-export class drawPaddle {
+export class DrawPaddle {
   constructor(ctx, cvs, paddle) {
     this.ctx = ctx;
     this.cvs = cvs;
