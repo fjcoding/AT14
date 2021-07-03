@@ -32,30 +32,7 @@ export class Bricks
                 }
             }
         }
-    }
-
-    getBricks(){
         return this.bricks;
-    }
-
-    setDrawBricks(){
-
-        for(let r = 0; r < this.row; r++){
-
-            for(let c = 0; c < this.column; c++){
-
-                let b = this.bricks[r][c];
-
-                // if the brick isn't broken
-                if(b.status){
-                    
-                    this.ctx.fillStyle = this.fillColor;
-                    this.ctx.fillRect(b.x, b.y, this.width, this.height);
-                    this.ctx.strokeStyle = this.strokeColor;
-                    this.ctx.strokeRect(b.x, b.y, this.width, this.height);
-                }
-            }
-        }
     }
 
     getBrickColumn(){

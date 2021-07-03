@@ -7,7 +7,8 @@ export class Ball{
         this.radius = radius; //: this.BALL_RADIUS,
         this.speed = speed; //: 4,
         this.dx = dx; // : 3 * (Math.random() * 2 - 1),
-        this.dy = dy; //: -3        
+        this.dy = dy; //: -3  
+        this.LIFE = 0;      
     }
     
     getX(){return this.x;}
@@ -46,7 +47,16 @@ export class Ball{
             //this.resetBall(cvs, paddle, this.BALL_RADIUS);
             this.resetBall(cvs, paddle, this.radius);
         }
-    }    
+    }
+    setLIFE(LIFE)
+    {
+        this.LIFE = LIFE;
+    }
+    getLIFE()
+    {
+        return this.LIFE;
+    }  
+
 
     ballPaddleCollision(paddle){
         if(this.x < paddle.x + paddle.width && this.x > paddle.x && paddle.y < paddle.y + paddle.height && this.y > paddle.y)
