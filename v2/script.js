@@ -40,16 +40,14 @@ let rightArrow = false;
 
 const drawStageObj  = new drawStage(ctx, BG_IMG);
 
-let paddle_x      = cvs.width/2 - PADDLE_WIDTH/2;
-let paddle_y      = cvs.height - PADDLE_MARGIN_BOTTOM - PADDLE_HEIGHT;
+let paddle_bottom = PADDLE_MARGIN_BOTTOM;
 let paddle_width  = PADDLE_WIDTH;
 let paddle_height = PADDLE_HEIGHT;
 let paddle_dx     = 5;
 
-const paddleObj = new Paddle(cvs, paddle_x, paddle_y, paddle_width, paddle_height, paddle_dx);
-const drawPaddleObj = new drawPaddle(ctx, cvs, PADDLE_WIDTH, PADDLE_MARGIN_BOTTOM , PADDLE_HEIGHT, paddleObj);
-
-const brickObj  = new Bricks(ctx,1,5,55,20,20,20,40,"#2e3548","#FFF");
+const paddleObj     = new Paddle(cvs, paddle_width, paddle_height, paddle_bottom, paddle_dx);
+const drawPaddleObj = new drawPaddle(ctx, cvs, paddleObj);
+const brickObj      = new Bricks(ctx,1,5,55,20,20,20,40,"#2e3548","#FFF");
 
 
 //let bricks = [];
@@ -59,10 +57,9 @@ let ball_radius = BALL_RADIUS;
 let ball_speed = 4;
 let ball_dx =  3 * (Math.random() * 2 - 1);
 let ball_dy = -3;        
-const ballObj = new Ball(ball_x, ball_y, ball_radius, ball_speed, ball_dx, ball_dy);
-const drawballObj = new drawBall(ctx, cvs, paddleObj.getY(), BALL_RADIUS, ballObj);
-
-const stageObj      = new Stage(cvs, ballObj, paddleObj, LIFE, BALL_RADIUS);
+const ballObj     = new Ball(ball_x, ball_y, ball_radius, ball_speed, ball_dx, ball_dy);
+const drawballObj = new drawBall(ctx, cvs, paddleObj.getY(), ballObj);
+const stageObj    = new Stage(cvs, ballObj, paddleObj, LIFE, BALL_RADIUS);
 
 //createBricks();
 brickObj.setCreateBricks();
@@ -94,12 +91,24 @@ function draw(){
 function update(){
     paddleObj.movePaddle(rightArrow, leftArrow);
     ballObj.moveBall();
-    stageObj.ballWallCollision();
+    ballObj.ballWallCollision(cvs, paddleObj)
+    ballObj.ballPaddleCollision(paddleObj);
+    const brick = {
+        row : 1,
+        column : 5,
+        width : 55,
+        height : 20,
+        offSetLeft : 20,
+        offSetTop : 20,
+        marginTop : 40,
+        fillColor : "#2e3548",
+        strokeColor : "#FFF"
+    }
+    let bricks = brickObj.getBricks();
+
+    ballObj.ballBrickCollision(brick, bricks, SCORE, SCORE_UNIT)
+    stageObj.gameOver();
     /*
-    ballWallCollision();
-    ballPaddleCollision();
-    ballBrickCollision();
-    gameOver();
     levelUp();
     */
 }

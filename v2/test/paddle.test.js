@@ -1,4 +1,4 @@
-import { Paddle } from "./paddle";
+import { Paddle } from "../paddle";
 
 const cvs = { width: 400, height: 200 };
 

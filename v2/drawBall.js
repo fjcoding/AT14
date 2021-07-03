@@ -1,9 +1,9 @@
 export class drawBall{
-    constructor(ctx, cvs, paddleY, BALL_RADIUS, ball) {
+    constructor(ctx, cvs, paddleY, ball) {
         this.ctx = ctx;
         this.cvs = cvs;
         this.paddleY = paddleY;
-        this.BALL_RADIUS = BALL_RADIUS;
+        this.BALL_RADIUS = ball.radius;
         this.ball = ball;
     }
 
