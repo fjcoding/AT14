@@ -34,6 +34,10 @@ export class Bricks
         }
     }
 
+    getBricks(){
+        return this.bricks;
+    }
+
     setDrawBricks(){
 
         for(let r = 0; r < this.row; r++){

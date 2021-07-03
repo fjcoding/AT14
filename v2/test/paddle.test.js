@@ -17,3 +17,5 @@ test('Give a value this should be return position x', () => {
     const paddleObj = new Paddle(cvs, paddle_x, paddle_y, paddle_width, paddle_height, paddle_dx);
     expect(paddleObj.getdX()).toBe(5); 
 })
+
+

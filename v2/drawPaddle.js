@@ -1,21 +1,13 @@
 export class drawPaddle{
     
-    constructor(ctx, cvs, PADDLE_WIDTH, PADDLE_MARGIN_BOTTOM, PADDLE_HEIGHT , paddle){
+    constructor(ctx, cvs, paddle){
         this.ctx    = ctx;
         this.cvs    = cvs;
         this.paddle = paddle;
-        /*
-        this.paddle = {
-            x : this.cvs.width/2 - PADDLE_WIDTH/2,
-            y : this.cvs.height - PADDLE_MARGIN_BOTTOM - PADDLE_HEIGHT,
-            width : PADDLE_WIDTH,
-            height : PADDLE_HEIGHT,
-            dx :5
-        }
-        */
-        this.PADDLE_WIDTH = PADDLE_WIDTH;
-        this.PADDLE_MARGIN_BOTTOM = PADDLE_MARGIN_BOTTOM;
-        this.PADDLE_HEIGHT = PADDLE_HEIGHT;
+       
+        this.PADDLE_WIDTH = paddle.width;
+        this.PADDLE_MARGIN_BOTTOM = paddle.margin_bottom;
+        this.PADDLE_HEIGHT = paddle.height;
     }
     setdrawPaddle(){
         this.ctx.fillStyle = "#2e3548";

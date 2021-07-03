@@ -5,25 +5,25 @@ export class Stage {
         this.ball        = ball;
         this.paddle      = paddle;
         this.LIFE        = BALL_RADIUS;
+        this.GAME_OVER   = BALL_RADIUS;
         this.BALL_RADIUS = BALL_RADIUS;
+
     }
 
-    ballWallCollision(){
-        if(this.ball.x + this.ball.radius > this.cvs.width || this.ball.x - this.ball.radius < 0){
-            this.ball.dx = - this.ball.dx;
-            //WALL_HIT.play();
-        }
-        
-        if(this.ball.y - this.ball.radius < 0){
-            this.ball.dy = -this.ball.dy;
-            //WALL_HIT.play();
-        }
-        
-        if(this.ball.y + this.ball.radius > this.cvs.height){
-            this.LIFE--; // LOSE LIFE
-            //LIFE_LOST.play();
-            //resetBall();
-            this.ball.resetBall(this.cvs, this.paddle, this.BALL_RADIUS);
-        }
+    showYouWin(gameover, youwon){
+        gameover.style.display = "block";
+        youwon.style.display = "block";
+    }    
+
+    showYouLose(gameover, youlose){
+        gameover.style.display = "block";
+        youlose.style.display = "block";
     }
+    gameOver()
+    {
+        if(this.LIFE <= 0){
+            this.showYouLose(null, null);
+            this.GAME_OVER = true;
+        }
+    }    
 }
