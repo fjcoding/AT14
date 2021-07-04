@@ -13,7 +13,7 @@ export class Ball{
     
     getX(){return this.x;}
 
-    getY(){return this.x;}
+    getY(){return this.y;}
 
     getRadius(){return this.radius;}
 
