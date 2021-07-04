@@ -1,5 +1,5 @@
-import { drawPaddle } from "../drawPaddle";
-import { Paddle } from "../paddle";
+import { drawPaddle } from "../src/drawPaddle";
+import { Paddle } from "../src/paddle";
 
 const cvs = { width: 400, height: 200 };
 const ctx = {

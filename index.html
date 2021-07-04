@@ -1,19 +1,27 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Simple ARkanoid Game</title>
-        <meta charset="UTF-8" />
-        <link href="https://fonts.googleapis.com/css?family=Saira+Stencil+One&display=swap" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="style.css">
-    </head>
-    <body onmousemove="getCoor(event)"> 
-        <canvas id="canvas"   onclick="toClick()"> </canvas>
-        <script src="src/drawingTools.js"></script>
-        <script src="src/animate.js"></script>
-        <script src="src/levels.js"></script>
-        <script src="src/levelGenerator.js"></script>
-        <script src="src/sound.js"></script>
-        <script src="src/game.js"></script>
-        <script src="src/box.js"></script>
-    </body>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Germania+One">
+	<link rel="stylesheet" href="src/assets/css/style.css">
+	<title>My Game</title>
+</head>
+<body>
+	<div id="msg"></div>
+
+	<div class="sound">
+		<img src="src/assets/img/SOUND_ON.png" alt="" id="sound">
+    </div>
+    
+    <div id="gameover">
+		<img src="src/assets/img/youwon.png" alt="" id="youwon">
+		<img src="src/assets/img/gameover.png" alt="" id="youlose">
+        <div id="restart">Play Again!</div>
+    </div>
+
+	<canvas id="breakout" width="400" height="500"></canvas>
+	<script type="module" src="/src/script.js" ></script>	
+</body>
 </html>

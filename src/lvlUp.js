@@ -1,6 +1,6 @@
 export class lvlUp
 {
-    constructor(cvs, paddle, BALL_RADIUS,brick,bricks,ball,LEVEL,MAX_LEVEL,GAME_OVER,gameover,youwon, sound)
+    constructor(cvs, paddle, BALL_RADIUS, brick, bricks, ball, LEVEL, MAX_LEVEL, GAME_OVER, gameover, youwon, sound)
     {
         this.cvs = cvs;
         this.paddle = paddle;

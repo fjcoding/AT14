@@ -1,5 +1,5 @@
-import { BG_IMG, LEVEL_IMG, LIFE_IMG, SCORE_IMG, WALL_HIT, LIFE_LOST, PADDLE_HIT, BRICK_HIT, WIN } from './components.js'
-import { Stage } from './stage.js'
+import { BG_IMG, LEVEL_IMG, LIFE_IMG, SCORE_IMG, WALL_HIT, LIFE_LOST, PADDLE_HIT, BRICK_HIT, WIN } from './components.js';
+import { Stage } from './stage.js';
 import { drawStage } from './drawStage.js'
 import { Paddle } from './paddle.js'
 import { drawPaddle } from './drawPaddle.js'
@@ -127,7 +127,7 @@ soundElement.addEventListener("click", audioManager);
 function audioManager(){
     // CHANGE IMAGE SOUND_ON/OFF
     let imgSrc = soundElement.getAttribute("src");
-    let SOUND_IMG = imgSrc == "img/SOUND_ON.png" ? "img/SOUND_OFF.png" : "img/SOUND_ON.png";    
+    let SOUND_IMG = imgSrc == "assets/img/SOUND_ON.png" ? "assets/img/SOUND_OFF.png" : "assets/img/SOUND_ON.png";    
     soundElement.setAttribute("src", SOUND_IMG);    
     // MUTE AND UNMUTE SOUNDS
     WALL_HIT.muted = WALL_HIT.muted ? false : true;
