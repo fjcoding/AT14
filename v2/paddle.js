@@ -11,9 +11,15 @@ export class Paddle{
     }
 
     getX(){  return this.x;  }
+
     getY(){  return this.y;  }
 
     getdX(){ return this.dx; }
+
+    resetPaddle(){
+        this.x = this.cvs.width/2 - this.width/2;
+        this.y = this.cvs.height - this.margin_bottom - this.height;  
+    }  
     
     movePaddle(rightArrow, leftArrow){
         if(rightArrow && this.x + this.width < this.cvs.width){
@@ -24,4 +30,3 @@ export class Paddle{
     }
  
 }
-// CREATE THE PADDLE

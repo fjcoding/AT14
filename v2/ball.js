@@ -1,6 +1,6 @@
 export class Ball{
     
-    constructor(x, y, radius, speed, dx, dy, sound, SCORE_UNIT) 
+    constructor(x, y, radius, speed, dx, dy, sound, SCORE_UNIT, cvs, paddle_width, paddle_dx) 
     {
         this.x = x; //: this.cvs.width/2,
         this.y = y; //: this.paddleY - this.BALL_RADIUS,
@@ -12,6 +12,9 @@ export class Ball{
         this.sound = sound;
         this.SCORE_UNIT = SCORE_UNIT;
         this.score = 0
+        this.cvs = cvs;
+        this.paddle_width = paddle_width;
+        this.paddle_dx = paddle_dx;
     }
     
     getX(){return this.x;}
@@ -20,16 +23,28 @@ export class Ball{
 
     getRadius(){return this.radius;}
 
-    moveBall(){
-        this.x += this.dx;
-        this.y += this.dy;
+    moveBall(rightArrow, leftArrow, upArrow){  //+ this.radius < 356
+        if(this.dy == 0 && upArrow == false) {
+            if(rightArrow && this.x < (this.cvs.width - this.paddle_width/2)){
+                this.x += this.paddle_dx;
+            }else if(leftArrow && this.x > this.paddle_width/2){
+                this.x -= this.paddle_dx;
+            }
+        } else if (this.dy == 0 && upArrow) {
+            this.dx = 3 * (Math.random() * 2 - 1);
+            this.dy = -3;
+        }
+         else {
+            this.x += this.dx;
+            this.y += this.dy;
+        }        
     }
-    
+
     resetBall(cvs, paddle, BALL_RADIUS){
         this.x = cvs.width/2;
         this.y = paddle.y - BALL_RADIUS;
-        this.dx = 3 * (Math.random() * 2 - 1);
-        this.dy = -3;
+        this.dx = 0; //3 * (Math.random() * 2 - 1);
+        this.dy = 0; //-3;
     }  
 
     ballWallCollision(cvs, paddle){
@@ -49,6 +64,7 @@ export class Ball{
             //resetBall();
             //this.resetBall(cvs, paddle, this.BALL_RADIUS);
             this.resetBall(cvs, paddle, this.radius);
+            paddle.resetPaddle();
         }
     }
     setLIFE(LIFE)

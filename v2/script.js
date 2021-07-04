@@ -43,6 +43,7 @@ let GAME_OVER = false;
 let GAME_OVER_LVL = false;
 let leftArrow = false;
 let rightArrow = false;
+let upArrow = false;
 
 const drawStageObj  = new drawStage(ctx, BG_IMG);
 
@@ -60,9 +61,9 @@ let ball_x = cvs.width/2;
 let ball_y = paddleObj.getY() - BALL_RADIUS;
 let ball_radius = BALL_RADIUS;
 let ball_speed = 4;
-let ball_dx =  3 * (Math.random() * 2 - 1);
-let ball_dy = -3;        
-const ballObj     = new Ball(ball_x, ball_y, ball_radius, ball_speed, ball_dx, ball_dy, sound, SCORE_UNIT);
+let ball_dx = 0; 
+let ball_dy = 0;         
+const ballObj     = new Ball(ball_x, ball_y, ball_radius, ball_speed, ball_dx, ball_dy, sound, SCORE_UNIT, cvs, paddle_width, paddle_dx);
 ballObj.setLIFE(LIFE);
 const drawballObj = new drawBall(ctx, cvs, paddleObj.getY(), ballObj);
 const stageObj    = new Stage(cvs, ballObj, paddleObj, BALL_RADIUS,GAME_OVER);
@@ -98,7 +99,7 @@ function draw(){
 
 function update(){
     paddleObj.movePaddle(rightArrow, leftArrow);
-    ballObj.moveBall();
+    ballObj.moveBall(rightArrow, leftArrow, upArrow);
     ballObj.ballWallCollision(cvs, paddleObj)
     ballObj.ballPaddleCollision(paddleObj);
     ballObj.ballBrickCollision(brickObj, bricks, SCORE, SCORE_UNIT)
@@ -152,6 +153,19 @@ document.addEventListener("keyup", function(event){
         rightArrow = false;
     }
 });
+
+document.addEventListener("keydown", function(event){
+    if(event.keyCode == 38 || event.keyCode == 87){
+        upArrow = true;
+    }
+ });
+
+document.addEventListener("keyup", function(event){
+    if(event.keyCode == 38 || event.keyCode == 87){
+        upArrow = false;
+    }
+});
+
 
 restart.addEventListener("click", function(){
     location.reload(); // reload the page

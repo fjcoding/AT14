@@ -36,7 +36,8 @@ export class lvlUp
             this.brick.row++;
             this.brick.setCreateBricks();
             this.ball.speed += 0.5;
-            this.ball.resetBall(this.cvs, this.paddle,this.BALL_RADIUS);
+            this.ball.resetBall(this.cvs, this.paddle, this.BALL_RADIUS);
+            this.paddle.resetPaddle();
             this.LEVEL++;
             
         }
