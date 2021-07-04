@@ -1,6 +1,6 @@
 export class lvlUp
 {
-    constructor(cvs, paddle, BALL_RADIUS,brick,bricks,ball,LEVEL,MAX_LEVEL,GAME_OVER,gameover,youwon)
+    constructor(cvs, paddle, BALL_RADIUS,brick,bricks,ball,LEVEL,MAX_LEVEL,GAME_OVER,gameover,youwon, sound)
     {
         this.cvs = cvs;
         this.paddle = paddle;
@@ -13,6 +13,7 @@ export class lvlUp
         this.GAME_OVER = GAME_OVER;
         this.gameover  = gameover;
         this.youwon    = youwon;
+        this.sound = sound;
 
     }
     levelUp(showYouWin){
@@ -26,7 +27,7 @@ export class lvlUp
         }
         
         if(isLevelDone){
-            //WIN.play(); music from components.js
+            this.sound.playWin();//WIN.play(); music from components.js
             if(this.LEVEL >= this.MAX_LEVEL){
                 showYouWin.showYouWin(this.gameover,this.youwon);
                 this.GAME_OVER = true;
