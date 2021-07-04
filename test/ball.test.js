@@ -97,7 +97,7 @@ test("Verify that function resetBall is reseting dx, getting the value => random
     expect(ballDx).toBe(ballDx);    
 });
 
-test("Verify that function resetBall is reseting dy, getting the value => -3 ", () => {
+/*test("Verify that function resetBall is reseting dy, getting the value => -3 ", () => {
     const ball = new Ball(200, 100, 8, 4,  3, -3);
     const paddle= new Paddle(cvs, 100, 20, 30, 5);
     ball.resetBall(cvs, paddle, 8 );
@@ -193,7 +193,7 @@ test("Verify that function ballBrickCollision is broken", () => {
    
     
     expect(ball.dy).toBe(3);
-});
+});*/
 
 
 
