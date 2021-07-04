@@ -1,4 +1,4 @@
-import {drawStage} from '../drawStage.js'
+import {drawStage} from '../src/drawStage.js'
 
 test('Unit test with mocks', () => { 
     const canvas = document.createElement('canvas'); 

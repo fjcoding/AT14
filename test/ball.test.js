@@ -1,8 +1,8 @@
-import { Ball } from '../ball.js'
-import { drawBall } from '../drawBall.js'
-import { Paddle } from "../paddle.js";
-import { Bricks } from "../bricks.js"; 
-import { drawBricks } from "../drawBricks.js"; 
+import { Ball } from '../src/ball.js'
+import { drawBall } from '../src/drawBall.js'
+import { Paddle } from "../src/paddle.js";
+import { Bricks } from "../src/bricks.js"; 
+import { drawBricks } from "../src/drawBricks.js"; 
 /*test('Give the value 100 as the third argument for the ball constructor, getPaddleY should return 100', () => { 
     const cvs = document.createElement('canvas'); 
     const ctx = cvs.getContext('2d'); 

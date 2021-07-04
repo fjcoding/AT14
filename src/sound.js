@@ -1,13 +1,49 @@
-let sounds = {
-    "gameOver": "sound/gameOver.wav",       // https://freesound.org/people/myfox14/sounds/382310/
-    "click" : "sound/click.mp3",            // https://freesound.org/people/cahen/sounds/191176/
-    "blockCrush" : "sound/blockCrush.wav",   // https://freesound.org/people/InspectorJ/sounds/420877/
-    "levelUp": "sound/levelUp.wav",          // https://freesound.org/people/qubodup/sounds/442943/
-    "negative" : "sound/negative.wav",       // https://freesound.org/people/themusicalnomad/sounds/253886/
+export class Sound {
+    constructor (WALL_HIT, PADDLE_HIT, BRICK_HIT, LIFE_LOST, WIN){
+        this.WALL_HIT = WALL_HIT;
+        this.PADDLE_HIT = PADDLE_HIT;
+        this.LIFE_LOST = LIFE_LOST;
+        this.BRICK_HIT = BRICK_HIT;
+        this.WIN = WIN;
+    }
 
-}
+    getWallHit(){
+        return this.WALL_HIT;
+    }
 
+    playWallHit(){
+        this.WALL_HIT.play();
+    }
 
-function playSound(name) {
-    new Audio(sounds[name]).play()
+    getPaddleHit(){
+        return this.PADDLE_HIT;
+    }
+
+    playPaddleHit(){
+        this.PADDLE_HIT.play();
+    }   
+
+    getBrinkHit(){
+        return this.BRICK_HITT;
+    }
+
+    playBrinkHit(){
+        this.BRICK_HIT.play();
+    }
+
+    getLifeLost(){
+        return this.LIFE_LOST;
+    }
+
+    playLifeLost(){
+        this.LIFE_LOST.play();
+    }
+
+    getWin() {
+        return this.WIN;
+    }
+
+    playWin() {
+        this.WIN.play();
+    }
 }
