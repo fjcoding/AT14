@@ -43,6 +43,14 @@ const ctx = {
     closePath: jest.fn()
   };
 
+  const sound = 
+  {
+      playBrinkHit:  jest.fn(),
+      playPaddleHit: jest.fn(),
+      playWallHit:   jest.fn(),
+      playLifeLost:  jest.fn()
+  }
+
 test("Verify function getX, getting the value => 200 ", () => {
   const ball = new Ball(200, 100, 8, 3, -3);
   const gettingX = ball.getX();
@@ -97,11 +105,11 @@ test("Verify that function resetBall is reseting dx, getting the value => random
     expect(ballDx).toBe(ballDx);    
 });
 
-/*test("Verify that function resetBall is reseting dy, getting the value => -3 ", () => {
+test("Verify that function resetBall is reseting dy, getting the value => -3 ", () => {
     const ball = new Ball(200, 100, 8, 4,  3, -3);
     const paddle= new Paddle(cvs, 100, 20, 30, 5);
     ball.resetBall(cvs, paddle, 8 );
-    expect(ball.dy).toBe(-3);    
+    expect(ball.dy).toBe(0);    
 });
 
 test("Verify that function ballWallCollision is collided to side dx ", () => {
@@ -132,29 +140,30 @@ test("Verify function getLIFE, getting the value => 0 ", () => {
 });
 
 test("Verify that function ballWallCollision is collided to side dx ", () => {
-    const ball = new Ball(400, 100, 8, 4,  3, -3);
+    const ball = new Ball(400, 100, 8, 4,  3, -3, sound);
     const paddle= new Paddle(cvs, 100, 20, 30, 5);
     ball.ballWallCollision(cvs, paddle);
     expect(ball.dx).toBe(-3);
 });
 
 test("Verify that function ballWallCollision is collided to side dy ", () => {
-    const ball = new Ball(400, 10, 11, 4,  3, -3);
+    const ball = new Ball(400, 10, 11, 4,  3, -3, sound);
     const paddle= new Paddle(cvs, 100, 20, 30, 5);
     ball.ballWallCollision(cvs, paddle);
     expect(ball.dy).toBe(3);
 });
 
 test("Verify that function ballWallCollision is collided to side -y down ", () => {
-    const ball = new Ball(400, 100, 208, 4,  3, -3);
+    const ball = new Ball(400, 100, 208, 4,  3, -3, sound);
     const paddle= new Paddle(cvs, 100, 20, 30, 5);
     const newLIFE=ball.LIFE;
     ball.ballWallCollision(cvs, paddle);
     expect(newLIFE+1).toBe(1);
 });
 
+
 test("Verify that function ballPaddleCollision is collided to paddle dx ", () => {
-    const ball = new Ball(200, 200, 8, 4,  3, -3);
+    const ball = new Ball(200, 200, 8, 4,  3, -3, sound);
     const paddle= new Paddle(cvs, 300, 20, 30, 5);
     let collidePoint = ball.x - (paddle.x + paddle.width/2);
     collidePoint = collidePoint / (paddle.width/2);
@@ -166,7 +175,7 @@ test("Verify that function ballPaddleCollision is collided to paddle dx ", () =>
 });
 
 test("Verify that function ballPaddleCollision is collided to paddle dy ", () => {
-    const ball = new Ball(200, 200, 8, 4,  3, -3);
+    const ball = new Ball(200, 200, 8, 4,  3, -3, sound);
     const paddle= new Paddle(cvs, 300, 20, 30, 5);
     let collidePoint = ball.x - (paddle.x + paddle.width/2);
     collidePoint = collidePoint / (paddle.width/2);
@@ -178,7 +187,8 @@ test("Verify that function ballPaddleCollision is collided to paddle dy ", () =>
 });
 
 test("Verify that function ballBrickCollision is broken", () => {
-    const ball = new Ball(10, 12, 50, 4,  3, -3);
+
+    const ball = new Ball(10, 12, 50, 4,  3, -3, sound);
     const paddle= new Paddle(cvs, 300, 20, 30, 5);
     const brick= new Bricks(ctx,1,5,55,20,20,20,40,"#2e3548","#FFF");
     const drawball = new drawBall(ctx, cvs, paddle.getY(), ball);
@@ -193,7 +203,7 @@ test("Verify that function ballBrickCollision is broken", () => {
    
     
     expect(ball.dy).toBe(3);
-});*/
+});
 
 
 
