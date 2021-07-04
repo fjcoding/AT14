@@ -1,6 +1,6 @@
 export class Ball{
     
-    constructor(x, y, radius, speed, dx, dy, sound) 
+    constructor(x, y, radius, speed, dx, dy, sound, SCORE_UNIT) 
     {
         this.x = x; //: this.cvs.width/2,
         this.y = y; //: this.paddleY - this.BALL_RADIUS,
@@ -10,6 +10,7 @@ export class Ball{
         this.dy = dy; //: -3  
         this.LIFE = 0;      
         this.sound = sound;
+        this.SCORE_UNIT = SCORE_UNIT;
         this.score = 0
     }
     
@@ -88,7 +89,7 @@ export class Ball{
                         this.sound.playBrinkHit();
                         this.dy = - this.dy;
                         b.status = false; // the brick is broken
-                        this.score = this.score + 10;
+                        this.score = this.score + SCORE_UNIT;
                     }
                 }
             }

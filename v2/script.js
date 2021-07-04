@@ -62,7 +62,7 @@ let ball_radius = BALL_RADIUS;
 let ball_speed = 4;
 let ball_dx =  3 * (Math.random() * 2 - 1);
 let ball_dy = -3;        
-const ballObj     = new Ball(ball_x, ball_y, ball_radius, ball_speed, ball_dx, ball_dy, sound);
+const ballObj     = new Ball(ball_x, ball_y, ball_radius, ball_speed, ball_dx, ball_dy, sound, SCORE_UNIT);
 ballObj.setLIFE(LIFE);
 const drawballObj = new drawBall(ctx, cvs, paddleObj.getY(), ballObj);
 const stageObj    = new Stage(cvs, ballObj, paddleObj, BALL_RADIUS,GAME_OVER);
