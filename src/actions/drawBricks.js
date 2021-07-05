@@ -1,5 +1,4 @@
-export class drawBricks
-{
+export class drawBricks{
     
     constructor(ctx,bricks)
     {
