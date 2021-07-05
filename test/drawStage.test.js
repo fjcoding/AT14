@@ -1,4 +1,4 @@
-import { drawStage } from "../src/drawStage";
+import { drawStage } from "../src/actions/drawStage.js";
 
 const cvs = { width: 400, height: 200 };
 const ctx = {

@@ -1,4 +1,4 @@
-import { Bricks } from "../src/bricks.js"
+import { Bricks } from "../src/models/bricks.js"
 
 test('Unit test with mocks to the brick class to know if it works', () => { 
     const cvs = document.createElement('canvas'); 

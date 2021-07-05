@@ -1,6 +1,6 @@
-import { drawBall } from "../src/drawBall.js";
-import { Ball } from "../src/ball.js";
-import { Paddle } from "../src/paddle.js";
+import { drawBall } from "../src/actions/drawBall.js";
+import { Ball } from "../src/models/ball.js";
+import { Paddle } from "../src/models/paddle.js";
 
 const cvs = { width: 400, height: 200 };
 const ctx = {

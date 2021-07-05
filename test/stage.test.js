@@ -1,4 +1,4 @@
-import { drawStage } from "../src/drawStage.js";
+import { drawStage } from "../src/actions/drawStage.js";
 
 test("Verify that Fillrect is called whe set draw is executed", () => {
   const cvs = { width: 400, height: 200 };
