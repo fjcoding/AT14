@@ -1,5 +1,5 @@
-import { drawBricks } from "./src/drawBricks";
-import { Bricks } from "./src/bricks";
+import { drawBricks } from "../src/drawBricks";
+import { Bricks } from "../src/bricks";
 const cvs = { width: 400, height: 200 };
 const ctx = {
   fillStyle: undefined,
