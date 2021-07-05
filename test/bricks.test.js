@@ -1,10 +1,32 @@
 import { Bricks } from "../src/models/bricks.js"
 
-test('Unit test with mocks to the brick class to know if it works', () => { 
-    const cvs = document.createElement('canvas'); 
-    const ctx = cvs.getContext('2d'); 
+const cvs = { width: 400, height: 200 };
+const ctx = {
+    offSetLeft: jest.fn(),
+    offSetTop: jest.fn(),
+    marginTop: jest.fn(),
+    fillColor: undefined,
+    strokeColor: undefined,
+    fillStyle: undefined,
+    fillRect: jest.fn(),
+    strokeStyle: undefined,
+    strokeRect: jest.fn(),
+    beginPath: jest.fn(),
+    arc: jest.fn(),
+    fill: jest.fn(),
+    stroke: jest.fn(),
+    closePath: jest.fn()
+  };
 
 
-   const brickObj  = new Bricks(ctx,1,5,55,20,20,20,40,"#2e3548","#FFF");
-    expect(brickObj.getBrickColumn()).toBe(5); 
-})
+test("Verify function setCreateBricks, getting new array value bricks[][]", () => {
+    const brick = new Bricks(ctx,1,5,55,20,20,20,40,"#2e3548","#FFF");
+    const creatingBrick = brick.setCreateBricks();
+    expect(creatingBrick).toBe(brick.bricks);
+});
+
+test("Verify function getBrickColumn, getting the value => 5 ", () => {
+    const brick = new Bricks(ctx,1,5,55,20,20,20,40,"#2e3548","#FFF");
+    const gettingBrickColumn = brick.getBrickColumn();
+    expect(gettingBrickColumn).toBe(5);
+});
