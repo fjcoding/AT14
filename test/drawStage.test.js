@@ -32,6 +32,6 @@ test("Verify that fillText is called When showGameStats is executed", () => {
   const Lvl_ImgMock = {};
   drawingStage.showGameStats(Ball.score, 35, 25, Lvl_ImgMock, 5, 5);
 
-  expect(ctx.drawImage).toHaveBeenCalled();
-  expect(ctx.drawImage).toHaveBeenCalledWith(0, 35, 25, Lvl_ImgMock, 5, 5);
+  expect(ctx.fillText).toHaveBeenCalled();
+  expect(ctx.fillText).toHaveBeenCalledWith(0, 35, 25);
 });
