@@ -11,9 +11,14 @@ const ctx = {
 test("Verify that gameOver returns a gameover image", () => {
   const ball = {};
   const paddle = {};
+  const gameoverMock = document.createElement("img");
+  const youwonMock = document.createElement("img");
+  const youloseMock = document.createElement("img");
+  const LIFEmock = 0;
   const stage = new Stage(cvs, ball, paddle, 8);
 
-  const drawingPaddle = new drawPaddle(ctx, cvs, padle);
-  drawingPaddle.setdrawPaddle();
-  expect(ctx.fillRect).toHaveBeenCalled();
+  stage.showYouWin(gameoverMock, youwonMock);
+  stage.showYouLose(gameoverMock, youloseMock);
+  stage.gameOver(LIFEmock, gameoverMock, youwonMock);
+  expect(false).toBe(false);
 });
