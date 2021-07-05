@@ -127,7 +127,7 @@ soundElement.addEventListener("click", audioManager);
 function audioManager(){
     // CHANGE IMAGE SOUND_ON/OFF
     let imgSrc = soundElement.getAttribute("src");
-    let SOUND_IMG = imgSrc == "assets/img/SOUND_ON.png" ? "assets/img/SOUND_OFF.png" : "assets/img/SOUND_ON.png";    
+    let SOUND_IMG = imgSrc == "src/assets/img/SOUND_ON.png" ? "src/assets/img/SOUND_OFF.png" : "src/assets/img/SOUND_ON.png";    
     soundElement.setAttribute("src", SOUND_IMG);    
     // MUTE AND UNMUTE SOUNDS
     WALL_HIT.muted = WALL_HIT.muted ? false : true;
