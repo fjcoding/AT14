@@ -102,7 +102,7 @@ test("Verify that function resetBall is reseting y, getting the value => 142", (
     expect(ball.y).toBe(142);    
 });
 
-test("Verify that function resetBall is reseting dx, getting the value => randomValueDx", () => {
+test("Verify that function resetBall is reseting dx, getting the value => 0", () => {
     const ball = new Ball(200, 100, 8, 4,  3, -3);
     const paddle= new Paddle(cvs, 100, 20, 30, 5);
     ball.resetBall(cvs, paddle, 8 );
