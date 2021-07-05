@@ -1,14 +1,14 @@
-import { BG_IMG, LEVEL_IMG, LIFE_IMG, SCORE_IMG, WALL_HIT, LIFE_LOST, PADDLE_HIT, BRICK_HIT, WIN } from './components.js';
-import { Stage } from './stage.js';
-import { drawStage } from './drawStage.js'
-import { Paddle } from './paddle.js'
-import { drawPaddle } from './drawPaddle.js'
-import { Bricks } from './bricks.js'
-import { drawBricks} from './drawBricks.js'
-import { drawBall } from './drawBall.js'
-import { Ball } from './ball.js'
-import { lvlUp } from './lvlUp.js'
-import { Sound } from './sound.js'
+import { BG_IMG, LEVEL_IMG, LIFE_IMG, SCORE_IMG, WALL_HIT, LIFE_LOST, PADDLE_HIT, BRICK_HIT, WIN } from './models/components.js';
+import { Stage } from './models/stage.js';
+import { drawStage } from './actions/drawStage.js'
+import { Paddle } from './models/paddle.js'
+import { drawPaddle } from './actions/drawPaddle.js'
+import { Bricks } from './models/bricks.js'
+import { drawBricks} from './actions/drawBricks.js'
+import { drawBall } from './actions/drawBall.js'
+import { Ball } from './models/ball.js'
+import { lvlUp } from './models/lvlUp.js'
+import { Sound } from './models/sound.js'
 
 
 // SELECT CANVAS ELEMENT
