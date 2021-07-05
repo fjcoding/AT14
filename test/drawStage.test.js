@@ -35,3 +35,22 @@ test("Verify that fillText is called When showGameStats is executed", () => {
   expect(ctx.fillText).toHaveBeenCalled();
   expect(ctx.fillText).toHaveBeenCalledWith(0, 35, 25);
 });
+
+test("Verify that drawImage is called When showGameStats is executed", () => {
+  const BG_IMGmock = {};
+  const drawingStage = new drawStage(ctx, BG_IMGmock);
+  const Ball = {
+    score: 0,
+    life: 3
+  };
+  const LvlUp = {
+    level: 1
+  };
+  const Lvl_ImgMock = {};
+  let width = 25;
+  let height = 25;
+  drawingStage.showGameStats(Ball.score, 35, 25, Lvl_ImgMock, 5, 5);
+
+  expect(ctx.drawImage).toHaveBeenCalled();
+  expect(ctx.drawImage).toHaveBeenCalledWith(Lvl_ImgMock, 5, 5, 25, 25);
+});
