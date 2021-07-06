@@ -16,14 +16,14 @@ test("Verify that Fillrect function is called When setDrawPaddle is executed", (
   expect(ctx.fillRect).toHaveBeenCalled();
 });
 
-test("Verify that Fillrect function is receiving right Arguments", () => {
+test("Verify that Fillrect function is receiving right Arguments from the constructor", () => {
   const padle = new Paddle(cvs, 100, 20, 30, 5);
   const drawingPaddle = new drawPaddle(ctx, cvs, padle);
   drawingPaddle.setdrawPaddle();
   expect(ctx.fillRect).toHaveBeenCalledWith(150, 150, 100, 20);
 });
 
-test("Verify that Fillrect function is receiving the right color", () => {
+test("Verify that Fillrect function is receiving the right color chosen by the team", () => {
   const padle = new Paddle(cvs, 100, 20, 30, 5);
   const drawingPaddle = new drawPaddle(ctx, cvs, padle);
   drawingPaddle.setdrawPaddle();
@@ -37,14 +37,14 @@ test("Verify that strokeRect function is called When setDrawPaddle is executed",
   expect(ctx.strokeRect).toHaveBeenCalled();
 });
 
-test("Verify that strokeRect function is receiving right Arguments", () => {
+test("Verify that strokeRect function is receiving right Arguments from the constructor", () => {
   const padle = new Paddle(cvs, 100, 20, 30, 5);
   const drawingPaddle = new drawPaddle(ctx, cvs, padle);
   drawingPaddle.setdrawPaddle();
   expect(ctx.strokeRect).toHaveBeenCalledWith(150, 150, 100, 20);
 });
 
-test("Verify that strokeRect function is receiving the right color", () => {
+test("Verify that strokeRect function is receiving the right color right color chosen by the team", () => {
   const padle = new Paddle(cvs, 100, 20, 30, 5);
   const drawingPaddle = new drawPaddle(ctx, cvs, padle);
   drawingPaddle.setdrawPaddle();

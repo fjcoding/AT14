@@ -9,7 +9,7 @@ const ctx = {
   strokeRect: jest.fn()
 };
 
-test("Verify that fillRect function is called When setDrawBricks is executed", () => {
+test("Verify that fillRect function is called When setDrawBricks is executed and is receiving the right argument needed from the constructor and matrix and values from setCreateBricks ", () => {
   const brickObj = new Bricks(ctx, 1, 5, 55, 20, 20, 20, 40, "#2e3548", "#FFF");
   const drawingBricks = new drawBricks(ctx, brickObj);
   brickObj.setCreateBricks();
@@ -19,7 +19,7 @@ test("Verify that fillRect function is called When setDrawBricks is executed", (
   expect(ctx.strokeRect).toHaveBeenCalledWith(20, 60, 55, 20);
 });
 
-test("Verify that strokeRect function is called When setDrawBricks is executed", () => {
+test("Verify that strokeRect function is called When setDrawBricks is executed and is receiving the right argument needed from the constructor and matrix and values from setCreateBricks ", () => {
   const brickObj = new Bricks(ctx, 1, 5, 55, 20, 20, 20, 40, "#2e3548", "#FFF");
   const drawingBricks = new drawBricks(ctx, brickObj);
   brickObj.setCreateBricks();
