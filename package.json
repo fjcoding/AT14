@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "- Learn basics for software development",
   "main": "index.js",
-  "dependencies": {},
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.14.5",
     "canvas": "^2.8.0",
+    "http-server": "^0.12.3",
     "install": "^0.13.0",
     "jest": "^27.0.6"
   },

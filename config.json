@@ -1,0 +1,17 @@
+{ 
+    "images":{
+      "BG_IMG" : "./src/assets/img/bg.jpg", 
+      "LEVEL_IMG" : "./src/assets/img/level.png",
+      "LIFE_IMG" : "./src/assets/img/life.png",
+      "SCORE_IMG" : "./src/assets/img/score.png"
+    }, 
+    "audios":{
+      "WALL_HIT" : "./src/assets/sounds/wall.mp3", 
+      "LIFE_LOST" : "./src/assets/sounds/life_lost.mp3",
+      "PADDLE_HIT" : "./src/assets/sounds/paddle_hit.mp3",
+      "WIN" : "./src/assets/sounds/win.mp3",
+      "BRICK_HIT" : "./src/assets/sounds/brick_hit.mp3"
+    }
+     
+} 
+
