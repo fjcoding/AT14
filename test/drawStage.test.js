@@ -10,7 +10,7 @@ const ctx = {
   fillText: jest.fn()
 };
 
-test("Verify that drawImage is called When setDrawImage is executed", () => {
+test("Verify that drawImage is called When setDrawImage is executed and receiving right Arguments from the constructor", () => {
   const BG_IMGmock = {};
   const drawingStage = new drawStage(ctx, BG_IMGmock);
   drawingStage.setDrawImage();
@@ -19,7 +19,7 @@ test("Verify that drawImage is called When setDrawImage is executed", () => {
   expect(ctx.drawImage).toHaveBeenCalledWith(BG_IMGmock, 0, 0);
 });
 
-test("Verify that fillText is called When showGameStats is executed", () => {
+test("Verify that fillText is called When showGameStats is executed and receiving right Arguments from the constructor and object Ball", () => {
   const BG_IMGmock = {};
   const drawingStage = new drawStage(ctx, BG_IMGmock);
   const Ball = {
@@ -36,7 +36,7 @@ test("Verify that fillText is called When showGameStats is executed", () => {
   expect(ctx.fillText).toHaveBeenCalledWith(0, 35, 25);
 });
 
-test("Verify that drawImage is called When showGameStats is executed", () => {
+test("Verify that drawImage is called When showGameStats is executed and receiving right Arguments from the constructor and object Ball", () => {
   const BG_IMGmock = {};
   const drawingStage = new drawStage(ctx, BG_IMGmock);
   const Ball = {

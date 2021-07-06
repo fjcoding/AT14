@@ -8,7 +8,7 @@ const ctx = {
   strokeRect: jest.fn()
 };
 
-test("Verify that gameOver returns a gameover image => Return false", () => {
+test("Verify that gameOver returns a gameover image if LIFEMock gets the value 0  => Return false", () => {
   const ball = {};
   const paddle = {};
   const gameoverMock = document.createElement("img");
@@ -23,7 +23,7 @@ test("Verify that gameOver returns a gameover image => Return false", () => {
   expect(true).toBe(true);
 });
 
-test("Verify that gameOver returns a gameover image => Return true", () => {
+test("Verify that gameOver returns a gameover image  if LIFEMock gets the value 3  => Return true", () => {
   const ball = {};
   const paddle = {};
   const gameoverMock = document.createElement("img");
